@@ -1,0 +1,5 @@
+hotshot-xl: 
+    https://huggingface.co/conrevo/AnimateDiff-A1111/tree/main/motion_module
+    Choose mm_sdxl_hs.safetensors
+sdxl-v1.0 with fixed vae: 
+    https://huggingface.co/bdsqlsz/stable-diffusion-xl-base-1.0_fixvae_fp16/tree/main
