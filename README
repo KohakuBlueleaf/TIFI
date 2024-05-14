@@ -1,9 +1,0 @@
-# TIFI: **T**emporal **I**npainting for **F**rame **I**nterpolation via Latent Diffusion Models and Jigsaw Sampling
-
-***WIP***
-
-## Instruction:
-Clone this Repo
-```
-git clone --recursive https://github.com/KohakuBlueleaf/TIFI
-```
