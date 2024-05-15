@@ -30,7 +30,8 @@ imagesize==1.4.1
 rich==13.7.0
 
 
-## Requirements for SGM
+## Requirements for Sampling
+k-diffusion
 
-
-## Requirements for 
+## Requirements for finetune
+lycoris-lora==2.3.0.dev11
