@@ -27,14 +27,29 @@ def load(model_name: str, device="cuda"):
 
 
 def inject(unet: SdxlUNet2DConditionModel, mm: MotionWrapper):
+    batch_size = 0
+    unet_original_forward = SdxlUNet2DConditionModel.forward
+
+    def unet_forward_patch(self, x, *args, **kwargs):
+        nonlocal batch_size
+        B, F, C, H, W = x.shape
+        batch_size = B
+        x = x.reshape(B * F, C, H, W)
+        result = unet_original_forward(self, x, *args, **kwargs)
+        result = result.reshape(B, F, C, H, W)
+        return result
+
+    SdxlUNet2DConditionModel.forward = unet_forward_patch
+
     if mm.enable_gn_hack():
         logger.info(f"Hacking GroupNorm32 forward function.")
         gn32_original_forward = GroupNorm32.forward
 
         def groupnorm32_mm_forward(self, x):
-            x = rearrange(x, "(b f) c h w -> b c f h w", b=2)
+            nonlocal batch_size
+            x = rearrange(x, "(b f) c h w -> b c f h w", b=batch_size)
             x = gn32_original_forward(self, x)
-            x = rearrange(x, "b c f h w -> (b f) c h w", b=2)
+            x = rearrange(x, "b c f h w -> (b f) c h w", b=batch_size)
             return x
 
         GroupNorm32.orig_forward = gn32_original_forward
