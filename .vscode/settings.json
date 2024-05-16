@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./resources/MiniGPT-4"
+    ]
+}
