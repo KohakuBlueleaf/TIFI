@@ -1,7 +1,9 @@
 import warnings
 from abc import abstractmethod
-from typing import Union
+from dataclasses import dataclass
+from typing import List, Union
 
+import resource_paths
 import minigpt4
 import numpy as np
 import torch
@@ -11,10 +13,15 @@ from minigpt4.conversation.conversation import (Chat, CONV_VISION_LLama2,
                                                 CONV_VISION_Vicuna0,
                                                 Conversation, SeparatorStyle,
                                                 StoppingCriteriaSub)
+from omegaconf import OmegaConf
 from PIL import Image
 from transformers import StoppingCriteriaList
 
-import resource_paths
+""" The argument data class for the input of class "Config" of minigpt4 """
+@dataclass
+class ConfigArguments:
+    cfg_path: str
+    options: List[str]
 
 """ An abstract class for all image caption generator"""
 class ImageCaption:
@@ -58,17 +65,24 @@ class MiniGPT4ImageCaption(VLMImageCaption):
         'pretrain_llama2': CONV_VISION_LLama2
     }
     
-    def __init__(self, gpu_id: int, cfg: Config) -> None:
+    def __init__(self, gpu_id: int, cfg_path: str, model_cfg_path: str=None, options: List[str]=None):
         super().__init__(model=None)
         
-        # Save config
-        self.cfg = cfg
+        # Create config by the file specified in cfg_path
+        self.cfg = Config(ConfigArguments(cfg_path=cfg_path, options=options))
+        
+        # Override the model config by the file specified in model_cfg_path
+        if model_cfg_path != None:
+            self.cfg.config = OmegaConf.merge(
+                self.cfg.config,
+                OmegaConf.load(model_cfg_path)
+            )
         
         # Initialize Chat later......
         self.chat = None
         
         # Get vision processor
-        vis_processor_cfg = cfg.datasets_cfg.cc_sbu_align.vis_processor.train
+        vis_processor_cfg = self.cfg.datasets_cfg.cc_sbu_align.vis_processor.train
         vis_processor = registry.get_processor_class(vis_processor_cfg.name).from_config(vis_processor_cfg)
         
         # Store important values

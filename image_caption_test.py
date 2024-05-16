@@ -1,36 +1,45 @@
 import argparse
 
+import resource_paths
 from minigpt4.common.config import Config
 
-import resource_paths
 from tifi.modules.image_caption.image_caption import (BullshitImageCaption,
                                                       MiniGPT4ImageCaption)
 
+# def parse_args():
+#     parser = argparse.ArgumentParser(description="Demo")
+#     parser.add_argument("--cfg-path", required=True, help="path to configuration file.")
+#     parser.add_argument("--gpu-id", type=int, default=0, help="specify the gpu to load the model.")
+#     parser.add_argument(
+#         "--options",
+#         nargs="+",
+#         help="override some settings in the used config, the key-value pair "
+#         "in xxx=yyy format will be merged into config file (deprecate), "
+#         "change to --cfg-options instead.",
+#     )
+#     args = parser.parse_args()
+#     return args
 
-def parse_args():
-    parser = argparse.ArgumentParser(description="Demo")
-    parser.add_argument("--cfg-path", required=True, help="path to configuration file.")
-    parser.add_argument("--gpu-id", type=int, default=0, help="specify the gpu to load the model.")
-    parser.add_argument(
-        "--options",
-        nargs="+",
-        help="override some settings in the used config, the key-value pair "
-        "in xxx=yyy format will be merged into config file (deprecate), "
-        "change to --cfg-options instead.",
-    )
-    args = parser.parse_args()
-    return args
+# args = parse_args()
+# cfg = Config(args)
 
-args = parse_args()
-cfg = Config(args)
-
-image_caption_gen = MiniGPT4ImageCaption(args.gpu_id, cfg)
+image_caption_gen = MiniGPT4ImageCaption(
+    gpu_id=0,
+    cfg_path='/content/minigpt4_llama2_eval.yaml',
+    model_cfg_path='/content/minigpt4_llama2.yaml',
+)
 # image_caption_gen = BullshitImageCaption()
 
 
-image_path = "./daylily-flower-and-buds-sharp.jpg"
+image_path = "/content/daylily-flower-and-buds-sharp.jpg"
 print("Testing on the image from {}".format(image_path))
-print("Answer is:\n{}".format(image_caption_gen.generate_caption(image_path)))
+answer = image_caption_gen.generate_caption(image_path)
+print("Answer is:\n{} (type: {})".format(answer, type(answer)))
+
+image_path = "/content/low-res-72dpi.jpg"
+print("Testing on the image from {}".format(image_path))
+answer = image_caption_gen.generate_caption(image_path)
+print("Answer is:\n{} (type: {})".format(answer, type(answer)))
 
 ## command:
 ## python image_caption_test.py --gpu-id 0 --cfg-path minigpt4_llama2_eval.yaml
@@ -58,3 +67,7 @@ print("Answer is:\n{}".format(image_caption_gen.generate_caption(image_path)))
 
 # run:
 #   task: image_text_pretrain
+
+## Example configuration file of minigpt4_llama2.yaml: (It is just to override the default configuration)
+# model:
+#   llama_model: "meta-llama/Llama-2-7b-chat-hf"
