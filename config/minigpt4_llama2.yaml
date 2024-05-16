@@ -1,0 +1,3 @@
+model:
+  llama_model: "meta-llama/Llama-2-7b-chat-hf"
+  # Logging in to huggingface is needed since it requires access token
