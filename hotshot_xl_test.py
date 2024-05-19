@@ -17,6 +17,11 @@ from library.sdxl_train_util import get_size_embeddings
 
 from lycoris import create_lycoris, LycorisNetwork
 from tifi.modules.animatediff.loader import load, inject
+from tifi.utils.interpolation import (
+    blend_frame_naive,
+    blend_frame_optical_flow,
+)
+from tifi.utils.color_fixing import match_color
 from diff_utils import load_tokenizers, encode_prompts
 
 
@@ -27,9 +32,10 @@ text_model1, text_model2, vae, unet, logit_scale, ckpt_info = (
         "",
         r"./models/sdxl-1.0.safetensors",
         "cpu",
-        torch.float16,
+        torch.float32,
     )
 )
+unet.bfloat16()
 unet.requires_grad_(False)
 unet.cuda()
 # unet.enable_gradient_checkpointing()
@@ -166,11 +172,11 @@ def cfg_wrapper(prompt, pooled, neg_prompt, neg_pooled, cfg=5.0):
 
 # ciloranko, maccha (mochancc), lobelia (saclia), migolu, ask (askzy), wanke, jiu ye sang, rumoon, mizumi zumi,
 
-# loli, solo, dragon girl, dragon tail, dragon wings, dragon horns, white dress, long hair, side up, 
-# river, tree, forest, pointy ears, night, night sky, starry sky, pink hair, purple eyes, 
-# ponytail, wings, nature, star \(sky\), outdoors, ribbon, sky, tail, looking at viewer, hair ribbon, 
-# horns, from side, looking back, reflection, close-up, sitting, hair ornament, reflective water, water, 
-# mountainous horizon, scenery, bird, kimono, short kimono, off shoulder, black kimono, japanese clothes, 
+# loli, solo, dragon girl, dragon tail, dragon wings, dragon horns, white dress, long hair, side up,
+# river, tree, forest, pointy ears, night, night sky, starry sky, pink hair, purple eyes,
+# ponytail, wings, nature, star \(sky\), outdoors, ribbon, sky, tail, looking at viewer, hair ribbon,
+# horns, from side, looking back, reflection, close-up, sitting, hair ornament, reflective water, water,
+# mountainous horizon, scenery, bird, kimono, short kimono, off shoulder, black kimono, japanese clothes,
 # dress, red ribbon, wide sleeves, bare shoulders, looking to the side, feathered wings, very long hair,
 
 # masterpiece, newest, absurdres, safe""",
@@ -225,7 +231,7 @@ def cfg_wrapper(prompt, pooled, neg_prompt, neg_pooled, cfg=5.0):
 ## Temporal Inpainting test
 def frame_encode(frames: list[torch.Tensor]):
     frames_latent = []
-    with torch.no_grad(), torch.autocast("cuda"):
+    with torch.no_grad(), torch.autocast("cuda", torch.bfloat16):
         for frame in frames:
             frame = frame.unsqueeze(0).cuda() * 2 - 1
             frame_latent = (
@@ -315,9 +321,9 @@ frames = [
 ground_truths = deepcopy(frames)
 # Use previous frames as reference
 for vid in frames:
-    vid[1] = vid[0] * 0.5 + vid[2] * 0.5
-    vid[3] = vid[2] * 0.5 + vid[4] * 0.5
-    vid[5] = vid[4] * 0.5 + vid[6] * 0.5
+    vid[1] = blend_frame_optical_flow(vid[0], vid[2], 1)[0] / 255
+    vid[3] = blend_frame_optical_flow(vid[2], vid[4], 1)[0] / 255
+    vid[5] = blend_frame_optical_flow(vid[4], vid[6], 1)[0] / 255
 
 
 vae.cuda()
@@ -350,10 +356,10 @@ torch.cuda.empty_cache()
 
 sigma_schedule = sigmas(
     scheduler,
-    steps=32,
+    steps=16,
     sigma_schedule_function=get_sigmas_exponential,
 ).cuda()
-sigma_schedule_inpainting = sigma_schedule[12:]
+sigma_schedule_inpainting = sigma_schedule[-10:]
 print(sigma_schedule_inpainting)
 denoise_func = cfg_wrapper_temporal_inpainting(
     prompt_embeds,
@@ -361,7 +367,7 @@ denoise_func = cfg_wrapper_temporal_inpainting(
     negative_prompt_embeds,
     neg_pooled_embeds2,
     reference_frames,
-    cfg=6.0,
+    cfg=5.0,
 )
 init_x = torch.randn_like(frames_latent).cuda() * sigma_schedule_inpainting[0]
 init_x += frames_latent
@@ -379,17 +385,28 @@ with torch.no_grad(), torch.autocast("cuda", torch.bfloat16):
     vae.cuda()
     vids = []
     vids_tensor = []
-    for batch in tqdm(result, desc="decoding videos", leave=False):
+    for batch, input_batch in tqdm(
+        zip(result, frames), desc="decoding videos", leave=False
+    ):
         vid = []
         decoded_frames = []
-        for frame in tqdm(batch, desc="decoding frames", leave=False):
-            decoded_frames.append(
-                vae.decode(
-                    frame.unsqueeze(0) * (1 / vae.config.scaling_factor)
-                ).sample.float()
+        for frame, inp in tqdm(
+            zip(batch, input_batch), desc="decoding frames", leave=False
+        ):
+            current_frame = (
+                (
+                    vae.decode(
+                        frame.unsqueeze(0) * (1 / vae.config.scaling_factor)
+                    ).sample.float()
+                    / 2
+                    + 0.5
+                )[0]
+                .clamp(0, 1)
+                .cpu()
             )
-        decoded_frames = torch.concat(decoded_frames)
-        decoded_frames = (decoded_frames / 2 + 0.5).clamp(0, 1).cpu()
+
+            decoded_frames.append(match_color(current_frame, inp))
+        decoded_frames = torch.stack(decoded_frames)
 
         for decoded_frame in decoded_frames:
             decoded_frame_rgb = torch.permute(decoded_frame, (1, 2, 0))
@@ -400,5 +417,6 @@ with torch.no_grad(), torch.autocast("cuda", torch.bfloat16):
         vids.append(vid)
     print("PSNR before TIFI", psnr(frames, ground_truths, reference_frames))
     print("PSNR after TIFI", psnr(vids_tensor, ground_truths, reference_frames))
-    for fid, frame in enumerate(vids[0]):
-        frame.save(f"vid/out/{fid}.png")
+    for vid, video in enumerate(vids):
+        for fid, frame in enumerate(video):
+            frame.save(f"vid/out/{vid}_{fid}.png")
