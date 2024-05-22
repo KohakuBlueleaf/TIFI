@@ -48,9 +48,9 @@ def inject(unet: SdxlUNet2DConditionModel, mm: MotionWrapper):
         def groupnorm32_mm_forward(self, x):
             nonlocal batch_size
             _, C, H, W = x.shape
-            x = gn32_original_forward(self, x.reshape(batch_size, -1, C, H, W)).reshape(
-                -1, C, H, W
-            )
+            x = rearrange(x, "(b f) c h w -> b c f h w", b=batch_size)
+            x = gn32_original_forward(self, x)
+            x = rearrange(x, "b c f h w -> (b f) c h w", b=batch_size)
             return x
 
         GroupNorm32.orig_forward = gn32_original_forward
