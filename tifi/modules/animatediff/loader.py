@@ -6,7 +6,11 @@ from library.sdxl_original_unet import SdxlUNet2DConditionModel, GroupNorm32
 
 from tifi.logging import logger
 from tifi.utils.model import read_state_dict
-from tifi.modules.animatediff.motion_module import MotionModuleType, MotionWrapper
+from tifi.modules.animatediff.motion_module import (
+    MotionModuleType,
+    MotionWrapper,
+    VersatileAttention,
+)
 
 
 def load(model_name: str, device="cuda"):
@@ -28,12 +32,15 @@ def load(model_name: str, device="cuda"):
 
 def inject(unet: SdxlUNet2DConditionModel, mm: MotionWrapper):
     batch_size = 0
+    all_versatile_attention: list[VersatileAttention] = []
     unet_original_forward = SdxlUNet2DConditionModel.forward
 
     def unet_forward_patch(self, x, *args, **kwargs):
         nonlocal batch_size
         B, F, C, H, W = x.shape
         batch_size = B
+        for module in all_versatile_attention:
+            module.video_length = F
         x = x.reshape(B * F, C, H, W)
         result = unet_original_forward(self, x, *args, **kwargs)
         result = result.reshape(B, F, C, H, W)
@@ -55,6 +62,10 @@ def inject(unet: SdxlUNet2DConditionModel, mm: MotionWrapper):
 
         GroupNorm32.orig_forward = gn32_original_forward
         GroupNorm32.forward = groupnorm32_mm_forward
+
+    for module in mm.modules():
+        if isinstance(module, VersatileAttention):
+            all_versatile_attention.append(module)
 
     logger.info(f"Injecting motion module into UNet input blocks.")
     for mm_idx, unet_idx in enumerate([1, 2, 4, 5]):

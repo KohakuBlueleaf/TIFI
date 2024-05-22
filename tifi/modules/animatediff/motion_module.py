@@ -386,12 +386,11 @@ class VersatileAttention(CrossAttention):
         self.pos_encoder = PositionalEncoding(
             kwargs["query_dim"], max_len=temporal_position_encoding_max_len
         )
+        self.video_length = 0
 
     def forward(self, x: torch.Tensor):
-        video_length = 7
-
         d = x.shape[1]
-        x = rearrange(x, "(b f) d c -> (b d) f c", f=video_length)
+        x = rearrange(x, "(b f) d c -> (b d) f c", f=self.video_length)
         x = self.pos_encoder(x)
 
         q = self.to_q(x)
