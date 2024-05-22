@@ -33,5 +33,7 @@ rich==13.7.0
 ## Requirements for Sampling
 k-diffusion
 
-## Requirements for finetune
+## Requirements for finetune/dataset processing
+hakuir
+imagesize
 lycoris-lora==2.3.0.dev11
