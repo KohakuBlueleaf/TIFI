@@ -1,4 +1,7 @@
 /resources
+*.png
+*.tar
+!vid/out/*.png
 *.pt
 *.pth
 *.ckpt
