@@ -1,12 +1,6 @@
-import os
-from copy import deepcopy
-
 import numpy as np
 
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torchvision.transforms.functional import to_tensor
 from tqdm import tqdm
 
 from PIL import Image
@@ -20,13 +14,11 @@ from library.sdxl_train_util import get_size_embeddings
 
 from lycoris import LycorisNetwork, create_lycoris_from_weights
 from tifi.modules.animatediff.loader import load, inject
-from tifi.utils.interpolation import (
-    blend_frame_naive,
-    blend_frame_optical_flow,
-)
+from tifi.utils.interpolation import blend_frame_optical_flow
 from tifi.utils.color_fixing import match_color
 from tifi.utils.jigsaw import jigsaw_schedule
-from diff_utils import load_tokenizers, encode_prompts_single
+from tifi.utils.diff_utils import load_tokenizers, encode_prompts_single
+from tifi.logging import logger
 
 
 class TemporalInpainting:
@@ -119,7 +111,7 @@ class TemporalInpainting:
 
             all_pred = []
             for jigsaw_id, slices in jigsaw:
-                for idx, part in enumerate(slices):
+                for idx, part in tqdm(list(enumerate(slices)), desc="JigSaw Sampling", leave=False):
                     current_x = x[:, part]
                     current_t = t
 
@@ -198,6 +190,9 @@ class TemporalInpainting:
         if not isinstance(videos[0], list):
             videos = [videos]
 
+        logger.info("Starting Temporal Inpainting")
+
+        logger.info("Preparing latents of interpolated videos...")
         video_latents = [[None for _ in video] for video in videos]
         reference_videos = []
         videos_fill1 = []
@@ -243,7 +238,9 @@ class TemporalInpainting:
             reference_videos.append(ref_video)
         video_latents = torch.stack([torch.stack(vid) for vid in video_latents])
         self.vae.cpu()
+        logger.info("Video latents prepared")
 
+        logger.info("Preparing prompts for each group")
         self.text_model1.cuda()
         self.text_model2.cuda()
         jigsaw = jigsaw_schedule(
@@ -274,7 +271,9 @@ class TemporalInpainting:
         )
         self.text_model1.cpu()
         self.text_model2.cpu()
+        logger.info("All prompts prepared")
 
+        logger.info("Temporal Inpainting ...")
         denoise_func = self.cfg_wrapper(
             prompt, pooled, neg_prompt, neg_pooled, reference_videos, cfg
         )
@@ -290,6 +289,7 @@ class TemporalInpainting:
                 sigma_schedule_inpaint,
             )
 
+        logger.info("Decode generated latents")
         self.vae.cuda()
         vids = []
         vids_tensor = []
@@ -307,4 +307,5 @@ class TemporalInpainting:
             vids.append(vid)
             vids_tensor.append(vid_tensor)
         self.vae.cpu()
+        logger.info("All done.")
         return vids

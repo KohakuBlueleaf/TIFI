@@ -22,7 +22,7 @@ from tifi.utils.interpolation import (
     blend_frame_optical_flow,
 )
 from tifi.utils.color_fixing import match_color
-from diff_utils import load_tokenizers, encode_prompts
+from tifi.utils.diff_utils import load_tokenizers, encode_prompts
 
 
 ## Load Model
