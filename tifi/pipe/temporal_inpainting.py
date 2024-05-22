@@ -19,6 +19,7 @@ from tifi.utils.color_fixing import match_color
 from tifi.utils.jigsaw import jigsaw_schedule
 from tifi.utils.diff_utils import load_tokenizers, encode_prompts_single
 from tifi.logging import logger
+from tifi.modules.image_caption.image_caption import MiniGPT4ImageCaption
 
 
 class TemporalInpainting:
@@ -74,6 +75,13 @@ class TemporalInpainting:
         self.unet = unet
         self.scheduler = scheduler
         self.denoiser = denoiser
+        
+        ## MiniGPT4 Image captioner
+        self.image_captioner = MiniGPT4ImageCaption(
+            gpu_id=0,
+            cfg_path='../../config/minigpt4_llama2_eval.yaml',
+            model_cfg_path='../../config/minigpt4_llama2.yaml',
+        )
 
     def sigmas(
         self,
@@ -168,7 +176,11 @@ class TemporalInpainting:
         return frame_img[0].float().clamp(0, 1).cpu()
 
     def caption(self, image):
-        return "test"
+        # return "test"
+        
+        # MiniGPT4 image caption can take a torch.Tensor as input and (in [0, 1] and C, H, W)
+        # See minigpt4.processors.Blip2ImageEvalProcessor for detail
+        return self.image_captioner.generate_caption(image)
 
     def image_to_prompt_embeds(self, frames: list[torch.Tensor]):
         prompts = []
