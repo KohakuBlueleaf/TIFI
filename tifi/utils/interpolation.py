@@ -51,7 +51,7 @@ def blend_frame_optical_flow(
         resultant_frames.append(cv2.cvtColor(interpolated_frame, cv2.COLOR_BGR2RGB))
     # convert BGR numpy image to RGB tensor image
     resultant_frames = [
-        torch.from_numpy(frame).permute(2, 0, 1) for frame in resultant_frames
+        torch.from_numpy(frame).permute(2, 0, 1) / 255 for frame in resultant_frames
     ]
     return resultant_frames[1:]
 
