@@ -36,8 +36,8 @@ def calculate_optical_flow_between_frames(
 def blend_frame_optical_flow(
     frame_1: torch.Tensor, frame_2: torch.Tensor, num_frames: int
 ):
-    frame_1 = (frame_1.permute(1, 2, 0)*255).numpy()[:,:,::-1].astype(np.uint8)
-    frame_2 = (frame_2.permute(1, 2, 0)*255).numpy()[:,:,::-1].astype(np.uint8)
+    frame_1 = (frame_1.permute(1, 2, 0) * 255).numpy()[:, :, ::-1].astype(np.uint8)
+    frame_2 = (frame_2.permute(1, 2, 0) * 255).numpy()[:, :, ::-1].astype(np.uint8)
     resultant_frames = []
     resultant_frames.append(frame_1)
     optical_flow = calculate_optical_flow_between_frames(frame_1, frame_2)
@@ -49,19 +49,17 @@ def blend_frame_optical_flow(
         flow[:, :, 1] += np.arange(h)[:, np.newaxis]
         interpolated_frame = cv2.remap(frame_1, flow, None, cv2.INTER_LINEAR)
         resultant_frames.append(cv2.cvtColor(interpolated_frame, cv2.COLOR_BGR2RGB))
-    #convert BGR numpy image to RGB tensor image
+    # convert BGR numpy image to RGB tensor image
     resultant_frames = [
         torch.from_numpy(frame).permute(2, 0, 1) for frame in resultant_frames
     ]
     return resultant_frames[1:]
 
 
-def blend_frame_naive(
-    frame_1: torch.Tensor, frame_2: torch.Tensor, num_frames: int
-):
+def blend_frame_naive(frame_1: torch.Tensor, frame_2: torch.Tensor, num_frames: int):
     result = []
     for frame_num in range(num_frames):
-        alpha = (frame_num+1) / (num_frames+1)
+        alpha = (frame_num + 1) / (num_frames + 1)
         frame = (1 - alpha) * frame_1 + alpha * frame_2
         result.append(frame)
     return result

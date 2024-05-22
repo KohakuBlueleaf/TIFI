@@ -5,8 +5,20 @@ from PIL import Image
 
 
 def match_color(source, target):
-    source = (source.permute(1, 2, 0).float()*255).cpu().numpy().clip(0, 255).astype(np.uint8)
-    target = (target.permute(1, 2, 0).float()*255).cpu().numpy().clip(0, 255).astype(np.uint8)
+    source = (
+        (source.permute(1, 2, 0).float() * 255)
+        .cpu()
+        .numpy()
+        .clip(0, 255)
+        .astype(np.uint8)
+    )
+    target = (
+        (target.permute(1, 2, 0).float() * 255)
+        .cpu()
+        .numpy()
+        .clip(0, 255)
+        .astype(np.uint8)
+    )
     # Convert RGB to L*a*b*, and then match the std/mean
     source_lab = cv2.cvtColor(source, cv2.COLOR_RGB2LAB).astype(np.float32) / 255
     target_lab = cv2.cvtColor(target, cv2.COLOR_RGB2LAB).astype(np.float32) / 255
@@ -22,7 +34,7 @@ def match_color(source, target):
     source[:, :, 1] = wavelet_colorfix(source[:, :, 1], target[:, :, 1])
     source[:, :, 2] = wavelet_colorfix(source[:, :, 2], target[:, :, 2])
     output = source
-    output_tensor = torch.from_numpy(output.clip(0, 255))/255
+    output_tensor = torch.from_numpy(output.clip(0, 255)) / 255
     return output_tensor.permute(2, 0, 1)
 
 
