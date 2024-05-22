@@ -19,8 +19,8 @@ def jigsaw_schedule(length, group_size=7, min_group_size=3):
                 slices2[s].start + min_group_size, slices2[s].stop + min_group_size
             )
         slices2[-1] = slice(slices2[-1].start + min_group_size, slices2[-1].stop)
-        # if len(slices1) == 1:
-        #     slices2 = slices1
+        if len(slices1) == 1:
+            slices2 = slices1
     elif left < min_group_size:
         addon = min_group_size - left
         slices1[0] = slice(slices1[0].start, slices1[0].stop - addon)

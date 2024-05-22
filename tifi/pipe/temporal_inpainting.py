@@ -279,7 +279,7 @@ class TemporalInpainting:
             prompt, pooled, neg_prompt, neg_pooled, reference_videos, cfg
         )
         sigma_schedule = self.sigmas(16).cuda()
-        sigma_schedule_inpaint = sigma_schedule[-10:]
+        sigma_schedule_inpaint = sigma_schedule[-9:]
         init_x = torch.randn_like(video_latents) * sigma_schedule_inpaint[0]
         init_x += video_latents
 
