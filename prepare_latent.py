@@ -103,10 +103,13 @@ def test_run():
 
 def main():
     for path in tqdm(ALL_VIDEOS, desc="Processing videos", smoothing=0.01):
+        latent_file = os.path.join(path, "latent-ctx-embed.pt")
+        if os.path.exists(latent_file):
+            continue
         latents, ctx, embed = process_video(path)
         torch.save(
             {"latents": latents, "ctx": ctx, "embed": embed},
-            os.path.join(path, "latent-ctx-embed.pt"),
+            latent_file,
         )
 
 
