@@ -18,8 +18,12 @@ def encode_prompts_single(
 ):
     max_length = tokenizer.model_max_length
 
-    input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to("cuda")
-    input_ids2 = tokenizer_2(prompt, return_tensors="pt").input_ids.to("cuda")
+    input_ids = tokenizer(
+        prompt, padding="max_length", truncation=True, return_tensors="pt"
+    ).input_ids.to("cuda")
+    input_ids2 = tokenizer_2(
+        prompt, padding="max_length", truncation=True, return_tensors="pt"
+    ).input_ids.to("cuda")
 
     concat_embeds = []
     for i in range(0, input_ids.shape[-1], max_length):
@@ -52,8 +56,12 @@ def encode_prompts(
 ):
     max_length = tokenizer.model_max_length
 
-    input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to("cuda")
-    input_ids2 = tokenizer_2(prompt, return_tensors="pt").input_ids.to("cuda")
+    input_ids = tokenizer(
+        prompt, padding="max_length", truncation=True, return_tensors="pt"
+    ).input_ids.to("cuda")
+    input_ids2 = tokenizer_2(
+        prompt, padding="max_length", truncation=True, return_tensors="pt"
+    ).input_ids.to("cuda")
 
     negative_ids = tokenizer(
         neg_prompt,
