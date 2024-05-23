@@ -178,9 +178,18 @@ class TemporalInpainting:
     def caption(self, image):
         # return "test"
         
-        # MiniGPT4 image caption can take a torch.Tensor as input and (in [0, 1] and C, H, W)
-        # See minigpt4.processors.Blip2ImageEvalProcessor for detail
-        return self.image_captioner.generate_caption(image)
+        # MiniGPT4 image caption can take a Image.Image as input and (in [0, 255] and H, W, C)
+        # See minigpt4.conversion.Chat.encode_img for detail
+        
+        # Convert the tensor in range [0, 1] and (C, H, W) to [0, 255] and (H, W, C)
+        def tensor_to_pil_image(tnsr: torch.Tensor):
+            # tnsr: in range[0, 1] and (C, H, W)
+            tnsr *= 255
+            tnsr = tnsr.to(torch.uint8).permute(1, 2, 0)
+
+            return Image.fromarray(tnsr.numpy(), mode="RGB")
+        
+        return self.image_captioner.generate_caption(tensor_to_pil_image(image))
 
     def image_to_prompt_embeds(self, frames: list[torch.Tensor]):
         prompts = []
