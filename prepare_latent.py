@@ -101,5 +101,15 @@ def test_run():
     print(latents[frame_index_gen([0, 2, 4, 6])].shape)
 
 
+def main():
+    for path in tqdm(ALL_VIDEOS, desc="Processing videos", smoothing=0.01):
+        latents, ctx, embed = process_video(path)
+        torch.save(
+            {"latents": latents, "ctx": ctx, "embed": embed},
+            os.path.join(path, "latent-ctx-embed.pt"),
+        )
+
+
 if __name__ == "__main__":
-    test_run()
+    # test_run()
+    main()
