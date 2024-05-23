@@ -3,12 +3,15 @@ import argparse
 import resource_paths
 from minigpt4.common.config import Config
 
-from tifi.modules.image_caption.image_caption import (BullshitImageCaption,
-                                                      MiniGPT4ImageCaption)
+from tifi.modules.image_caption.image_caption import (
+    BullshitImageCaption,
+    MiniGPT4ImageCaption,
+)
 from PIL import Image
 import numpy as np
 import torch
 from minigpt4.processors.blip_processors import Blip2ImageEvalProcessor
+
 
 def tensor_to_pil_image(tnsr: torch.Tensor):
     # tnsr: in range[0, 1] and (C, H, W)
@@ -17,10 +20,11 @@ def tensor_to_pil_image(tnsr: torch.Tensor):
 
     return Image.fromarray(tnsr.numpy(), mode="RGB")
 
+
 image_caption_gen = MiniGPT4ImageCaption(
     gpu_id=0,
-    cfg_path='./config/minigpt4_llama2_eval.yaml',
-    model_cfg_path='./config/minigpt4_llama2.yaml',
+    cfg_path="./config/minigpt4_llama2_eval.yaml",
+    model_cfg_path="./config/minigpt4_llama2.yaml",
 )
 
 # Another implementation of ImageCaption

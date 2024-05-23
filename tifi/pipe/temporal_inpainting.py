@@ -75,12 +75,12 @@ class TemporalInpainting:
         self.unet = unet
         self.scheduler = scheduler
         self.denoiser = denoiser
-        
+
         ## MiniGPT4 Image captioner
         self.image_captioner = MiniGPT4ImageCaption(
             gpu_id=0,
-            cfg_path='../../config/minigpt4_llama2_eval.yaml',
-            model_cfg_path='../../config/minigpt4_llama2.yaml',
+            cfg_path="../../config/minigpt4_llama2_eval.yaml",
+            model_cfg_path="../../config/minigpt4_llama2.yaml",
         )
 
     def sigmas(
@@ -119,7 +119,9 @@ class TemporalInpainting:
 
             all_pred = []
             for jigsaw_id, slices in jigsaw:
-                for idx, part in tqdm(list(enumerate(slices)), desc="JigSaw Sampling", leave=False):
+                for idx, part in tqdm(
+                    list(enumerate(slices)), desc="JigSaw Sampling", leave=False
+                ):
                     current_x = x[:, part]
                     current_t = t
 
@@ -177,10 +179,10 @@ class TemporalInpainting:
 
     def caption(self, image):
         # return "test"
-        
+
         # MiniGPT4 image caption can take a Image.Image as input and (in [0, 255] and H, W, C)
         # See minigpt4.conversion.Chat.encode_img for detail
-        
+
         # Convert the tensor in range [0, 1] and (C, H, W) to [0, 255] and (H, W, C)
         def tensor_to_pil_image(tnsr: torch.Tensor):
             # tnsr: in range[0, 1] and (C, H, W)
@@ -188,7 +190,7 @@ class TemporalInpainting:
             tnsr = tnsr.to(torch.uint8).permute(1, 2, 0)
 
             return Image.fromarray(tnsr.numpy(), mode="RGB")
-        
+
         return self.image_captioner.generate_caption(tensor_to_pil_image(image))
 
     def image_to_prompt_embeds(self, frames: list[torch.Tensor]):
