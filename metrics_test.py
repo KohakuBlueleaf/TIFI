@@ -53,11 +53,11 @@ if __name__ == '__main__':
     
     print()
     
-    # for name, metric in zip(metric_names, metrics):
-    #     score = metric.compute(vid1, vid2)
-    #     print("{} score is {}".format(name, score))
+    for name, metric in zip(metric_names, metrics):
+        score = metric.compute(vid1, vid2, data_range=None)
+        print("{} score is {}".format(name, score))
     
-    # print()
+    print()
     
     # Range [0, 1]
     vid1_0_1, vid2_0_1 = vid1 / 255, vid2 / 255
@@ -67,11 +67,11 @@ if __name__ == '__main__':
     
     print()
     
-    # for name, metric in zip(metric_names, metrics):
-    #     score = metric.compute(vid1_0_1, vid2_0_1)
-    #     print("{} score is {}".format(name, score))
+    for name, metric in zip(metric_names, metrics):
+        score = metric.compute(vid1_0_1, vid2_0_1, data_range=None)
+        print("{} score is {}".format(name, score))
     
-    # print()
+    print()
     
     # Range [-1, 1]
     vid1_neg1_1, vid2_neg1_1 = vid1 * 2 / 255 - 1, vid2 * 2 / 255 - 1
@@ -83,4 +83,10 @@ if __name__ == '__main__':
     
     for name, metric in zip(metric_names, metrics):
         score = metric.compute(vid1_neg1_1, vid2_neg1_1)
+        print("{} score is {}".format(name, score))
+        
+    print()
+    
+    for name, metric in zip(metric_names, metrics):
+        score = metric.compute(vid1_neg1_1, vid2_neg1_1, data_range=None)
         print("{} score is {}".format(name, score))
