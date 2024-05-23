@@ -7,7 +7,8 @@ from llama_cpp.llama_chat_format import Llama3VisionAlpha
 MODEL_PATH = r"G:\nn_app\llama.cpp\models\llama3-llava-next-8b-gguf"
 
 chat_handler = Llama3VisionAlpha(
-    clip_model_path=os.path.join(MODEL_PATH, "mmproj-model-f16.gguf")
+    clip_model_path=os.path.join(MODEL_PATH, "mmproj-model-f16.gguf"),
+    verbose=False,
 )
 llm = Llama(
     model_path=os.path.join(MODEL_PATH, "llama3-llava-next-8b-Q8_0.gguf"),
