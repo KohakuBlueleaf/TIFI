@@ -39,26 +39,48 @@ if __name__ == '__main__':
     # Create videos
     vid1, vid2 = create_videos(0.05)
     
-    # PSNR
-    metric = Metrics.from_name("psnr")
-    psnr_score = metric.compute(vid1, vid2)
+    metric_names = ["psnr", "ssim", "msssim", "lpips"]
+    metric_kwargs = [{}, {}, {}, {"net": "alex"}]
     
-    print("PSNR score is {}".format(psnr_score))
+    metrics = [Metrics.from_name(name, **kwargs) for name, kwargs in zip(metric_names, metric_kwargs)]
     
-    # SSIM
-    metric = Metrics.from_name("ssim")
-    ssim_score = metric.compute(vid1, vid2)
+    vid1, vid2 = vid1.to(torch.double), vid2.to(torch.double)
     
-    print("SSIM score is {}".format(ssim_score))
+    # Range [0,255]
+    for name, metric in zip(metric_names, metrics):
+        score = metric.compute(vid1, vid2, data_range="0,255")
+        print("{} score is {}".format(name, score))
     
-    # MSSSIM
-    metric = Metrics.from_name("msssim")
-    msssim_score = metric.compute(vid1, vid2)
+    print()
     
-    print("MS-SSIM score is {}".format(msssim_score))
+    # for name, metric in zip(metric_names, metrics):
+    #     score = metric.compute(vid1, vid2)
+    #     print("{} score is {}".format(name, score))
     
-    # LPIPS
-    metric = Metrics.from_name("lpips", net="alex")
-    lpips_score = metric.compute(vid1, vid2)
+    # print()
     
-    print("LPIPS score is {}".format(lpips_score))
+    # Range [0, 1]
+    vid1_0_1, vid2_0_1 = vid1 / 255, vid2 / 255
+    for name, metric in zip(metric_names, metrics):
+        score = metric.compute(vid1_0_1, vid2_0_1, data_range="0,1")
+        print("{} score is {}".format(name, score))
+    
+    print()
+    
+    # for name, metric in zip(metric_names, metrics):
+    #     score = metric.compute(vid1_0_1, vid2_0_1)
+    #     print("{} score is {}".format(name, score))
+    
+    # print()
+    
+    # Range [-1, 1]
+    vid1_neg1_1, vid2_neg1_1 = vid1 * 2 / 255 - 1, vid2 * 2 / 255 - 1
+    for name, metric in zip(metric_names, metrics):
+        score = metric.compute(vid1_neg1_1, vid2_neg1_1, data_range="-1,1")
+        print("{} score is {}".format(name, score))
+    
+    print()
+    
+    for name, metric in zip(metric_names, metrics):
+        score = metric.compute(vid1_neg1_1, vid2_neg1_1)
+        print("{} score is {}".format(name, score))

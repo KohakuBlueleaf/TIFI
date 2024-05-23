@@ -8,7 +8,7 @@ class Metrics:
         pass
     
     @abstractmethod
-    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor):
+    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor, data_range: str="-1,1"):
         """
             vid1: The first video, whose shape is (B, H, W, C)
             vid2: The second video, whose shape is (B, H, W, C)
@@ -17,23 +17,24 @@ class Metrics:
         """
     
     @abstractmethod
-    def _to_valid(self, video: torch.Tensor):
+    def _to_valid(self, video: torch.Tensor, data_range: str=None):
         """
             Transform the video to valid form for "compute"
         """
     
-    def _to_target(self, video: torch.Tensor, target: str):
-        """ target should be in ["0,255", "0,1", "-1,1"] """
+    def _to_target(self, video: torch.Tensor, target: str, data_range: str=None):
+        """ target and data_range should be in ["0,255", "0,1", "-1,1"] """
+        video = video.to(torch.double)
         
         video_max = torch.max(video).item()
         video_min = torch.min(video).item()
         
         # Transform to [0, 255] first
-        if video_max <= 1 and video_min >= 0:
+        if data_range == "0,1" or (data_range == None and video_max <= 1 and video_min >= 0):
             video_inter = video * 255
-        elif video_max <= 255 and video_min >= 0:
+        elif data_range == "0,255" or (data_range == None and video_max <= 255 and video_min >= 0):
             video_inter = video
-        elif video_max >= -1 and video_max <= 1:
+        elif data_range == "-1,1" or (data_range == None and video_max <= 1 and video_min >= -1):
             video_inter = (video + 1) * 255 / 2
         else:
             raise Exception("unknown form of video")
@@ -71,7 +72,7 @@ class Metrics:
             raise Exception("Unknown matric name {}.".format(name))
             
 class PSNR(Metrics):
-    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor):
+    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor, data_range: str="-1,1"):
         # Check shapes
         self._check_shapes(vid1, vid2)
         
@@ -79,8 +80,8 @@ class PSNR(Metrics):
         B, H, W, C = vid1.shape
         
         # Transform it to the valid form
-        vid1 = self._to_valid(vid1)
-        vid2 = self._to_valid(vid2)
+        vid1 = self._to_valid(vid1, data_range)
+        vid2 = self._to_valid(vid2, data_range)
         
         # Compute the MSE for each 
         vid_diff = torch.abs(vid1 - vid2)
@@ -95,17 +96,17 @@ class PSNR(Metrics):
         psnr_avg = torch.sum(psnr) / (B)
         return psnr_avg.item()
 
-    def _to_valid(self, video: torch.Tensor):
-        return self._to_target(video, "0,255").float()
+    def _to_valid(self, video: torch.Tensor, data_range: str=None):
+        return self._to_target(video, "0,255", data_range=data_range).float()
 
 class SSIM(Metrics):
-    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor):
+    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor, data_range: str="-1,1"):
         # Check shapes
         self._check_shapes(vid1, vid2)
         
         # Transform to valid form
-        vid1 = self._to_valid(vid1)
-        vid2 = self._to_valid(vid2)
+        vid1 = self._to_valid(vid1, data_range)
+        vid2 = self._to_valid(vid2, data_range)
         
         # Transpose the tensor into (B, C, H, W)
         vid1_tnsr = vid1.permute(0, 3, 1, 2)
@@ -116,17 +117,17 @@ class SSIM(Metrics):
         
         return ssim_score
     
-    def _to_valid(self, video: torch.Tensor):
-        return self._to_target(video, "0,255").float()
+    def _to_valid(self, video: torch.Tensor, data_range: str=None):
+        return self._to_target(video, "0,255", data_range=data_range).float()
 
 class MSSSIM(Metrics):
-    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor):
+    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor, data_range: str="-1,1"):
         # Check shapes
         self._check_shapes(vid1, vid2)
         
         # Transform to valid form
-        vid1 = self._to_valid(vid1)
-        vid2 = self._to_valid(vid2)
+        vid1 = self._to_valid(vid1, data_range)
+        vid2 = self._to_valid(vid2, data_range)
         
         # Transpose the tensor into (B, C, H, W)
         vid1_tnsr = vid1.permute(0, 3, 1, 2)
@@ -137,8 +138,8 @@ class MSSSIM(Metrics):
 
         return msssim_score
 
-    def _to_valid(self, video: torch.Tensor):
-        return self._to_target(video, "0,255").float()
+    def _to_valid(self, video: torch.Tensor, data_range: str=None):
+        return self._to_target(video, "0,255", data_range=data_range).float()
 
 class LPIPS(Metrics):
     def __init__(self, net="alex") -> None:
@@ -147,13 +148,13 @@ class LPIPS(Metrics):
         # Create loss function by "net"
         self.loss_fn = lpips.LPIPS(net=net)
         
-    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor):
+    def compute(self, vid1: torch.Tensor, vid2: torch.Tensor, data_range: str="-1,1"):
         # Check shapes
         self._check_shapes(vid1, vid2)
         
         # Transform to valid form
-        vid1 = self._to_valid(vid1)
-        vid2 = self._to_valid(vid2)
+        vid1 = self._to_valid(vid1, data_range)
+        vid2 = self._to_valid(vid2, data_range)
         
         # Transpose the tensor into (B, C, H, W)
         vid1_tnsr = vid1.permute(0, 3, 1, 2)
@@ -168,5 +169,5 @@ class LPIPS(Metrics):
         
         return lpips_score_avg
     
-    def _to_valid(self, video: torch.Tensor):
-        return self._to_target(video, "-1,1").float()
+    def _to_valid(self, video: torch.Tensor, data_range: str=None):
+        return self._to_target(video, "-1,1", data_range=data_range).float()
