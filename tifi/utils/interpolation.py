@@ -63,3 +63,28 @@ def blend_frame_naive(frame_1: torch.Tensor, frame_2: torch.Tensor, num_frames: 
         frame = (1 - alpha) * frame_1 + alpha * frame_2
         result.append(frame)
     return result
+
+
+def frame_idx_map_gen(length=7):
+    idx = length
+    frame_idx_map = {}
+    for i in range(length - 1):
+        for j in range(i + 2, length):
+            for k in range(i + 1, j):
+                frame_idx_map[(i, j, k)] = idx
+                idx += 1
+    return frame_idx_map
+
+
+def frame_index_gen(gt_frames=[0, 2, 4, 6], frame_idx_map=frame_idx_map_gen(7)):
+    prev_gt = 0
+    current_idx = 0
+    all_idx = []
+    for gt_idx in gt_frames:
+        while current_idx < gt_idx:
+            all_idx.append(frame_idx_map[(prev_gt, gt_idx, current_idx)])
+            current_idx += 1
+        all_idx.append(gt_idx)
+        prev_gt = gt_idx
+        current_idx += 1
+    return all_idx

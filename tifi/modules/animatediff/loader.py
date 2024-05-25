@@ -26,7 +26,6 @@ def load(model_name: str, device="cuda"):
     mm = MotionWrapper(**mm_config)
     mm.load_state_dict(mm_state_dict)
     mm.to(device).eval()
-    mm.half()
     return mm
 
 
