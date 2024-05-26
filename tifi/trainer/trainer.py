@@ -112,13 +112,13 @@ class SDXLTrainer(BaseTrainer):
         self.sdxl_unet.train()
         if lycoris_model is not None:
             self.lycoris_model.train()
-            self.train_params = chain(
-                self.lycoris_model.parameters(),
-                (p for p in self.sdxl_unet.parameters() if p.requires_grad),
-            )
+            self.train_params = self.lycoris_model.parameters()
         else:
             self.train_params = self.sdxl_unet.parameters()
         self.epoch = 0
+        self.opt_step = 0
+        self.ema_loss = 0
+        self.ema_decay = 0.99
 
     def on_train_epoch_end(self) -> None:
         self.epoch += 1
@@ -150,14 +150,12 @@ class SDXLTrainer(BaseTrainer):
             torch.save(lycoris_weight, os.path.join(dir, f"epoch={epoch}.pt"))
 
     def training_step(self, batch, idx):
-        x = batch["latents"]
-        blended_x = batch["blended"]
-
+        x, blended_x, ctx, embed = batch
         b, f, c, h, w = x.shape
         unet_batch_size = b * f
 
-        ctx = batch["ctx"].repeat(unet_batch_size, 1, 1)
-        embed = batch["embed"].repeat(unet_batch_size, 1)
+        ctx = ctx.unsqueeze(1).repeat(1, f, 1, 1).flatten(0, 1)
+        embed = embed.unsqueeze(1).repeat(1, f, 1).flatten(0, 1)
         size_emb = (
             get_size_embeddings(
                 torch.FloatTensor([[h * 8, w * 8]]),
@@ -177,7 +175,17 @@ class SDXLTrainer(BaseTrainer):
         loss = F.mse_loss(noise_pred, noise)
         # Min-Snr-Gamma 5
         loss = apply_snr_weight(loss, timesteps, self.scheduler, 5, False)
+        ema_decay = min(self.opt_step / (10 + self.opt_step), self.ema_decay)
+        self.ema_loss = ema_decay * self.ema_loss + (1 - ema_decay) * loss.item()
+        self.opt_step += 1
 
         if self._trainer is not None:
             self.log("train/loss", loss, on_step=True, logger=True, prog_bar=True)
+            self.log(
+                "train/ema_loss",
+                self.ema_loss,
+                on_step=True,
+                logger=True,
+                prog_bar=True,
+            )
         return loss
