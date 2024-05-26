@@ -19,7 +19,7 @@ from pytorch_lightning.loggers import WandbLogger
 
 EPOCH = 10
 GPUS = 1
-BATCH_SIZE = 1
+BATCH_SIZE = 4
 GRAD_ACC = 4
 
 
@@ -29,19 +29,16 @@ def load_model(model_file="./models/sdxl-1.0.safetensors"):
         "",
         model_file,
         "cpu",
-        torch.float32,
+        torch.bfloat16,
     )[3]
-    mm = load("./models/mm_sdxl_hs.safetensors")
+    mm = load("./models/mm_sdxl_hs.safetensors", "cpu")
     inject(unet, mm)
 
     ## Apply neede property
     unet.bfloat16()
     unet.requires_grad_(False)
-    unet.cuda()
     unet.enable_gradient_checkpointing()
     replace_unet_modules(unet, False, True, False)
-    mm.bfloat16()
-    mm.requires_grad_(False)
 
     ## Apply LyCORIS
     LycorisNetwork.apply_preset(
@@ -70,7 +67,6 @@ def load_model(model_file="./models/sdxl-1.0.safetensors"):
         unet, 1, 1, 1, factor=4, algo="lokr", full_matrix=True, train_norm=True
     )
     lycoris_network.apply_to()
-    lycoris_network.cuda()
 
     return unet, lycoris_network
 
@@ -97,12 +93,13 @@ def load_trainer(
 
 
 if __name__ == "__main__":
+    torch.multiprocessing.set_start_method("spawn")
     ## Load Model
     unet, lycoris_network = load_model()
 
     ## dataloader
     dataset = LatentVideoDataset()
-    dataloader = data.DataLoader(dataset, batch_size=1, shuffle=True, num_workers=0)
+    dataloader = data.DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
 
     ## Trainer
     trainer_module = load_trainer(
@@ -113,7 +110,7 @@ if __name__ == "__main__":
         lycoris_network,
         5e-5,
         t_max=len(dataloader) * EPOCH,
-    ).cuda()
+    )
 
     ## Training
     logger = None
@@ -125,6 +122,7 @@ if __name__ == "__main__":
     trainer = pl.Trainer(
         precision="bf16",
         accelerator="gpu",
+        # strategy="dp",
         devices=GPUS,
         max_epochs=EPOCH,
         logger=logger,

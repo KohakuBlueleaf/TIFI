@@ -170,11 +170,15 @@ class SDXLTrainer(BaseTrainer):
         noisy_latent, noise, timesteps = get_noise_noisy_latents_and_timesteps(
             self.scheduler, x, blended_x
         )
+        batch_timesteps = timesteps.unsqueeze(1).repeat(1, f).flatten(0, 1)
 
-        noise_pred = self.sdxl_unet(noisy_latent, timesteps, ctx, embed)
-        loss = F.mse_loss(noise_pred, noise)
+        noise_pred = self.sdxl_unet(noisy_latent, batch_timesteps, ctx, embed)
+        loss = F.mse_loss(noise_pred, noise, reduction="none")
+        loss = loss.mean([i for i in range(1, len(loss.shape))])
         # Min-Snr-Gamma 5
         loss = apply_snr_weight(loss, timesteps, self.scheduler, 5, False)
+        loss = loss.mean()
+
         ema_decay = min(self.opt_step / (10 + self.opt_step), self.ema_decay)
         self.ema_loss = ema_decay * self.ema_loss + (1 - ema_decay) * loss.item()
         self.opt_step += 1

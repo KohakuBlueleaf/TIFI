@@ -7,6 +7,7 @@ from typing import Optional
 
 import math
 import torch
+from torch.utils.checkpoint import checkpoint
 from torch import nn
 from einops import rearrange
 
@@ -181,9 +182,14 @@ class VanillaTemporalModule(nn.Module):
             self.temporal_transformer.proj_out = zero_module(
                 self.temporal_transformer.proj_out
             )
+        self.gradient_checkpointing = False
 
     def forward(self, x: torch.Tensor):
-        return self.temporal_transformer(x)
+        if self.training and self.gradient_checkpointing:
+            x = checkpoint(self.temporal_transformer, x, use_reentrant=True)
+        else:
+            x = self.temporal_transformer(x)
+        return x
 
 
 class TemporalTransformer3DModel(nn.Module):
