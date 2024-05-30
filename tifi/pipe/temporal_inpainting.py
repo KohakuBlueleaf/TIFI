@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 
 import torch
@@ -19,7 +21,10 @@ from tifi.utils.color_fixing import match_color
 from tifi.utils.jigsaw import jigsaw_schedule
 from tifi.utils.diff_utils import load_tokenizers, encode_prompts_single
 from tifi.logging import logger
-from tifi.modules.image_caption.image_caption import MiniGPT4ImageCaption
+from tifi.modules.image_caption.image_caption import (
+    MiniGPT4ImageCaption,
+    BullshitImageCaption,
+)
 
 
 class TemporalInpainting:
@@ -31,6 +36,8 @@ class TemporalInpainting:
         model_file: str = "./models/sdxl-1.0.safetensors",
         motion_module_file: str = "./models/mm_sdxl_hs.safetensors",
         lycoris_model_file: str = None,
+        captioner_type: str = "none",
+        captioner_config_path: str = "",
     ):
         ## Load Model
         tokenizer, tokenizer_2 = load_tokenizers()
@@ -52,11 +59,7 @@ class TemporalInpainting:
             lycoris_network: LycorisNetwork = create_lycoris_from_weights(
                 1.0, lycoris_model_file, unet
             )
-            lycoris_network.cuda()
-            lycoris_network.apply_to()
             lycoris_network.merge_to()
-            lycoris_network.restore()
-            lycoris_network.cpu()
             del lycoris_network
         torch.cuda.empty_cache()
 
@@ -76,12 +79,23 @@ class TemporalInpainting:
         self.scheduler = scheduler
         self.denoiser = denoiser
 
-        ## MiniGPT4 Image captioner
-        self.image_captioner = MiniGPT4ImageCaption(
-            gpu_id=0,
-            cfg_path="../../config/minigpt4_llama2_eval.yaml",
-            model_cfg_path="../../config/minigpt4_llama2.yaml",
-        )
+        if captioner_type == "minigpt4":
+            ## MiniGPT4 Image captioner
+            self.image_captioner = MiniGPT4ImageCaption(
+                gpu_id=0,
+                cfg_path=os.path.join(
+                    captioner_config_path, "minigpt4_llama2_eval.yaml"
+                ),
+                model_cfg_path=os.path.join(
+                    captioner_config_path, "minigpt4_llama2.yaml"
+                ),
+            )
+        elif captioner_type == "llava":
+            self.image_captioner = None
+        elif captioner_type == "none":
+            self.image_captioner = BullshitImageCaption()
+        else:
+            raise NotImplementedError
 
     def sigmas(
         self,
