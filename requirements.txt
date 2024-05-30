@@ -36,7 +36,7 @@ k-diffusion
 ## Requirements for finetune/dataset processing
 hakuir
 imagesize
-lycoris-lora==3.0.0.dev4
+lycoris-lora==3.0.0.dev6
 pytorch-lightning
 wandb
 warmup-scheduler

@@ -10,25 +10,16 @@ def match_color(source, target):
         .cpu()
         .numpy()
         .clip(0, 255)
-        .astype(np.uint8)
+        .astype(np.float32)
     )
     target = (
         (target.permute(1, 2, 0).float() * 255)
         .cpu()
         .numpy()
         .clip(0, 255)
-        .astype(np.uint8)
-    )
-    # Convert RGB to L*a*b*, and then match the std/mean
-    source_lab = cv2.cvtColor(source, cv2.COLOR_RGB2LAB).astype(np.float32) / 255
-    target_lab = cv2.cvtColor(target, cv2.COLOR_RGB2LAB).astype(np.float32) / 255
-    result = (source_lab - np.mean(source_lab)) / np.std(source_lab)
-    result = result * np.std(target_lab) + np.mean(target_lab)
-    source = cv2.cvtColor(
-        (result * 255).clip(0, 255).astype(np.uint8), cv2.COLOR_LAB2RGB
+        .astype(np.float32)
     )
 
-    source = source.astype(np.float32)
     # Use wavelet colorfix method to match original low frequency data at first
     source[:, :, 0] = wavelet_colorfix(source[:, :, 0], target[:, :, 0])
     source[:, :, 1] = wavelet_colorfix(source[:, :, 1], target[:, :, 1])

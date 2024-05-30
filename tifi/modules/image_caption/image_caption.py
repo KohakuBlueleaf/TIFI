@@ -2,11 +2,14 @@ import warnings
 from abc import abstractmethod
 from dataclasses import dataclass
 from typing import List, Union
+from subprocess import Popen, PIPE
 
-import resource_paths
-import minigpt4
 import numpy as np
 import torch
+from omegaconf import OmegaConf
+from PIL import Image
+from transformers import StoppingCriteriaList
+
 from minigpt4.common.config import Config
 from minigpt4.common.registry import registry
 from minigpt4.conversation.conversation import (
@@ -17,23 +20,21 @@ from minigpt4.conversation.conversation import (
     SeparatorStyle,
     StoppingCriteriaSub,
 )
-from omegaconf import OmegaConf
-from PIL import Image
-from transformers import StoppingCriteriaList
 
-""" The argument data class for the input of class "Config" of minigpt4 """
+from . import llava_utils
 
 
 @dataclass
 class ConfigArguments:
+    """The argument data class for the input of class "Config" of minigpt4"""
+
     cfg_path: str
     options: List[str]
 
 
-""" An abstract class for all image caption generator"""
-
-
 class ImageCaption:
+    """An abstract class for all image caption generator"""
+
     def __init__(self) -> None:
         pass
 
@@ -46,20 +47,18 @@ class ImageCaption:
         """
 
 
-""" An "mocked" image caption generator, which might be useful when testing or ablation study """
-
-
 class BullshitImageCaption(ImageCaption):
+    """An "mocked" image caption generator, which might be useful when testing or ablation study"""
+
     def generate_caption(self, img: Image.Image | torch.Tensor | str) -> str:
         return "This is an image"
 
 
-""" An abstract class for VLM-based image caption generator.
-    It is allowed to load your own model for the VLM
-"""
-
-
 class VLMImageCaption(ImageCaption):
+    """An abstract class for VLM-based image caption generator.
+    It is allowed to load your own model for the VLM
+    """
+
     def __init__(self, model=None) -> None:
         super().__init__()
 
@@ -74,6 +73,46 @@ class VLMImageCaption(ImageCaption):
             )
 
         self.model = model
+
+
+class LlavaImageCaption(ImageCaption):
+    """
+    Use another process to dynamicly offload the LLaVA model.
+    Also avoid some potential error caused by different CUDA runtimes.
+    """
+
+    def __init__(self, model_dir: str) -> None:
+        super().__init__()
+        self.model_dir = model_dir
+        self.captioner_process = None
+
+    def load(self):
+        self.captioner_process = Popen(
+            ["python", "-m", "tifi.modules.image_caption.llava_utils"],
+            stdin=PIPE,
+            stdout=PIPE,
+        )
+        self.captioner_process.stdin.write(self.model_dir.encode() + b"\n")
+
+    def offload(self):
+        self.captioner_process.stdin.close()
+        self.captioner_process.stdout.close()
+        self.captioner_process.kill()
+        self.captioner_process.wait()
+        self.captioner_process = None
+
+    def generate_caption(self, img: Image.Image | torch.Tensor | str) -> str:
+        if self.captioner_process == None:
+            self.load()
+        if isinstance(img, torch.Tensor):
+            img = Image.fromarray((img.permute(1, 2, 0).numpy() * 255).astype(np.uint8))
+        self.captioner_process.stdin.write(
+            llava_utils.image_to_base64_data_uri(img).encode() + b"\n"
+        )
+        self.captioner_process.stdout.readline()
+        result = self.captioner_process.stdout.readline()
+        # print("LLaVA caption:", result)
+        return result.decode().strip()
 
 
 class MiniGPT4ImageCaption(VLMImageCaption):

@@ -1,4 +1,5 @@
 import os
+import math
 
 import numpy as np
 
@@ -24,6 +25,7 @@ from tifi.logging import logger
 from tifi.modules.image_caption.image_caption import (
     MiniGPT4ImageCaption,
     BullshitImageCaption,
+    LlavaImageCaption,
 )
 
 
@@ -39,6 +41,25 @@ class TemporalInpainting:
         captioner_type: str = "none",
         captioner_config_path: str = "",
     ):
+        logger.info("Loading Captioner Model.")
+        if captioner_type == "minigpt4":
+            ## MiniGPT4 Image captioner
+            self.image_captioner = MiniGPT4ImageCaption(
+                gpu_id=0,
+                cfg_path=os.path.join(
+                    captioner_config_path, "minigpt4_llama2_eval.yaml"
+                ),
+                model_cfg_path=os.path.join(
+                    captioner_config_path, "minigpt4_llama2.yaml"
+                ),
+            )
+        elif captioner_type == "llava":
+            self.image_captioner = LlavaImageCaption(captioner_config_path)
+        elif captioner_type == "none":
+            self.image_captioner = BullshitImageCaption()
+        else:
+            raise NotImplementedError
+
         ## Load Model
         tokenizer, tokenizer_2 = load_tokenizers()
         text_model1, text_model2, vae, unet, _, _ = load_models_from_sdxl_checkpoint(
@@ -47,19 +68,20 @@ class TemporalInpainting:
             "cpu",
             torch.float32,
         )
+        mm = load(motion_module_file)
+        inject(unet, mm)
+        replace_unet_modules(unet, False, True, False)
         unet.bfloat16()
         unet.requires_grad_(False)
         unet.cuda()
-        # unet.enable_gradient_checkpointing()
-        replace_unet_modules(unet, False, True, False)
-        mm = load(motion_module_file)
-        inject(unet, mm)
 
         if lycoris_model_file is not None:
-            lycoris_network: LycorisNetwork = create_lycoris_from_weights(
+            logger.info(f"Loading LyCORIS model from {lycoris_model_file}.")
+            lycoris_network, _ = create_lycoris_from_weights(
                 1.0, lycoris_model_file, unet
             )
             lycoris_network.merge_to()
+            logger.info(f"LyCORIS Model Merged.")
             del lycoris_network
         torch.cuda.empty_cache()
 
@@ -79,34 +101,20 @@ class TemporalInpainting:
         self.scheduler = scheduler
         self.denoiser = denoiser
 
-        if captioner_type == "minigpt4":
-            ## MiniGPT4 Image captioner
-            self.image_captioner = MiniGPT4ImageCaption(
-                gpu_id=0,
-                cfg_path=os.path.join(
-                    captioner_config_path, "minigpt4_llama2_eval.yaml"
-                ),
-                model_cfg_path=os.path.join(
-                    captioner_config_path, "minigpt4_llama2.yaml"
-                ),
-            )
-        elif captioner_type == "llava":
-            self.image_captioner = None
-        elif captioner_type == "none":
-            self.image_captioner = BullshitImageCaption()
-        else:
-            raise NotImplementedError
-
     def sigmas(
         self,
         steps=16,
+        denoise_strength=0.5,
         sigma_schedule_function=get_sigmas_exponential,
         **kwargs,
     ):
+        real_step = math.ceil(steps / denoise_strength)
         sigma_min = self.scheduler.sigmas[-2]
         sigma_max = self.scheduler.sigmas[0]
-        sigmas = sigma_schedule_function(steps + 1, sigma_min, sigma_max, **kwargs)
-        return torch.cat([sigmas[:-2], self.scheduler.sigmas.new_zeros([1])])
+        sigmas = sigma_schedule_function(real_step + 1, sigma_min, sigma_max, **kwargs)
+        return torch.cat([sigmas[:-2], self.scheduler.sigmas.new_zeros([1])])[
+            -steps - 1 :
+        ]
 
     def cfg_wrapper(
         self, prompts, pooleds, neg_prompt, neg_pooled, reference_frames, cfg=5.0
@@ -223,7 +231,7 @@ class TemporalInpainting:
             embeds.append(embed)
         return torch.stack(prompts), torch.stack(embeds)
 
-    def __call__(self, videos, cfg=5.0):
+    def __call__(self, videos, cfg=5.0, denoise_strength=0.5, steps=12):
         if not isinstance(videos[0], list):
             videos = [videos]
 
@@ -308,14 +316,16 @@ class TemporalInpainting:
         )
         self.text_model1.cpu()
         self.text_model2.cpu()
+        # if isinstance(self.image_captioner, LlavaImageCaption):
+        #     self.image_captioner.offload()
+        torch.cuda.empty_cache()
         logger.info("All prompts prepared")
 
         logger.info("Temporal Inpainting ...")
         denoise_func = self.cfg_wrapper(
             prompt, pooled, neg_prompt, neg_pooled, reference_videos, cfg
         )
-        sigma_schedule = self.sigmas(16).cuda()
-        sigma_schedule_inpaint = sigma_schedule[-9:]
+        sigma_schedule_inpaint = self.sigmas(steps, denoise_strength).cuda()
         init_x = torch.randn_like(video_latents) * sigma_schedule_inpaint[0]
         init_x += video_latents
 
@@ -325,6 +335,7 @@ class TemporalInpainting:
                 init_x,
                 sigma_schedule_inpaint,
             )
+        torch.cuda.empty_cache()
 
         logger.info("Decode generated latents")
         self.vae.cuda()
@@ -344,5 +355,6 @@ class TemporalInpainting:
             vids.append(vid)
             vids_tensor.append(vid_tensor)
         self.vae.cpu()
+        torch.cuda.empty_cache()
         logger.info("All done.")
         return vids

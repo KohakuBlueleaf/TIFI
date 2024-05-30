@@ -14,9 +14,7 @@ from tifi.utils.interpolation import (
 from tifi.utils.diff_utils import load_tokenizers, encode_prompts_single
 
 
-llava_utils.load_model(
-    r"G:\nn_app\llama.cpp\models\llama3-llava-next-8b-gguf"
-)
+llava_utils.load_model(r"G:\nn_app\llama.cpp\models\llama3-llava-next-8b-gguf")
 
 DATASET_DIR = r"dataset\choosed_septuplet\choosed_septuplet\sequences"
 ALL_VIDEOS = [os.path.join(DATASET_DIR, v) for v in os.listdir(DATASET_DIR)]
