@@ -1,24 +1,22 @@
 import os
-from copy import deepcopy
-
-import numpy as np
 
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 from torchvision.transforms.functional import to_tensor
 from tqdm import tqdm
-
 from PIL import Image
 
 from library.sdxl_model_util import load_models_from_sdxl_checkpoint
+
+import tifi.modules.image_caption.llava_utils as llava_utils
 from tifi.utils.interpolation import (
     blend_frame_optical_flow,
 )
 from tifi.utils.diff_utils import load_tokenizers, encode_prompts_single
 
-from llava_utils import caption_llava
 
+llava_utils.load_model(
+    r"G:\nn_app\llama.cpp\models\llama3-llava-next-8b-gguf"
+)
 
 DATASET_DIR = r"dataset\choosed_septuplet\choosed_septuplet\sequences"
 ALL_VIDEOS = [os.path.join(DATASET_DIR, v) for v in os.listdir(DATASET_DIR)]
@@ -62,35 +60,11 @@ def process_video(path):
 
     reference_frame = os.path.join(path, os.listdir(path)[0])
 
-    caption = caption_llava(reference_frame)
+    caption = llava_utils.caption_llava(reference_frame)
     ctx, embed = encode_prompts_single(
         tokenizer, tokenizer_2, text_model1, text_model2, caption
     )
     return encode_frames(imgs), ctx, embed
-
-
-idx = 7
-length = 7
-frame_idx_map = {}
-for i in range(length - 1):
-    for j in range(i + 2, length):
-        for k in range(i + 1, j):
-            frame_idx_map[(i, j, k)] = idx
-            idx += 1
-
-
-def frame_index_gen(gt_frames=[0, 2, 4, 6]):
-    prev_gt = 0
-    current_idx = 0
-    all_idx = []
-    for gt_idx in gt_frames:
-        while current_idx < gt_idx:
-            all_idx.append(frame_idx_map[(prev_gt, gt_idx, current_idx)])
-            current_idx += 1
-        all_idx.append(gt_idx)
-        prev_gt = gt_idx
-        current_idx += 1
-    return all_idx
 
 
 def test_run():
@@ -98,7 +72,6 @@ def test_run():
     print(latents.shape)
     print(ctx.shape)
     print(embed.shape)
-    print(latents[frame_index_gen([0, 2, 4, 6])].shape)
 
 
 def main():

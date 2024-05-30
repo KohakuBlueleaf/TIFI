@@ -7,9 +7,7 @@ from diffusers import LMSDiscreteScheduler
 
 
 def get_noise_noisy_latents_and_timesteps(
-    noise_scheduler: LMSDiscreteScheduler, 
-    latents, 
-    blended_latents
+    noise_scheduler: LMSDiscreteScheduler, latents, blended_latents
 ):
     # Sample noise that we'll add to the latents
     noise = torch.randn_like(latents, device=latents.device)
@@ -35,7 +33,7 @@ def get_noise_noisy_latents_and_timesteps(
     # With larger sigma, we assume the stroke is more frome blended latent
     # With smaller sigma, we assume the stroke is from intermediate result
     blended_diff = blended_latents - latents
-    blended_diff[sigma_lt1] /= sigma[sigma_lt1]**2
+    blended_diff[sigma_lt1] /= sigma[sigma_lt1] ** 2
     blended_diff[~sigma_lt1] *= sigma[~sigma_lt1]
     noise = noise + blended_diff
 

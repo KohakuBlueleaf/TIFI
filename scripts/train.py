@@ -99,7 +99,9 @@ if __name__ == "__main__":
 
     ## dataloader
     dataset = LatentVideoDataset()
-    dataloader = data.DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
+    dataloader = data.DataLoader(
+        dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4
+    )
 
     ## Trainer
     trainer_module = load_trainer(
@@ -130,7 +132,7 @@ if __name__ == "__main__":
         accumulate_grad_batches=GRAD_ACC,
         callbacks=[
             LearningRateMonitor(logging_interval="step"),
-            ModelCheckpoint(every_n_epochs=1)
+            ModelCheckpoint(every_n_epochs=1),
         ],
         gradient_clip_val=1.0,
         # fast_dev_run=True,
