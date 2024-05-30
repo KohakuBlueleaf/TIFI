@@ -9,7 +9,10 @@ from tqdm import tqdm
 from PIL import Image
 from diffusers import LMSDiscreteScheduler
 from k_diffusion.external import DiscreteEpsDDPMDenoiser
-from k_diffusion.sampling import sample_euler, get_sigmas_exponential
+from k_diffusion.sampling import (
+    sample_dpmpp_2m_sde,
+    get_sigmas_exponential,
+)
 
 from library.train_util import replace_unet_modules
 from library.sdxl_model_util import load_models_from_sdxl_checkpoint
@@ -279,7 +282,8 @@ class TemporalInpainting:
                         ref1, ref2, ref2_idx - ref1_idx - 1
                     )[idx - ref1_idx - 1]
                     video[idx] = interpolated_frame
-                    video_latents[v_idx][idx] = self.vae_encode(interpolated_frame)
+                    latent = self.vae_encode(interpolated_frame)
+                    video_latents[v_idx][idx] = latent
             reference_videos.append(ref_video)
         video_latents = torch.stack([torch.stack(vid) for vid in video_latents])
         self.vae.cpu()
@@ -330,7 +334,7 @@ class TemporalInpainting:
         init_x += video_latents
 
         with torch.no_grad(), torch.autocast("cuda", torch.bfloat16):
-            result = sample_euler(
+            result = sample_dpmpp_2m_sde(
                 denoise_func,
                 init_x,
                 sigma_schedule_inpaint,

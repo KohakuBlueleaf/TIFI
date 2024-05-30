@@ -60,3 +60,6 @@ gradio==3.47.1
 scikit-image
 visual-genome
 wandb
+
+lpips
+pytorch-msssim

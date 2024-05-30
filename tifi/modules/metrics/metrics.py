@@ -1,7 +1,10 @@
 from abc import abstractmethod
+
 import torch
-from pytorch_msssim import ssim, ms_ssim
+import torch.nn as nn
+import torch.nn.functional as F
 import lpips
+from pytorch_msssim import ssim, ms_ssim
 
 
 class Metrics:
@@ -92,16 +95,14 @@ class PSNR(Metrics):
         vid2 = self._to_valid(vid2, data_range)
 
         # Compute the MSE for each
-        vid_diff = torch.abs(vid1 - vid2)
-        vid_diff_2 = torch.pow(vid_diff, 2)
+        vid_diff_2 = F.mse_loss(vid1, vid2, reduction="none")
 
         # Compute the mean square errors for each frame
-        mse = torch.sum(vid_diff_2, dim=-1).sum(dim=-1).sum(dim=-1) / (H * W * C)
+        mse = vid_diff_2.mean(dim=(1, 2, 3))
 
         # Prevent divide by zero problem
-        mse[mse <= 1e-10] = 1e-10
-        psnr = 10 * torch.log10((255 * 255) / mse)
-        psnr_avg = torch.sum(psnr) / (B)
+        psnr = 10 * torch.log10((255 * 255) / (mse + torch.finfo(mse.dtype).eps))
+        psnr_avg = torch.mean(psnr)
         return psnr_avg.item()
 
     def _to_valid(self, video: torch.Tensor, data_range: str = None):
@@ -182,7 +183,7 @@ class LPIPS(Metrics):
         # Compute the average
         lpips_score_avg = torch.mean(lpips_score)
 
-        return lpips_score_avg
+        return lpips_score_avg.item()
 
     def _to_valid(self, video: torch.Tensor, data_range: str = None):
         return self._to_target(video, "-1,1", data_range=data_range).float()
