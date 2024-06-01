@@ -85,6 +85,9 @@ pipeline = TemporalInpainting(
     captioner_config_path=os.path.abspath("./models"),
 )
 
+if os.path.isfile("./eval_out/results.txt"):
+    os.remove("./eval_out/results.txt")
+
 TEST_VIDS = r".\dataset\choosed_septuplet\test_sequences"
 videos = os.listdir(TEST_VIDS)
 for video_id in tqdm(videos, desc="Processing videos", smoothing=0.01):
@@ -117,9 +120,12 @@ for video_id in tqdm(videos, desc="Processing videos", smoothing=0.01):
     # Randomly drop some frames
     # But always drop the middle frame
     frame_drops = [False] * len(vid)
-    frame_drops[len(frame_drops) // 2] = True
-    for i in range(1, len(frame_drops) - 1):
-        frame_drops[i] |= random.random() > 0.5
+    drop_count = random.randint(1, len(frame_drops)-2)
+    id_list = list(range(1, len(frame_drops) - 1))
+    random.shuffle(id_list)
+    removed_frames = sorted(id_list[:drop_count])
+    for i in removed_frames:
+        frame_drops[i] = True
 
     frames = [
         [
@@ -156,10 +162,11 @@ for video_id in tqdm(videos, desc="Processing videos", smoothing=0.01):
 
     ours, refs = compare(ground_truth, tifi_out, optical_flow_out, frame_drops)
     with open("eval_out/results.txt", "a") as f:
+        f.write(f"{video_id}, removed frames: {removed_frames}\n")
         f.write(
-            f"{video_id} || ours || Lpips: {ours[0]:5.3f}, ssim: {ours[1]:5.3f}, msssim: {ours[2]:5.3f}, psnr: {ours[3]:5.2f}\n"
+            f"tifi || Lpips: {ours[0]:5.3f}, ssim: {ours[1]:5.3f}, msssim: {ours[2]:5.3f}, psnr: {ours[3]:5.2f}\n"
         )
         f.write(
-            f"{video_id} || ref  || Lpips: {refs[0]:5.3f}, ssim: {refs[1]:5.3f}, msssim: {refs[2]:5.3f}, psnr: {refs[3]:5.2f}\n"
+            f"opti || Lpips: {refs[0]:5.3f}, ssim: {refs[1]:5.3f}, msssim: {refs[2]:5.3f}, psnr: {refs[3]:5.2f}\n"
         )
-    break
+        f.write("\n")
