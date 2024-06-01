@@ -1,0 +1,2 @@
+00001_0033 || ours || Lpips: 0.150, ssim: 0.926, msssim: 0.953, psnr: 30.33
+00001_0033 || ref  || Lpips: 0.184, ssim: 0.898, msssim: 0.912, psnr: 26.50

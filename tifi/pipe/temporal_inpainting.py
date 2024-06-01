@@ -236,17 +236,19 @@ class TemporalInpainting:
 
     def __call__(self, videos, cfg=5.0, denoise_strength=0.5, steps=12):
         if not isinstance(videos[0], list):
-            videos = [videos]
+            org_videos = [videos]
+        else:
+            org_videos = videos
 
         logger.info("Starting Temporal Inpainting")
 
         logger.info("Preparing latents of interpolated videos...")
-        video_latents = [[None for _ in video] for video in videos]
+        video_latents = [[None for _ in video] for video in org_videos]
         reference_videos = []
         videos_fill1 = []
         videos_fill2 = []
         self.vae.cuda()
-        for v_idx, video in enumerate(videos):
+        for v_idx, video in enumerate(org_videos):
             assert video[0] is not None
             assert video[-1] is not None
             v1 = []
@@ -344,21 +346,29 @@ class TemporalInpainting:
         logger.info("Decode generated latents")
         self.vae.cuda()
         vids = []
-        vids_tensor = []
-        for video, inp_video in zip(result, videos):
+        org_vids = []
+        for video, inp_video, ref_video in zip(result, org_videos, reference_videos):
             vid = []
-            vid_tensor = []
-            for frame, inp_frame in zip(video, inp_video):
-                decoded_frame = self.vae_decode(frame)
-                vid_tensor.append(match_color(decoded_frame, inp_frame))
+            org_vid = []
+            for frame, inp_frame, ref_frame in zip(video, inp_video, ref_video):
+                if ref_frame is not None:
+                    decoded_frame = inp_frame
+                else:
+                    decoded_frame = self.vae_decode(frame)
+                    decoded_frame = match_color(decoded_frame, inp_frame)
                 vid.append(
                     Image.fromarray(
                         (decoded_frame.permute(1, 2, 0) * 255).numpy().astype(np.uint8)
                     )
                 )
+                org_vid.append(
+                    Image.fromarray(
+                        (inp_frame.permute(1, 2, 0) * 255).numpy().astype(np.uint8)
+                    )
+                )
             vids.append(vid)
-            vids_tensor.append(vid_tensor)
+            org_vids.append(org_vid)
         self.vae.cpu()
         torch.cuda.empty_cache()
         logger.info("All done.")
-        return vids
+        return vids, org_vids

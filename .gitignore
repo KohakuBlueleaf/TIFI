@@ -3,6 +3,7 @@
 *.png
 *.tar
 !vid/out/*.png
+!eval_out/sample_img/*.png
 *.pt
 *.pth
 *.ckpt
