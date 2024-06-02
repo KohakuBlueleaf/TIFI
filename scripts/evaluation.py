@@ -30,7 +30,7 @@ def compare(
     frames: list[list[Image.Image]],
     gens: list[list[Image.Image]],
     opticalflows: list[list[Image.Image]],
-    masks: list[bool]
+    masks: list[bool],
 ):
     total = 0
     total_lpips = 0
@@ -41,9 +41,9 @@ def compare(
     total_ssim_ref = 0
     total_msssim_ref = 0
     total_psnr_ref = 0
-    
+
     mask = torch.tensor(masks)
-    
+
     for gt, gen, ref in zip(
         make_video_tensor(frames),
         make_video_tensor(gens),
@@ -81,16 +81,16 @@ pipeline = TemporalInpainting(
     model_file="./models/sdxl-1.0.safetensors",
     motion_module_file="./models/mm_sdxl_hs.safetensors",
     lycoris_model_file="./models/animatediff-sdxl-ft-lycoris-epoch=10.pt",
-    captioner_type="llava",
+    captioner_type="llava-direct",
     captioner_config_path=os.path.abspath("./models"),
 )
 
-if os.path.isfile("./eval_out/results.txt"):
-    os.remove("./eval_out/results.txt")
+# if os.path.isfile("./eval_out/results.txt"):
+#     os.remove("./eval_out/results.txt")
 
 TEST_VIDS = r".\dataset\choosed_septuplet\test_sequences"
 videos = os.listdir(TEST_VIDS)
-for video_id in tqdm(videos, desc="Processing videos", smoothing=0.01):
+for video_id in tqdm(videos[136:], desc="Processing videos", smoothing=0.01):
     TEST_VID = os.path.join(TEST_VIDS, video_id)
     frame_files = os.listdir(TEST_VID)
     frames_imgs = [
@@ -120,7 +120,7 @@ for video_id in tqdm(videos, desc="Processing videos", smoothing=0.01):
     # Randomly drop some frames
     # But always drop the middle frame
     frame_drops = [False] * len(vid)
-    drop_count = random.randint(1, len(frame_drops)-2)
+    drop_count = random.randint(1, len(frame_drops) - 2)
     id_list = list(range(1, len(frame_drops) - 1))
     random.shuffle(id_list)
     removed_frames = sorted(id_list[:drop_count])
@@ -145,7 +145,9 @@ for video_id in tqdm(videos, desc="Processing videos", smoothing=0.01):
             if frame_drops[fid]:
                 vid[fid] = None
 
-    tifi_out, optical_flow_out = pipeline(frames, steps=12, denoise_strength=0.65, cfg=5.0)
+    tifi_out, optical_flow_out = pipeline(
+        frames, steps=12, denoise_strength=0.65, cfg=5.0
+    )
     for vid, video in enumerate(tifi_out):
         for fid, frame in enumerate(video):
             frames_imgs[vid][fid].append(frame)

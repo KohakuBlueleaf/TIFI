@@ -115,6 +115,19 @@ class LlavaImageCaption(ImageCaption):
         return result.decode().strip()
 
 
+class LlavaImageCaptionDirect(ImageCaption):
+    def __init__(self, model_dir: str) -> None:
+        super().__init__()
+        self.model_dir = model_dir
+        llava_utils.load_model(model_dir)
+
+    def generate_caption(self, img: Image.Image | torch.Tensor | str) -> str:
+        if isinstance(img, torch.Tensor):
+            img = Image.fromarray((img.permute(1, 2, 0).numpy() * 255).astype(np.uint8))
+        result = llava_utils.caption_llava_pil(img)
+        return result.strip()
+
+
 class MiniGPT4ImageCaption(VLMImageCaption):
     # Conversation dict
     conv_dict = {

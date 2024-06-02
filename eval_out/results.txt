@@ -1,2 +1,1920 @@
-00001_0033 || ours || Lpips: 0.150, ssim: 0.926, msssim: 0.953, psnr: 30.33
-00001_0033 || ref  || Lpips: 0.184, ssim: 0.898, msssim: 0.912, psnr: 26.50
+00001_0033, removed frames: [1, 2, 4]
+tifi || Lpips: 0.223, ssim: 0.862, msssim: 0.863, psnr: 22.76
+opti || Lpips: 0.285, ssim: 0.829, msssim: 0.775, psnr: 20.49
+
+00001_0219, removed frames: [2, 4, 5]
+tifi || Lpips: 0.224, ssim: 0.907, msssim: 0.940, psnr: 30.38
+opti || Lpips: 0.231, ssim: 0.904, msssim: 0.934, psnr: 29.83
+
+00001_0221, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.477, ssim: 0.645, msssim: 0.509, psnr: 14.34
+opti || Lpips: 0.533, ssim: 0.564, msssim: 0.375, psnr: 12.89
+
+00001_0402, removed frames: [1, 2, 3]
+tifi || Lpips: 0.202, ssim: 0.854, msssim: 0.900, psnr: 26.47
+opti || Lpips: 0.255, ssim: 0.805, msssim: 0.837, psnr: 23.53
+
+00001_0735, removed frames: [2, 3, 4]
+tifi || Lpips: 0.106, ssim: 0.953, msssim: 0.973, psnr: 35.07
+opti || Lpips: 0.092, ssim: 0.955, msssim: 0.969, psnr: 35.57
+
+00002_0459, removed frames: [1, 3, 4]
+tifi || Lpips: 0.175, ssim: 0.872, msssim: 0.940, psnr: 29.32
+opti || Lpips: 0.158, ssim: 0.901, msssim: 0.953, psnr: 28.44
+
+00002_0595, removed frames: [2]
+tifi || Lpips: 0.136, ssim: 0.904, msssim: 0.942, psnr: 28.83
+opti || Lpips: 0.185, ssim: 0.882, msssim: 0.914, psnr: 26.03
+
+00002_0638, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.151, ssim: 0.982, msssim: 0.990, psnr: 42.72
+opti || Lpips: 0.125, ssim: 0.985, msssim: 0.989, psnr: 42.33
+
+00002_0749, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.217, ssim: 0.840, msssim: 0.850, psnr: 24.20
+opti || Lpips: 0.284, ssim: 0.753, msssim: 0.685, psnr: 20.74
+
+00002_0896, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.228, ssim: 0.877, msssim: 0.912, psnr: 26.32
+opti || Lpips: 0.112, ssim: 0.937, msssim: 0.977, psnr: 28.62
+
+00003_0224, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.334, ssim: 0.752, msssim: 0.698, psnr: 20.16
+opti || Lpips: 0.399, ssim: 0.713, msssim: 0.586, psnr: 18.46
+
+00003_0365, removed frames: [2, 3, 4]
+tifi || Lpips: 0.207, ssim: 0.923, msssim: 0.920, psnr: 27.12
+opti || Lpips: 0.187, ssim: 0.926, msssim: 0.923, psnr: 26.83
+
+00003_0386, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.372, ssim: 0.519, msssim: 0.673, psnr: 17.65
+opti || Lpips: 0.466, ssim: 0.392, msssim: 0.402, psnr: 14.44
+
+00003_0515, removed frames: [3]
+tifi || Lpips: 0.146, ssim: 0.900, msssim: 0.942, psnr: 29.64
+opti || Lpips: 0.129, ssim: 0.907, msssim: 0.940, psnr: 28.66
+
+00003_0621, removed frames: [3]
+tifi || Lpips: 0.119, ssim: 0.942, msssim: 0.961, psnr: 30.47
+opti || Lpips: 0.118, ssim: 0.937, msssim: 0.955, psnr: 28.65
+
+00004_0072, removed frames: [1, 3, 5]
+tifi || Lpips: 0.131, ssim: 0.975, msssim: 0.984, psnr: 36.96
+opti || Lpips: 0.090, ssim: 0.976, msssim: 0.981, psnr: 37.02
+
+00004_0328, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.296, ssim: 0.689, msssim: 0.790, psnr: 23.32
+opti || Lpips: 0.224, ssim: 0.776, msssim: 0.860, psnr: 24.32
+
+00004_0615, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.310, ssim: 0.905, msssim: 0.854, psnr: 29.16
+opti || Lpips: 0.282, ssim: 0.909, msssim: 0.859, psnr: 29.38
+
+00004_0854, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.316, ssim: 0.835, msssim: 0.797, psnr: 19.37
+opti || Lpips: 0.331, ssim: 0.801, msssim: 0.759, psnr: 18.83
+
+00004_0891, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.236, ssim: 0.845, msssim: 0.867, psnr: 24.68
+opti || Lpips: 0.242, ssim: 0.829, msssim: 0.840, psnr: 24.02
+
+00005_0286, removed frames: [5]
+tifi || Lpips: 0.225, ssim: 0.785, msssim: 0.901, psnr: 25.14
+opti || Lpips: 0.165, ssim: 0.851, msssim: 0.945, psnr: 26.73
+
+00005_0414, removed frames: [1, 4]
+tifi || Lpips: 0.134, ssim: 0.956, msssim: 0.978, psnr: 31.96
+opti || Lpips: 0.126, ssim: 0.954, msssim: 0.973, psnr: 31.97
+
+00005_0582, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.225, ssim: 0.954, msssim: 0.938, psnr: 31.28
+opti || Lpips: 0.232, ssim: 0.939, msssim: 0.916, psnr: 30.59
+
+00005_0726, removed frames: [4]
+tifi || Lpips: 0.146, ssim: 0.958, msssim: 0.947, psnr: 29.87
+opti || Lpips: 0.146, ssim: 0.961, msssim: 0.949, psnr: 28.35
+
+00005_0801, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.211, ssim: 0.957, msssim: 0.934, psnr: 29.64
+opti || Lpips: 0.228, ssim: 0.942, msssim: 0.896, psnr: 26.46
+
+00006_0174, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.321, ssim: 0.857, msssim: 0.772, psnr: 22.26
+opti || Lpips: 0.265, ssim: 0.850, msssim: 0.754, psnr: 21.53
+
+00006_0389, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.250, ssim: 0.763, msssim: 0.827, psnr: 22.30
+opti || Lpips: 0.190, ssim: 0.774, msssim: 0.843, psnr: 21.96
+
+00006_0839, removed frames: [1, 4]
+tifi || Lpips: 0.168, ssim: 0.967, msssim: 0.959, psnr: 28.92
+opti || Lpips: 0.210, ssim: 0.925, msssim: 0.885, psnr: 25.07
+
+00006_0852, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.258, ssim: 0.905, msssim: 0.843, psnr: 24.38
+opti || Lpips: 0.338, ssim: 0.865, msssim: 0.730, psnr: 22.31
+
+00006_0952, removed frames: [1, 4]
+tifi || Lpips: 0.119, ssim: 0.917, msssim: 0.948, psnr: 29.02
+opti || Lpips: 0.178, ssim: 0.873, msssim: 0.898, psnr: 25.79
+
+00007_0168, removed frames: [5]
+tifi || Lpips: 0.189, ssim: 0.871, msssim: 0.927, psnr: 27.12
+opti || Lpips: 0.199, ssim: 0.862, msssim: 0.918, psnr: 26.52
+
+00007_0533, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.246, ssim: 0.865, msssim: 0.905, psnr: 23.91
+opti || Lpips: 0.192, ssim: 0.877, msssim: 0.908, psnr: 23.67
+
+00007_0622, removed frames: [1]
+tifi || Lpips: 0.282, ssim: 0.878, msssim: 0.910, psnr: 25.02
+opti || Lpips: 0.344, ssim: 0.845, msssim: 0.805, psnr: 21.51
+
+00007_0737, removed frames: [1, 2, 5]
+tifi || Lpips: 0.173, ssim: 0.886, msssim: 0.923, psnr: 28.74
+opti || Lpips: 0.177, ssim: 0.872, msssim: 0.906, psnr: 27.33
+
+00007_0937, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.304, ssim: 0.874, msssim: 0.784, psnr: 17.44
+opti || Lpips: 0.299, ssim: 0.876, msssim: 0.776, psnr: 17.00
+
+00008_0019, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.228, ssim: 0.962, msssim: 0.956, psnr: 32.74
+opti || Lpips: 0.160, ssim: 0.963, msssim: 0.955, psnr: 32.85
+
+00008_0023, removed frames: [1, 2]
+tifi || Lpips: 0.153, ssim: 0.966, msssim: 0.982, psnr: 34.08
+opti || Lpips: 0.127, ssim: 0.966, msssim: 0.970, psnr: 33.58
+
+00008_0552, removed frames: [1, 2]
+tifi || Lpips: 0.253, ssim: 0.893, msssim: 0.894, psnr: 23.66
+opti || Lpips: 0.237, ssim: 0.891, msssim: 0.878, psnr: 22.82
+
+00008_0687, removed frames: [1, 4]
+tifi || Lpips: 0.190, ssim: 0.920, msssim: 0.922, psnr: 27.81
+opti || Lpips: 0.237, ssim: 0.905, msssim: 0.898, psnr: 24.45
+
+00008_0818, removed frames: [4, 5]
+tifi || Lpips: 0.165, ssim: 0.947, msssim: 0.921, psnr: 28.02
+opti || Lpips: 0.151, ssim: 0.936, msssim: 0.902, psnr: 26.55
+
+00009_0004, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.262, ssim: 0.842, msssim: 0.841, psnr: 21.68
+opti || Lpips: 0.224, ssim: 0.843, msssim: 0.845, psnr: 21.37
+
+00009_0169, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.281, ssim: 0.888, msssim: 0.877, psnr: 24.83
+opti || Lpips: 0.233, ssim: 0.889, msssim: 0.874, psnr: 24.05
+
+00009_0348, removed frames: [1, 2, 4]
+tifi || Lpips: 0.205, ssim: 0.938, msssim: 0.942, psnr: 29.00
+opti || Lpips: 0.248, ssim: 0.925, msssim: 0.911, psnr: 26.44
+
+00009_0807, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.373, ssim: 0.838, msssim: 0.757, psnr: 21.74
+opti || Lpips: 0.364, ssim: 0.831, msssim: 0.753, psnr: 21.24
+
+00009_0861, removed frames: [2, 4]
+tifi || Lpips: 0.271, ssim: 0.854, msssim: 0.898, psnr: 28.56
+opti || Lpips: 0.251, ssim: 0.855, msssim: 0.887, psnr: 27.95
+
+00010_0126, removed frames: [2, 5]
+tifi || Lpips: 0.220, ssim: 0.951, msssim: 0.949, psnr: 31.32
+opti || Lpips: 0.266, ssim: 0.917, msssim: 0.887, psnr: 28.69
+
+00010_0488, removed frames: [1, 3, 4]
+tifi || Lpips: 0.124, ssim: 0.910, msssim: 0.940, psnr: 25.57
+opti || Lpips: 0.111, ssim: 0.915, msssim: 0.944, psnr: 25.78
+
+00010_0734, removed frames: [2, 3, 5]
+tifi || Lpips: 0.139, ssim: 0.941, msssim: 0.969, psnr: 30.23
+opti || Lpips: 0.143, ssim: 0.934, msssim: 0.958, psnr: 28.78
+
+00010_0753, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.276, ssim: 0.825, msssim: 0.819, psnr: 20.14
+opti || Lpips: 0.324, ssim: 0.768, msssim: 0.702, psnr: 17.24
+
+00010_0910, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.352, ssim: 0.922, msssim: 0.897, psnr: 26.72
+opti || Lpips: 0.376, ssim: 0.907, msssim: 0.861, psnr: 25.72
+
+00011_0192, removed frames: [3]
+tifi || Lpips: 0.248, ssim: 0.764, msssim: 0.873, psnr: 25.15
+opti || Lpips: 0.251, ssim: 0.761, msssim: 0.873, psnr: 24.70
+
+00011_0199, removed frames: [1, 2, 4]
+tifi || Lpips: 0.243, ssim: 0.826, msssim: 0.888, psnr: 26.92
+opti || Lpips: 0.243, ssim: 0.822, msssim: 0.885, psnr: 26.97
+
+00011_0471, removed frames: [4]
+tifi || Lpips: 0.061, ssim: 0.953, msssim: 0.990, psnr: 36.59
+opti || Lpips: 0.065, ssim: 0.963, msssim: 0.990, psnr: 33.24
+
+00011_0664, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.387, ssim: 0.860, msssim: 0.799, psnr: 19.18
+opti || Lpips: 0.365, ssim: 0.854, msssim: 0.765, psnr: 18.10
+
+00011_0822, removed frames: [1, 2, 3]
+tifi || Lpips: 0.229, ssim: 0.947, msssim: 0.952, psnr: 28.51
+opti || Lpips: 0.206, ssim: 0.940, msssim: 0.931, psnr: 26.19
+
+00012_0055, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.232, ssim: 0.900, msssim: 0.884, psnr: 27.86
+opti || Lpips: 0.213, ssim: 0.886, msssim: 0.874, psnr: 26.80
+
+00012_0483, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.139, ssim: 0.930, msssim: 0.960, psnr: 28.72
+opti || Lpips: 0.151, ssim: 0.928, msssim: 0.943, psnr: 26.96
+
+00012_0672, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.270, ssim: 0.889, msssim: 0.884, psnr: 23.27
+opti || Lpips: 0.296, ssim: 0.863, msssim: 0.823, psnr: 20.60
+
+00012_0816, removed frames: [1, 2, 5]
+tifi || Lpips: 0.145, ssim: 0.972, msssim: 0.981, psnr: 35.86
+opti || Lpips: 0.135, ssim: 0.972, msssim: 0.978, psnr: 33.49
+
+00012_0870, removed frames: [3]
+tifi || Lpips: 0.114, ssim: 0.961, msssim: 0.975, psnr: 34.88
+opti || Lpips: 0.129, ssim: 0.953, msssim: 0.961, psnr: 32.18
+
+00013_0238, removed frames: [1]
+tifi || Lpips: 0.317, ssim: 0.781, msssim: 0.810, psnr: 21.35
+opti || Lpips: 0.440, ssim: 0.627, msssim: 0.544, psnr: 16.77
+
+00013_0378, removed frames: [5]
+tifi || Lpips: 0.110, ssim: 0.902, msssim: 0.975, psnr: 35.51
+opti || Lpips: 0.111, ssim: 0.903, msssim: 0.972, psnr: 35.30
+
+00013_0693, removed frames: [1]
+tifi || Lpips: 0.161, ssim: 0.874, msssim: 0.965, psnr: 35.23
+opti || Lpips: 0.143, ssim: 0.883, msssim: 0.964, psnr: 34.40
+
+00013_0739, removed frames: [1, 5]
+tifi || Lpips: 0.156, ssim: 0.937, msssim: 0.945, psnr: 28.87
+opti || Lpips: 0.253, ssim: 0.873, msssim: 0.832, psnr: 24.79
+
+00013_0751, removed frames: [2]
+tifi || Lpips: 0.123, ssim: 0.920, msssim: 0.962, psnr: 29.33
+opti || Lpips: 0.127, ssim: 0.919, msssim: 0.962, psnr: 28.00
+
+00014_0209, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.156, ssim: 0.950, msssim: 0.959, psnr: 29.59
+opti || Lpips: 0.146, ssim: 0.949, msssim: 0.952, psnr: 28.67
+
+00014_0273, removed frames: [1, 2, 3]
+tifi || Lpips: 0.147, ssim: 0.951, msssim: 0.969, psnr: 31.36
+opti || Lpips: 0.184, ssim: 0.929, msssim: 0.940, psnr: 28.99
+
+00014_0664, removed frames: [3, 4]
+tifi || Lpips: 0.216, ssim: 0.848, msssim: 0.912, psnr: 29.29
+opti || Lpips: 0.306, ssim: 0.784, msssim: 0.811, psnr: 26.36
+
+00014_0726, removed frames: [1, 5]
+tifi || Lpips: 0.156, ssim: 0.826, msssim: 0.955, psnr: 32.96
+opti || Lpips: 0.145, ssim: 0.885, msssim: 0.970, psnr: 32.11
+
+00014_0730, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.328, ssim: 0.780, msssim: 0.800, psnr: 14.59
+opti || Lpips: 0.290, ssim: 0.795, msssim: 0.807, psnr: 14.22
+
+00015_0418, removed frames: [2, 5]
+tifi || Lpips: 0.132, ssim: 0.961, msssim: 0.980, psnr: 35.75
+opti || Lpips: 0.133, ssim: 0.960, msssim: 0.980, psnr: 35.32
+
+00015_0510, removed frames: [2, 3]
+tifi || Lpips: 0.160, ssim: 0.960, msssim: 0.960, psnr: 26.84
+opti || Lpips: 0.198, ssim: 0.939, msssim: 0.893, psnr: 22.95
+
+00015_0710, removed frames: [1]
+tifi || Lpips: 0.086, ssim: 0.960, msssim: 0.980, psnr: 33.29
+opti || Lpips: 0.086, ssim: 0.954, msssim: 0.964, psnr: 30.24
+
+00015_0768, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.244, ssim: 0.826, msssim: 0.857, psnr: 21.89
+opti || Lpips: 0.260, ssim: 0.820, msssim: 0.836, psnr: 19.97
+
+00015_0974, removed frames: [3, 5]
+tifi || Lpips: 0.154, ssim: 0.949, msssim: 0.970, psnr: 34.44
+opti || Lpips: 0.226, ssim: 0.926, msssim: 0.947, psnr: 31.50
+
+00016_0044, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.283, ssim: 0.786, msssim: 0.844, psnr: 25.08
+opti || Lpips: 0.201, ssim: 0.865, msssim: 0.902, psnr: 25.54
+
+00016_0235, removed frames: [3]
+tifi || Lpips: 0.175, ssim: 0.915, msssim: 0.953, psnr: 27.84
+opti || Lpips: 0.190, ssim: 0.900, msssim: 0.927, psnr: 26.42
+
+00016_0736, removed frames: [4, 5]
+tifi || Lpips: 0.172, ssim: 0.935, msssim: 0.956, psnr: 28.18
+opti || Lpips: 0.157, ssim: 0.935, msssim: 0.955, psnr: 25.11
+
+00016_0770, removed frames: [4]
+tifi || Lpips: 0.164, ssim: 0.952, msssim: 0.965, psnr: 34.41
+opti || Lpips: 0.261, ssim: 0.887, msssim: 0.873, psnr: 29.43
+
+00016_0892, removed frames: [3]
+tifi || Lpips: 0.197, ssim: 0.930, msssim: 0.940, psnr: 29.06
+opti || Lpips: 0.226, ssim: 0.904, msssim: 0.901, psnr: 27.10
+
+00017_0041, removed frames: [3, 4]
+tifi || Lpips: 0.164, ssim: 0.927, msssim: 0.944, psnr: 30.17
+opti || Lpips: 0.205, ssim: 0.896, msssim: 0.872, psnr: 25.90
+
+00017_0068, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.195, ssim: 0.908, msssim: 0.904, psnr: 24.11
+opti || Lpips: 0.272, ssim: 0.860, msssim: 0.808, psnr: 20.53
+
+00017_0490, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.321, ssim: 0.797, msssim: 0.831, psnr: 25.24
+opti || Lpips: 0.347, ssim: 0.751, msssim: 0.764, psnr: 23.69
+
+00017_0664, removed frames: [5]
+tifi || Lpips: 0.186, ssim: 0.924, msssim: 0.948, psnr: 32.52
+opti || Lpips: 0.142, ssim: 0.929, msssim: 0.965, psnr: 33.22
+
+00017_0691, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.266, ssim: 0.876, msssim: 0.842, psnr: 23.22
+opti || Lpips: 0.250, ssim: 0.871, msssim: 0.824, psnr: 22.24
+
+00018_0005, removed frames: [1, 2, 4]
+tifi || Lpips: 0.129, ssim: 0.912, msssim: 0.947, psnr: 28.25
+opti || Lpips: 0.123, ssim: 0.909, msssim: 0.937, psnr: 26.75
+
+00018_0427, removed frames: [3, 4]
+tifi || Lpips: 0.125, ssim: 0.848, msssim: 0.965, psnr: 37.85
+opti || Lpips: 0.090, ssim: 0.814, msssim: 0.953, psnr: 34.92
+
+00018_0435, removed frames: [5]
+tifi || Lpips: 0.109, ssim: 0.930, msssim: 0.976, psnr: 32.03
+opti || Lpips: 0.121, ssim: 0.927, msssim: 0.966, psnr: 30.32
+
+00018_0625, removed frames: [2]
+tifi || Lpips: 0.146, ssim: 0.961, msssim: 0.973, psnr: 36.50
+opti || Lpips: 0.151, ssim: 0.961, msssim: 0.970, psnr: 35.96
+
+00018_0949, removed frames: [5]
+tifi || Lpips: 0.173, ssim: 0.956, msssim: 0.974, psnr: 30.79
+opti || Lpips: 0.160, ssim: 0.961, msssim: 0.972, psnr: 29.40
+
+00019_0123, removed frames: [1, 3, 5]
+tifi || Lpips: 0.164, ssim: 0.892, msssim: 0.938, psnr: 26.93
+opti || Lpips: 0.147, ssim: 0.905, msssim: 0.948, psnr: 26.12
+
+00019_0753, removed frames: [2, 3]
+tifi || Lpips: 0.166, ssim: 0.903, msssim: 0.938, psnr: 27.43
+opti || Lpips: 0.185, ssim: 0.895, msssim: 0.921, psnr: 26.70
+
+00019_0768, removed frames: [4, 5]
+tifi || Lpips: 0.104, ssim: 0.931, msssim: 0.979, psnr: 35.98
+opti || Lpips: 0.101, ssim: 0.919, msssim: 0.967, psnr: 34.83
+
+00019_0918, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.205, ssim: 0.819, msssim: 0.823, psnr: 19.29
+opti || Lpips: 0.194, ssim: 0.836, msssim: 0.830, psnr: 18.48
+
+00019_0957, removed frames: [2]
+tifi || Lpips: 0.183, ssim: 0.930, msssim: 0.956, psnr: 30.44
+opti || Lpips: 0.186, ssim: 0.929, msssim: 0.947, psnr: 30.11
+
+00020_0122, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.206, ssim: 0.923, msssim: 0.953, psnr: 30.49
+opti || Lpips: 0.205, ssim: 0.926, msssim: 0.944, psnr: 28.91
+
+00020_0123, removed frames: [3, 4]
+tifi || Lpips: 0.179, ssim: 0.928, msssim: 0.962, psnr: 28.10
+opti || Lpips: 0.181, ssim: 0.930, msssim: 0.958, psnr: 26.10
+
+00020_0138, removed frames: [4, 5]
+tifi || Lpips: 0.235, ssim: 0.845, msssim: 0.903, psnr: 26.10
+opti || Lpips: 0.212, ssim: 0.875, msssim: 0.930, psnr: 25.43
+
+00020_0149, removed frames: [1]
+tifi || Lpips: 0.233, ssim: 0.872, msssim: 0.896, psnr: 30.72
+opti || Lpips: 0.167, ssim: 0.938, msssim: 0.956, psnr: 32.97
+
+00020_0170, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.132, ssim: 0.951, msssim: 0.978, psnr: 28.50
+opti || Lpips: 0.067, ssim: 0.971, msssim: 0.991, psnr: 28.80
+
+00021_0021, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.437, ssim: 0.372, msssim: 0.494, psnr: 18.64
+opti || Lpips: 0.426, ssim: 0.352, msssim: 0.485, psnr: 17.65
+
+00021_0114, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.318, ssim: 0.809, msssim: 0.828, psnr: 22.37
+opti || Lpips: 0.263, ssim: 0.835, msssim: 0.844, psnr: 21.17
+
+00021_0532, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.139, ssim: 0.905, msssim: 0.954, psnr: 30.22
+opti || Lpips: 0.147, ssim: 0.890, msssim: 0.935, psnr: 28.12
+
+00021_0714, removed frames: [1, 3, 5]
+tifi || Lpips: 0.160, ssim: 0.897, msssim: 0.956, psnr: 28.56
+opti || Lpips: 0.159, ssim: 0.902, msssim: 0.953, psnr: 27.75
+
+00021_0884, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.183, ssim: 0.922, msssim: 0.924, psnr: 27.59
+opti || Lpips: 0.191, ssim: 0.911, msssim: 0.903, psnr: 26.56
+
+00022_0078, removed frames: [2, 4, 5]
+tifi || Lpips: 0.183, ssim: 0.817, msssim: 0.905, psnr: 25.08
+opti || Lpips: 0.193, ssim: 0.821, msssim: 0.890, psnr: 22.86
+
+00022_0106, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.206, ssim: 0.948, msssim: 0.942, psnr: 29.33
+opti || Lpips: 0.182, ssim: 0.946, msssim: 0.930, psnr: 28.75
+
+00022_0323, removed frames: [2, 3]
+tifi || Lpips: 0.140, ssim: 0.957, msssim: 0.955, psnr: 26.65
+opti || Lpips: 0.135, ssim: 0.954, msssim: 0.951, psnr: 25.61
+
+00022_0326, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.148, ssim: 0.958, msssim: 0.940, psnr: 25.97
+opti || Lpips: 0.156, ssim: 0.944, msssim: 0.916, psnr: 23.40
+
+00022_0535, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.525, ssim: 0.605, msssim: 0.373, psnr: 13.28
+opti || Lpips: 0.554, ssim: 0.576, msssim: 0.356, psnr: 12.80
+
+00023_0167, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.195, ssim: 0.912, msssim: 0.947, psnr: 29.89
+opti || Lpips: 0.160, ssim: 0.938, msssim: 0.961, psnr: 29.94
+
+00023_0185, removed frames: [3, 4]
+tifi || Lpips: 0.167, ssim: 0.892, msssim: 0.925, psnr: 27.96
+opti || Lpips: 0.226, ssim: 0.856, msssim: 0.877, psnr: 25.85
+
+00023_0558, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.246, ssim: 0.869, msssim: 0.846, psnr: 23.57
+opti || Lpips: 0.277, ssim: 0.841, msssim: 0.799, psnr: 21.60
+
+00023_0814, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.191, ssim: 0.860, msssim: 0.907, psnr: 26.89
+opti || Lpips: 0.162, ssim: 0.873, msssim: 0.917, psnr: 26.79
+
+00023_0952, removed frames: [3, 4, 5]
+tifi || Lpips: 0.339, ssim: 0.825, msssim: 0.790, psnr: 25.10
+opti || Lpips: 0.396, ssim: 0.771, msssim: 0.704, psnr: 23.08
+
+00024_0138, removed frames: [2, 3]
+tifi || Lpips: 0.145, ssim: 0.896, msssim: 0.945, psnr: 29.95
+opti || Lpips: 0.138, ssim: 0.921, msssim: 0.956, psnr: 28.87
+
+00024_0204, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.300, ssim: 0.883, msssim: 0.823, psnr: 22.54
+opti || Lpips: 0.348, ssim: 0.817, msssim: 0.691, psnr: 19.86
+
+00024_0421, removed frames: [1]
+tifi || Lpips: 0.147, ssim: 0.930, msssim: 0.972, psnr: 32.12
+opti || Lpips: 0.168, ssim: 0.927, msssim: 0.962, psnr: 30.43
+
+00024_0608, removed frames: [4, 5]
+tifi || Lpips: 0.145, ssim: 0.934, msssim: 0.966, psnr: 30.18
+opti || Lpips: 0.139, ssim: 0.932, msssim: 0.964, psnr: 29.71
+
+00024_0771, removed frames: [4]
+tifi || Lpips: 0.109, ssim: 0.924, msssim: 0.973, psnr: 37.25
+opti || Lpips: 0.111, ssim: 0.926, msssim: 0.974, psnr: 36.34
+
+00025_0278, removed frames: [2, 4]
+tifi || Lpips: 0.146, ssim: 0.926, msssim: 0.967, psnr: 29.65
+opti || Lpips: 0.120, ssim: 0.945, msssim: 0.976, psnr: 31.20
+
+00025_0472, removed frames: [1, 2]
+tifi || Lpips: 0.182, ssim: 0.876, msssim: 0.926, psnr: 23.84
+opti || Lpips: 0.187, ssim: 0.865, msssim: 0.920, psnr: 22.70
+
+00025_0489, removed frames: [5]
+tifi || Lpips: 0.121, ssim: 0.931, msssim: 0.960, psnr: 28.38
+opti || Lpips: 0.121, ssim: 0.924, msssim: 0.954, psnr: 25.89
+
+00025_0889, removed frames: [1]
+tifi || Lpips: 0.115, ssim: 0.909, msssim: 0.959, psnr: 26.62
+opti || Lpips: 0.135, ssim: 0.896, msssim: 0.951, psnr: 25.07
+
+00025_0944, removed frames: [1, 3]
+tifi || Lpips: 0.097, ssim: 0.943, msssim: 0.982, psnr: 35.85
+opti || Lpips: 0.113, ssim: 0.929, msssim: 0.970, psnr: 33.61
+
+00026_0023, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.283, ssim: 0.791, msssim: 0.829, psnr: 21.15
+opti || Lpips: 0.243, ssim: 0.820, msssim: 0.840, psnr: 20.28
+
+00026_0077, removed frames: [2]
+tifi || Lpips: 0.239, ssim: 0.852, msssim: 0.872, psnr: 24.59
+opti || Lpips: 0.266, ssim: 0.863, msssim: 0.861, psnr: 22.24
+
+00026_0287, removed frames: [3, 5]
+tifi || Lpips: 0.135, ssim: 0.928, msssim: 0.955, psnr: 31.24
+opti || Lpips: 0.157, ssim: 0.921, msssim: 0.922, psnr: 28.23
+
+00026_0645, removed frames: [3, 4, 5]
+tifi || Lpips: 0.171, ssim: 0.910, msssim: 0.940, psnr: 29.43
+opti || Lpips: 0.183, ssim: 0.882, msssim: 0.896, psnr: 27.89
+
+00026_0690, removed frames: [1]
+tifi || Lpips: 0.142, ssim: 0.909, msssim: 0.902, psnr: 23.78
+opti || Lpips: 0.252, ssim: 0.859, msssim: 0.806, psnr: 21.27
+
+00027_0168, removed frames: [5]
+tifi || Lpips: 0.178, ssim: 0.955, msssim: 0.978, psnr: 36.11
+opti || Lpips: 0.175, ssim: 0.962, msssim: 0.980, psnr: 36.36
+
+00027_0318, removed frames: [2, 4, 5]
+tifi || Lpips: 0.159, ssim: 0.943, msssim: 0.967, psnr: 32.82
+opti || Lpips: 0.167, ssim: 0.929, msssim: 0.951, psnr: 29.76
+
+00027_0535, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.247, ssim: 0.944, msssim: 0.937, psnr: 32.63
+opti || Lpips: 0.278, ssim: 0.924, msssim: 0.891, psnr: 30.75
+
+00027_0785, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.139, ssim: 0.978, msssim: 0.985, psnr: 40.40
+opti || Lpips: 0.116, ssim: 0.977, msssim: 0.982, psnr: 40.78
+
+00027_0957, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.150, ssim: 0.954, msssim: 0.965, psnr: 32.02
+opti || Lpips: 0.118, ssim: 0.951, msssim: 0.952, psnr: 31.61
+
+00028_0174, removed frames: [2, 4, 5]
+tifi || Lpips: 0.359, ssim: 0.619, msssim: 0.702, psnr: 23.22
+opti || Lpips: 0.348, ssim: 0.606, msssim: 0.708, psnr: 23.11
+
+00028_0373, removed frames: [1, 2, 4]
+tifi || Lpips: 0.205, ssim: 0.458, msssim: 0.828, psnr: 27.93
+opti || Lpips: 0.216, ssim: 0.461, msssim: 0.816, psnr: 27.93
+
+00028_0446, removed frames: [3, 4]
+tifi || Lpips: 0.103, ssim: 0.931, msssim: 0.969, psnr: 32.48
+opti || Lpips: 0.100, ssim: 0.934, msssim: 0.971, psnr: 32.31
+
+00028_0732, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.189, ssim: 0.815, msssim: 0.901, psnr: 19.95
+opti || Lpips: 0.159, ssim: 0.827, msssim: 0.895, psnr: 18.72
+
+00028_0967, removed frames: [4]
+tifi || Lpips: 0.168, ssim: 0.906, msssim: 0.961, psnr: 30.27
+opti || Lpips: 0.211, ssim: 0.865, msssim: 0.917, psnr: 27.53
+
+00029_0007, removed frames: [2, 5]
+tifi || Lpips: 0.241, ssim: 0.813, msssim: 0.825, psnr: 21.85
+opti || Lpips: 0.318, ssim: 0.737, msssim: 0.677, psnr: 19.59
+
+00029_0011, removed frames: [5]
+tifi || Lpips: 0.177, ssim: 0.922, msssim: 0.929, psnr: 27.99
+opti || Lpips: 0.163, ssim: 0.917, msssim: 0.927, psnr: 27.36
+
+00029_0014, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.305, ssim: 0.804, msssim: 0.768, psnr: 20.92
+opti || Lpips: 0.365, ssim: 0.760, msssim: 0.665, psnr: 19.12
+
+00029_0035, removed frames: [1]
+tifi || Lpips: 0.194, ssim: 0.951, msssim: 0.952, psnr: 32.54
+opti || Lpips: 0.180, ssim: 0.945, msssim: 0.939, psnr: 30.69
+
+00029_0391, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.326, ssim: 0.781, msssim: 0.825, psnr: 21.84
+opti || Lpips: 0.318, ssim: 0.786, msssim: 0.810, psnr: 20.82
+
+00030_0141, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.306, ssim: 0.755, msssim: 0.727, psnr: 18.42
+opti || Lpips: 0.329, ssim: 0.730, msssim: 0.680, psnr: 17.31
+
+00030_0587, removed frames: [5]
+tifi || Lpips: 0.162, ssim: 0.964, msssim: 0.968, psnr: 35.28
+opti || Lpips: 0.200, ssim: 0.939, msssim: 0.924, psnr: 31.50
+
+00030_0769, removed frames: [3]
+tifi || Lpips: 0.115, ssim: 0.954, msssim: 0.978, psnr: 33.69
+opti || Lpips: 0.127, ssim: 0.936, msssim: 0.965, psnr: 30.66
+
+00030_0908, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.235, ssim: 0.892, msssim: 0.873, psnr: 26.61
+opti || Lpips: 0.250, ssim: 0.859, msssim: 0.822, psnr: 25.24
+
+00030_0948, removed frames: [3, 4]
+tifi || Lpips: 0.205, ssim: 0.787, msssim: 0.902, psnr: 24.31
+opti || Lpips: 0.169, ssim: 0.856, msssim: 0.945, psnr: 25.62
+
+00031_0151, removed frames: [3]
+tifi || Lpips: 0.138, ssim: 0.888, msssim: 0.955, psnr: 24.22
+opti || Lpips: 0.175, ssim: 0.851, msssim: 0.899, psnr: 20.21
+
+00031_0303, removed frames: [5]
+tifi || Lpips: 0.092, ssim: 0.939, msssim: 0.976, psnr: 30.26
+opti || Lpips: 0.077, ssim: 0.951, msssim: 0.980, psnr: 29.44
+
+00031_0575, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.272, ssim: 0.818, msssim: 0.856, psnr: 21.15
+opti || Lpips: 0.308, ssim: 0.780, msssim: 0.783, psnr: 18.56
+
+00031_0750, removed frames: [1, 4]
+tifi || Lpips: 0.111, ssim: 0.937, msssim: 0.967, psnr: 32.07
+opti || Lpips: 0.116, ssim: 0.928, msssim: 0.953, psnr: 29.46
+
+00031_0853, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.188, ssim: 0.946, msssim: 0.948, psnr: 33.52
+opti || Lpips: 0.198, ssim: 0.954, msssim: 0.952, psnr: 32.42
+
+00032_0281, removed frames: [1, 3, 5]
+tifi || Lpips: 0.190, ssim: 0.905, msssim: 0.942, psnr: 31.15
+opti || Lpips: 0.211, ssim: 0.899, msssim: 0.932, psnr: 30.64
+
+00032_0317, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.267, ssim: 0.837, msssim: 0.838, psnr: 22.15
+opti || Lpips: 0.314, ssim: 0.795, msssim: 0.735, psnr: 19.81
+
+00032_0383, removed frames: [2, 3]
+tifi || Lpips: 0.162, ssim: 0.892, msssim: 0.940, psnr: 25.86
+opti || Lpips: 0.175, ssim: 0.879, msssim: 0.899, psnr: 22.54
+
+00032_0636, removed frames: [2, 3]
+tifi || Lpips: 0.291, ssim: 0.703, msssim: 0.799, psnr: 19.81
+opti || Lpips: 0.284, ssim: 0.679, msssim: 0.765, psnr: 18.81
+
+00032_0715, removed frames: [1, 4, 5]
+tifi || Lpips: 0.114, ssim: 0.941, msssim: 0.969, psnr: 34.70
+opti || Lpips: 0.132, ssim: 0.927, msssim: 0.952, psnr: 32.15
+
+00033_0223, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.168, ssim: 0.856, msssim: 0.925, psnr: 26.20
+opti || Lpips: 0.137, ssim: 0.875, msssim: 0.926, psnr: 25.54
+
+00033_0530, removed frames: [3, 4, 5]
+tifi || Lpips: 0.163, ssim: 0.967, msssim: 0.980, psnr: 38.66
+opti || Lpips: 0.134, ssim: 0.971, msssim: 0.984, psnr: 39.97
+
+00033_0541, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.345, ssim: 0.783, msssim: 0.774, psnr: 22.31
+opti || Lpips: 0.245, ssim: 0.827, msssim: 0.820, psnr: 22.08
+
+00033_0935, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.249, ssim: 0.874, msssim: 0.900, psnr: 25.87
+opti || Lpips: 0.277, ssim: 0.822, msssim: 0.819, psnr: 23.73
+
+00033_0982, removed frames: [1, 2]
+tifi || Lpips: 0.127, ssim: 0.953, msssim: 0.972, psnr: 34.25
+opti || Lpips: 0.112, ssim: 0.956, msssim: 0.969, psnr: 34.25
+
+00034_0059, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.188, ssim: 0.881, msssim: 0.894, psnr: 22.94
+opti || Lpips: 0.187, ssim: 0.882, msssim: 0.890, psnr: 22.34
+
+00034_0288, removed frames: [2, 3]
+tifi || Lpips: 0.372, ssim: 0.769, msssim: 0.675, psnr: 17.90
+opti || Lpips: 0.482, ssim: 0.677, msssim: 0.456, psnr: 15.84
+
+00034_0424, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.287, ssim: 0.912, msssim: 0.880, psnr: 29.77
+opti || Lpips: 0.349, ssim: 0.892, msssim: 0.826, psnr: 27.56
+
+00034_0446, removed frames: [3]
+tifi || Lpips: 0.181, ssim: 0.892, msssim: 0.927, psnr: 26.77
+opti || Lpips: 0.180, ssim: 0.899, msssim: 0.935, psnr: 23.32
+
+00034_0942, removed frames: [1, 2, 4]
+tifi || Lpips: 0.209, ssim: 0.893, msssim: 0.912, psnr: 27.50
+opti || Lpips: 0.199, ssim: 0.883, msssim: 0.901, psnr: 26.49
+
+00035_0031, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.215, ssim: 0.898, msssim: 0.879, psnr: 24.52
+opti || Lpips: 0.190, ssim: 0.911, msssim: 0.876, psnr: 23.60
+
+00035_0158, removed frames: [1, 2, 4]
+tifi || Lpips: 0.300, ssim: 0.865, msssim: 0.821, psnr: 22.97
+opti || Lpips: 0.343, ssim: 0.847, msssim: 0.759, psnr: 21.25
+
+00035_0496, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.182, ssim: 0.918, msssim: 0.904, psnr: 24.57
+opti || Lpips: 0.193, ssim: 0.915, msssim: 0.887, psnr: 23.04
+
+00035_0639, removed frames: [1, 4, 5]
+tifi || Lpips: 0.186, ssim: 0.929, msssim: 0.949, psnr: 33.38
+opti || Lpips: 0.179, ssim: 0.924, msssim: 0.938, psnr: 33.15
+
+00035_0654, removed frames: [2, 3]
+tifi || Lpips: 0.229, ssim: 0.853, msssim: 0.880, psnr: 24.90
+opti || Lpips: 0.351, ssim: 0.711, msssim: 0.650, psnr: 19.85
+
+00036_0408, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.318, ssim: 0.777, msssim: 0.896, psnr: 25.71
+opti || Lpips: 0.264, ssim: 0.776, msssim: 0.890, psnr: 26.21
+
+00036_0412, removed frames: [1]
+tifi || Lpips: 0.093, ssim: 0.947, msssim: 0.970, psnr: 31.71
+opti || Lpips: 0.096, ssim: 0.944, msssim: 0.968, psnr: 31.36
+
+00036_0622, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.242, ssim: 0.850, msssim: 0.860, psnr: 25.34
+opti || Lpips: 0.270, ssim: 0.808, msssim: 0.798, psnr: 23.68
+
+00036_0721, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.253, ssim: 0.939, msssim: 0.947, psnr: 29.02
+opti || Lpips: 0.252, ssim: 0.923, msssim: 0.921, psnr: 27.24
+
+00036_0743, removed frames: [3]
+tifi || Lpips: 0.256, ssim: 0.864, msssim: 0.878, psnr: 25.87
+opti || Lpips: 0.333, ssim: 0.824, msssim: 0.780, psnr: 22.15
+
+00037_0158, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.253, ssim: 0.807, msssim: 0.794, psnr: 20.18
+opti || Lpips: 0.231, ssim: 0.810, msssim: 0.784, psnr: 19.39
+
+00037_0509, removed frames: [3]
+tifi || Lpips: 0.103, ssim: 0.962, msssim: 0.979, psnr: 34.44
+opti || Lpips: 0.106, ssim: 0.956, msssim: 0.970, psnr: 32.80
+
+00037_0601, removed frames: [1, 2, 5]
+tifi || Lpips: 0.108, ssim: 0.945, msssim: 0.974, psnr: 31.26
+opti || Lpips: 0.088, ssim: 0.955, msssim: 0.977, psnr: 30.29
+
+00037_0694, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.176, ssim: 0.887, msssim: 0.925, psnr: 25.92
+opti || Lpips: 0.163, ssim: 0.884, msssim: 0.918, psnr: 24.89
+
+00037_0978, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.248, ssim: 0.926, msssim: 0.889, psnr: 23.66
+opti || Lpips: 0.238, ssim: 0.917, msssim: 0.872, psnr: 22.96
+
+00038_0498, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.266, ssim: 0.837, msssim: 0.861, psnr: 23.20
+opti || Lpips: 0.262, ssim: 0.844, msssim: 0.869, psnr: 21.90
+
+00038_0725, removed frames: [1, 3, 5]
+tifi || Lpips: 0.145, ssim: 0.964, msssim: 0.968, psnr: 33.22
+opti || Lpips: 0.141, ssim: 0.967, msssim: 0.964, psnr: 33.41
+
+00038_0754, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.234, ssim: 0.887, msssim: 0.932, psnr: 28.36
+opti || Lpips: 0.223, ssim: 0.895, msssim: 0.925, psnr: 27.93
+
+00038_0797, removed frames: [2]
+tifi || Lpips: 0.111, ssim: 0.949, msssim: 0.984, psnr: 36.17
+opti || Lpips: 0.123, ssim: 0.943, msssim: 0.978, psnr: 34.81
+
+00038_0824, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.185, ssim: 0.864, msssim: 0.897, psnr: 27.26
+opti || Lpips: 0.202, ssim: 0.843, msssim: 0.862, psnr: 25.90
+
+00039_0120, removed frames: [2]
+tifi || Lpips: 0.160, ssim: 0.900, msssim: 0.933, psnr: 28.10
+opti || Lpips: 0.201, ssim: 0.851, msssim: 0.876, psnr: 24.28
+
+00039_0362, removed frames: [3]
+tifi || Lpips: 0.129, ssim: 0.874, msssim: 0.975, psnr: 32.22
+opti || Lpips: 0.110, ssim: 0.916, msssim: 0.973, psnr: 29.75
+
+00039_0401, removed frames: [2, 4, 5]
+tifi || Lpips: 0.129, ssim: 0.941, msssim: 0.969, psnr: 32.92
+opti || Lpips: 0.153, ssim: 0.913, msssim: 0.942, psnr: 31.63
+
+00039_0449, removed frames: [2, 4, 5]
+tifi || Lpips: 0.117, ssim: 0.954, msssim: 0.986, psnr: 38.35
+opti || Lpips: 0.114, ssim: 0.955, msssim: 0.984, psnr: 40.20
+
+00039_0678, removed frames: [1, 2, 4]
+tifi || Lpips: 0.230, ssim: 0.958, msssim: 0.960, psnr: 31.97
+opti || Lpips: 0.200, ssim: 0.948, msssim: 0.953, psnr: 29.14
+
+00040_0006, removed frames: [2, 5]
+tifi || Lpips: 0.176, ssim: 0.960, msssim: 0.971, psnr: 38.40
+opti || Lpips: 0.204, ssim: 0.947, msssim: 0.960, psnr: 35.93
+
+00040_0070, removed frames: [1, 2, 3]
+tifi || Lpips: 0.293, ssim: 0.842, msssim: 0.797, psnr: 21.79
+opti || Lpips: 0.351, ssim: 0.775, msssim: 0.692, psnr: 19.55
+
+00040_0183, removed frames: [1, 3]
+tifi || Lpips: 0.136, ssim: 0.944, msssim: 0.978, psnr: 34.23
+opti || Lpips: 0.125, ssim: 0.945, msssim: 0.974, psnr: 33.79
+
+00040_0396, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.169, ssim: 0.916, msssim: 0.933, psnr: 27.69
+opti || Lpips: 0.146, ssim: 0.906, msssim: 0.914, psnr: 26.11
+
+00040_0418, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.202, ssim: 0.824, msssim: 0.883, psnr: 24.29
+opti || Lpips: 0.219, ssim: 0.808, msssim: 0.858, psnr: 22.60
+
+00041_0119, removed frames: [3, 4, 5]
+tifi || Lpips: 0.190, ssim: 0.861, msssim: 0.925, psnr: 27.39
+opti || Lpips: 0.221, ssim: 0.834, msssim: 0.882, psnr: 25.39
+
+00041_0199, removed frames: [2]
+tifi || Lpips: 0.129, ssim: 0.951, msssim: 0.975, psnr: 30.25
+opti || Lpips: 0.152, ssim: 0.935, msssim: 0.953, psnr: 26.83
+
+00041_0221, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.171, ssim: 0.913, msssim: 0.912, psnr: 26.90
+opti || Lpips: 0.175, ssim: 0.893, msssim: 0.878, psnr: 25.39
+
+00041_0279, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.379, ssim: 0.864, msssim: 0.780, psnr: 20.01
+opti || Lpips: 0.388, ssim: 0.841, msssim: 0.749, psnr: 19.34
+
+00041_0609, removed frames: [2, 4, 5]
+tifi || Lpips: 0.154, ssim: 0.915, msssim: 0.928, psnr: 29.26
+opti || Lpips: 0.245, ssim: 0.862, msssim: 0.815, psnr: 26.20
+
+00042_0237, removed frames: [1]
+tifi || Lpips: 0.182, ssim: 0.917, msssim: 0.932, psnr: 25.74
+opti || Lpips: 0.206, ssim: 0.882, msssim: 0.888, psnr: 23.30
+
+00042_0258, removed frames: [1, 4]
+tifi || Lpips: 0.232, ssim: 0.815, msssim: 0.854, psnr: 22.36
+opti || Lpips: 0.241, ssim: 0.786, msssim: 0.816, psnr: 20.42
+
+00042_0327, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.470, ssim: 0.607, msssim: 0.550, psnr: 17.15
+opti || Lpips: 0.567, ssim: 0.477, msssim: 0.332, psnr: 14.58
+
+00042_0424, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.418, ssim: 0.814, msssim: 0.621, psnr: 15.10
+opti || Lpips: 0.483, ssim: 0.787, msssim: 0.571, psnr: 14.35
+
+00042_0674, removed frames: [1, 5]
+tifi || Lpips: 0.174, ssim: 0.956, msssim: 0.949, psnr: 29.53
+opti || Lpips: 0.170, ssim: 0.949, msssim: 0.941, psnr: 28.33
+
+00043_0276, removed frames: [5]
+tifi || Lpips: 0.153, ssim: 0.938, msssim: 0.957, psnr: 33.35
+opti || Lpips: 0.189, ssim: 0.916, msssim: 0.931, psnr: 31.66
+
+00043_0319, removed frames: [3, 5]
+tifi || Lpips: 0.135, ssim: 0.920, msssim: 0.959, psnr: 29.23
+opti || Lpips: 0.127, ssim: 0.909, msssim: 0.947, psnr: 27.54
+
+00043_0863, removed frames: [1, 3]
+tifi || Lpips: 0.209, ssim: 0.907, msssim: 0.937, psnr: 30.79
+opti || Lpips: 0.213, ssim: 0.907, msssim: 0.930, psnr: 29.88
+
+00043_0945, removed frames: [1, 2, 4]
+tifi || Lpips: 0.142, ssim: 0.917, msssim: 0.943, psnr: 31.46
+opti || Lpips: 0.228, ssim: 0.876, msssim: 0.884, psnr: 29.20
+
+00043_0946, removed frames: [2, 3, 4]
+tifi || Lpips: 0.161, ssim: 0.859, msssim: 0.883, psnr: 26.91
+opti || Lpips: 0.177, ssim: 0.838, msssim: 0.849, psnr: 25.56
+
+00044_0090, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.246, ssim: 0.763, msssim: 0.823, psnr: 22.87
+opti || Lpips: 0.269, ssim: 0.733, msssim: 0.772, psnr: 21.14
+
+00044_0164, removed frames: [1, 2, 5]
+tifi || Lpips: 0.214, ssim: 0.903, msssim: 0.919, psnr: 28.24
+opti || Lpips: 0.197, ssim: 0.896, msssim: 0.917, psnr: 27.15
+
+00044_0265, removed frames: [1]
+tifi || Lpips: 0.273, ssim: 0.712, msssim: 0.834, psnr: 27.88
+opti || Lpips: 0.232, ssim: 0.801, msssim: 0.890, psnr: 27.43
+
+00044_0804, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.374, ssim: 0.797, msssim: 0.729, psnr: 18.98
+opti || Lpips: 0.431, ssim: 0.734, msssim: 0.606, psnr: 17.54
+
+00044_0947, removed frames: [5]
+tifi || Lpips: 0.199, ssim: 0.863, msssim: 0.924, psnr: 24.33
+opti || Lpips: 0.271, ssim: 0.799, msssim: 0.826, psnr: 20.38
+
+00045_0022, removed frames: [1, 5]
+tifi || Lpips: 0.222, ssim: 0.842, msssim: 0.889, psnr: 25.74
+opti || Lpips: 0.283, ssim: 0.750, msssim: 0.797, psnr: 21.86
+
+00045_0253, removed frames: [1]
+tifi || Lpips: 0.132, ssim: 0.928, msssim: 0.966, psnr: 31.87
+opti || Lpips: 0.140, ssim: 0.921, msssim: 0.959, psnr: 30.85
+
+00045_0700, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.320, ssim: 0.578, msssim: 0.672, psnr: 18.74
+opti || Lpips: 0.259, ssim: 0.597, msssim: 0.691, psnr: 18.51
+
+00045_0933, removed frames: [1, 2, 4]
+tifi || Lpips: 0.187, ssim: 0.893, msssim: 0.917, psnr: 27.26
+opti || Lpips: 0.215, ssim: 0.865, msssim: 0.886, psnr: 25.51
+
+00045_0944, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.188, ssim: 0.877, msssim: 0.920, psnr: 23.05
+opti || Lpips: 0.251, ssim: 0.842, msssim: 0.867, psnr: 20.35
+
+00046_0360, removed frames: [3, 4]
+tifi || Lpips: 0.159, ssim: 0.930, msssim: 0.964, psnr: 32.08
+opti || Lpips: 0.192, ssim: 0.878, msssim: 0.894, psnr: 26.87
+
+00046_0539, removed frames: [4]
+tifi || Lpips: 0.200, ssim: 0.805, msssim: 0.905, psnr: 26.99
+opti || Lpips: 0.193, ssim: 0.862, msssim: 0.931, psnr: 23.56
+
+00046_0544, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.436, ssim: 0.598, msssim: 0.610, psnr: 21.28
+opti || Lpips: 0.463, ssim: 0.548, msssim: 0.520, psnr: 18.46
+
+00046_0736, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.326, ssim: 0.763, msssim: 0.645, psnr: 18.98
+opti || Lpips: 0.361, ssim: 0.743, msssim: 0.593, psnr: 18.05
+
+00046_0774, removed frames: [1, 2, 3]
+tifi || Lpips: 0.128, ssim: 0.909, msssim: 0.943, psnr: 25.69
+opti || Lpips: 0.117, ssim: 0.916, msssim: 0.944, psnr: 25.67
+
+00047_0204, removed frames: [4]
+tifi || Lpips: 0.171, ssim: 0.868, msssim: 0.937, psnr: 26.17
+opti || Lpips: 0.173, ssim: 0.867, msssim: 0.935, psnr: 23.26
+
+00047_0328, removed frames: [3, 5]
+tifi || Lpips: 0.116, ssim: 0.982, msssim: 0.986, psnr: 37.56
+opti || Lpips: 0.152, ssim: 0.971, msssim: 0.959, psnr: 34.86
+
+00047_0394, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.255, ssim: 0.922, msssim: 0.924, psnr: 31.07
+opti || Lpips: 0.245, ssim: 0.911, msssim: 0.903, psnr: 30.31
+
+00047_0742, removed frames: [1, 3, 5]
+tifi || Lpips: 0.191, ssim: 0.903, msssim: 0.935, psnr: 32.87
+opti || Lpips: 0.161, ssim: 0.926, msssim: 0.960, psnr: 34.06
+
+00047_0743, removed frames: [5]
+tifi || Lpips: 0.181, ssim: 0.951, msssim: 0.961, psnr: 34.47
+opti || Lpips: 0.282, ssim: 0.902, msssim: 0.883, psnr: 29.50
+
+00048_0085, removed frames: [3, 4]
+tifi || Lpips: 0.119, ssim: 0.935, msssim: 0.952, psnr: 30.19
+opti || Lpips: 0.143, ssim: 0.917, msssim: 0.924, psnr: 27.14
+
+00048_0364, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.155, ssim: 0.872, msssim: 0.910, psnr: 23.20
+opti || Lpips: 0.134, ssim: 0.885, msssim: 0.916, psnr: 22.24
+
+00048_0465, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.254, ssim: 0.805, msssim: 0.797, psnr: 21.11
+opti || Lpips: 0.205, ssim: 0.814, msssim: 0.803, psnr: 20.67
+
+00048_0652, removed frames: [1, 3, 5]
+tifi || Lpips: 0.135, ssim: 0.935, msssim: 0.962, psnr: 28.29
+opti || Lpips: 0.176, ssim: 0.912, msssim: 0.938, psnr: 25.12
+
+00048_0753, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.261, ssim: 0.826, msssim: 0.816, psnr: 21.55
+opti || Lpips: 0.291, ssim: 0.796, msssim: 0.763, psnr: 20.49
+
+00049_0064, removed frames: [1]
+tifi || Lpips: 0.169, ssim: 0.883, msssim: 0.920, psnr: 25.41
+opti || Lpips: 0.184, ssim: 0.867, msssim: 0.901, psnr: 24.44
+
+00049_0283, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.226, ssim: 0.887, msssim: 0.885, psnr: 26.63
+opti || Lpips: 0.260, ssim: 0.847, msssim: 0.822, psnr: 25.21
+
+00049_0746, removed frames: [1]
+tifi || Lpips: 0.094, ssim: 0.907, msssim: 0.951, psnr: 30.16
+opti || Lpips: 0.140, ssim: 0.838, msssim: 0.878, psnr: 26.50
+
+00049_0837, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.297, ssim: 0.832, msssim: 0.813, psnr: 16.93
+opti || Lpips: 0.353, ssim: 0.798, msssim: 0.744, psnr: 15.31
+
+00049_0864, removed frames: [2, 3]
+tifi || Lpips: 0.141, ssim: 0.948, msssim: 0.960, psnr: 26.06
+opti || Lpips: 0.155, ssim: 0.932, msssim: 0.935, psnr: 23.33
+
+00050_0158, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.227, ssim: 0.844, msssim: 0.898, psnr: 25.20
+opti || Lpips: 0.205, ssim: 0.831, msssim: 0.872, psnr: 23.83
+
+00050_0220, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.193, ssim: 0.947, msssim: 0.944, psnr: 29.53
+opti || Lpips: 0.204, ssim: 0.928, msssim: 0.913, psnr: 27.55
+
+00050_0315, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.264, ssim: 0.895, msssim: 0.862, psnr: 23.67
+opti || Lpips: 0.284, ssim: 0.867, msssim: 0.805, psnr: 22.06
+
+00050_0471, removed frames: [2, 3]
+tifi || Lpips: 0.126, ssim: 0.972, msssim: 0.978, psnr: 34.68
+opti || Lpips: 0.148, ssim: 0.955, msssim: 0.956, psnr: 32.18
+
+00050_0809, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.275, ssim: 0.846, msssim: 0.794, psnr: 20.84
+opti || Lpips: 0.302, ssim: 0.825, msssim: 0.748, psnr: 19.10
+
+00051_0064, removed frames: [1, 4]
+tifi || Lpips: 0.149, ssim: 0.902, msssim: 0.959, psnr: 29.02
+opti || Lpips: 0.169, ssim: 0.898, msssim: 0.955, psnr: 26.47
+
+00051_0264, removed frames: [1]
+tifi || Lpips: 0.135, ssim: 0.937, msssim: 0.951, psnr: 28.05
+opti || Lpips: 0.161, ssim: 0.935, msssim: 0.938, psnr: 26.40
+
+00051_0400, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.400, ssim: 0.687, msssim: 0.643, psnr: 15.66
+opti || Lpips: 0.466, ssim: 0.609, msssim: 0.475, psnr: 13.54
+
+00051_0910, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.190, ssim: 0.830, msssim: 0.860, psnr: 22.58
+opti || Lpips: 0.209, ssim: 0.834, msssim: 0.839, psnr: 22.42
+
+00051_0984, removed frames: [1, 4]
+tifi || Lpips: 0.176, ssim: 0.877, msssim: 0.940, psnr: 27.87
+opti || Lpips: 0.168, ssim: 0.878, msssim: 0.942, psnr: 26.37
+
+00052_0200, removed frames: [4]
+tifi || Lpips: 0.378, ssim: 0.726, msssim: 0.608, psnr: 21.65
+opti || Lpips: 0.501, ssim: 0.698, msssim: 0.469, psnr: 20.12
+
+00052_0352, removed frames: [3, 4, 5]
+tifi || Lpips: 0.199, ssim: 0.962, msssim: 0.973, psnr: 36.10
+opti || Lpips: 0.183, ssim: 0.967, msssim: 0.971, psnr: 36.94
+
+00052_0356, removed frames: [2, 5]
+tifi || Lpips: 0.196, ssim: 0.943, msssim: 0.954, psnr: 27.25
+opti || Lpips: 0.203, ssim: 0.939, msssim: 0.932, psnr: 24.70
+
+00052_0636, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.192, ssim: 0.923, msssim: 0.960, psnr: 31.08
+opti || Lpips: 0.153, ssim: 0.938, msssim: 0.965, psnr: 31.68
+
+00052_0877, removed frames: [5]
+tifi || Lpips: 0.102, ssim: 0.943, msssim: 0.977, psnr: 30.97
+opti || Lpips: 0.099, ssim: 0.943, msssim: 0.976, psnr: 27.40
+
+00053_0134, removed frames: [1, 5]
+tifi || Lpips: 0.265, ssim: 0.859, msssim: 0.909, psnr: 30.08
+opti || Lpips: 0.310, ssim: 0.837, msssim: 0.883, psnr: 28.53
+
+00053_0319, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.219, ssim: 0.874, msssim: 0.874, psnr: 23.78
+opti || Lpips: 0.251, ssim: 0.851, msssim: 0.832, psnr: 21.70
+
+00053_0370, removed frames: [4]
+tifi || Lpips: 0.138, ssim: 0.924, msssim: 0.971, psnr: 28.32
+opti || Lpips: 0.150, ssim: 0.917, msssim: 0.958, psnr: 26.47
+
+00053_0570, removed frames: [1]
+tifi || Lpips: 0.201, ssim: 0.864, msssim: 0.900, psnr: 26.74
+opti || Lpips: 0.237, ssim: 0.833, msssim: 0.845, psnr: 24.32
+
+00053_0686, removed frames: [4]
+tifi || Lpips: 0.081, ssim: 0.946, msssim: 0.982, psnr: 31.55
+opti || Lpips: 0.071, ssim: 0.951, msssim: 0.985, psnr: 31.11
+
+00054_0160, removed frames: [1, 4]
+tifi || Lpips: 0.139, ssim: 0.949, msssim: 0.978, psnr: 32.87
+opti || Lpips: 0.132, ssim: 0.953, msssim: 0.976, psnr: 29.60
+
+00054_0340, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.351, ssim: 0.768, msssim: 0.595, psnr: 20.68
+opti || Lpips: 0.398, ssim: 0.759, msssim: 0.532, psnr: 19.46
+
+00054_0672, removed frames: [3]
+tifi || Lpips: 0.346, ssim: 0.829, msssim: 0.846, psnr: 22.92
+opti || Lpips: 0.450, ssim: 0.708, msssim: 0.633, psnr: 18.68
+
+00054_0780, removed frames: [2, 4]
+tifi || Lpips: 0.133, ssim: 0.930, msssim: 0.965, psnr: 33.12
+opti || Lpips: 0.136, ssim: 0.930, msssim: 0.963, psnr: 32.56
+
+00054_0788, removed frames: [4]
+tifi || Lpips: 0.085, ssim: 0.941, msssim: 0.972, psnr: 29.70
+opti || Lpips: 0.087, ssim: 0.937, msssim: 0.967, psnr: 27.72
+
+00055_0181, removed frames: [1, 2, 3]
+tifi || Lpips: 0.275, ssim: 0.894, msssim: 0.867, psnr: 24.44
+opti || Lpips: 0.283, ssim: 0.883, msssim: 0.840, psnr: 23.70
+
+00055_0186, removed frames: [1, 3, 4]
+tifi || Lpips: 0.226, ssim: 0.806, msssim: 0.904, psnr: 26.97
+opti || Lpips: 0.206, ssim: 0.816, msssim: 0.915, psnr: 27.18
+
+00055_0272, removed frames: [1, 5]
+tifi || Lpips: 0.218, ssim: 0.887, msssim: 0.902, psnr: 28.02
+opti || Lpips: 0.261, ssim: 0.847, msssim: 0.854, psnr: 25.68
+
+00055_0712, removed frames: [3, 4, 5]
+tifi || Lpips: 0.129, ssim: 0.907, msssim: 0.953, psnr: 29.00
+opti || Lpips: 0.142, ssim: 0.905, msssim: 0.936, psnr: 27.04
+
+00055_0827, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.283, ssim: 0.685, msssim: 0.797, psnr: 22.31
+opti || Lpips: 0.231, ssim: 0.775, msssim: 0.857, psnr: 22.80
+
+00056_0178, removed frames: [1]
+tifi || Lpips: 0.078, ssim: 0.967, msssim: 0.986, psnr: 36.78
+opti || Lpips: 0.073, ssim: 0.962, msssim: 0.985, psnr: 35.70
+
+00056_0436, removed frames: [1, 4, 5]
+tifi || Lpips: 0.206, ssim: 0.909, msssim: 0.912, psnr: 25.92
+opti || Lpips: 0.230, ssim: 0.882, msssim: 0.867, psnr: 23.80
+
+00056_0501, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.454, ssim: 0.723, msssim: 0.631, psnr: 17.08
+opti || Lpips: 0.507, ssim: 0.667, msssim: 0.513, psnr: 15.41
+
+00056_0528, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.190, ssim: 0.916, msssim: 0.943, psnr: 32.20
+opti || Lpips: 0.163, ssim: 0.921, msssim: 0.946, psnr: 32.05
+
+00056_0663, removed frames: [1]
+tifi || Lpips: 0.140, ssim: 0.909, msssim: 0.967, psnr: 31.34
+opti || Lpips: 0.145, ssim: 0.910, msssim: 0.962, psnr: 30.14
+
+00057_0188, removed frames: [1, 2, 5]
+tifi || Lpips: 0.190, ssim: 0.770, msssim: 0.887, psnr: 24.17
+opti || Lpips: 0.183, ssim: 0.796, msssim: 0.895, psnr: 23.43
+
+00057_0301, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.244, ssim: 0.859, msssim: 0.887, psnr: 26.67
+opti || Lpips: 0.199, ssim: 0.874, msssim: 0.903, psnr: 26.26
+
+00057_0347, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.557, ssim: 0.632, msssim: 0.441, psnr: 12.22
+opti || Lpips: 0.557, ssim: 0.608, msssim: 0.419, psnr: 11.93
+
+00057_0671, removed frames: [2]
+tifi || Lpips: 0.317, ssim: 0.871, msssim: 0.833, psnr: 29.21
+opti || Lpips: 0.341, ssim: 0.856, msssim: 0.808, psnr: 27.53
+
+00057_0897, removed frames: [2, 3, 5]
+tifi || Lpips: 0.211, ssim: 0.870, msssim: 0.917, psnr: 26.03
+opti || Lpips: 0.277, ssim: 0.821, msssim: 0.843, psnr: 23.38
+
+00058_0123, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.218, ssim: 0.889, msssim: 0.930, psnr: 27.61
+opti || Lpips: 0.244, ssim: 0.882, msssim: 0.913, psnr: 26.04
+
+00058_0312, removed frames: [1, 3, 4]
+tifi || Lpips: 0.191, ssim: 0.899, msssim: 0.935, psnr: 29.83
+opti || Lpips: 0.183, ssim: 0.901, msssim: 0.931, psnr: 29.58
+
+00058_0323, removed frames: [3]
+tifi || Lpips: 0.107, ssim: 0.944, msssim: 0.977, psnr: 34.83
+opti || Lpips: 0.111, ssim: 0.936, msssim: 0.968, psnr: 32.84
+
+00058_0617, removed frames: [3, 4]
+tifi || Lpips: 0.196, ssim: 0.881, msssim: 0.933, psnr: 26.72
+opti || Lpips: 0.219, ssim: 0.862, msssim: 0.895, psnr: 22.69
+
+00058_0932, removed frames: [3, 4]
+tifi || Lpips: 0.264, ssim: 0.882, msssim: 0.869, psnr: 25.18
+opti || Lpips: 0.377, ssim: 0.770, msssim: 0.643, psnr: 21.32
+
+00059_0166, removed frames: [4, 5]
+tifi || Lpips: 0.283, ssim: 0.781, msssim: 0.815, psnr: 20.30
+opti || Lpips: 0.438, ssim: 0.702, msssim: 0.686, psnr: 16.93
+
+00059_0180, removed frames: [1, 5]
+tifi || Lpips: 0.177, ssim: 0.899, msssim: 0.941, psnr: 31.02
+opti || Lpips: 0.159, ssim: 0.910, msssim: 0.946, psnr: 30.87
+
+00059_0315, removed frames: [3, 4]
+tifi || Lpips: 0.477, ssim: 0.727, msssim: 0.626, psnr: 23.16
+opti || Lpips: 0.498, ssim: 0.678, msssim: 0.513, psnr: 21.30
+
+00059_0715, removed frames: [4, 5]
+tifi || Lpips: 0.241, ssim: 0.842, msssim: 0.886, psnr: 27.62
+opti || Lpips: 0.298, ssim: 0.779, msssim: 0.797, psnr: 24.90
+
+00059_0987, removed frames: [1, 4]
+tifi || Lpips: 0.354, ssim: 0.730, msssim: 0.779, psnr: 25.92
+opti || Lpips: 0.438, ssim: 0.658, msssim: 0.646, psnr: 23.92
+
+00060_0038, removed frames: [2, 3, 4]
+tifi || Lpips: 0.165, ssim: 0.840, msssim: 0.913, psnr: 26.60
+opti || Lpips: 0.177, ssim: 0.812, msssim: 0.835, psnr: 22.77
+
+00060_0101, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.212, ssim: 0.900, msssim: 0.928, psnr: 29.83
+opti || Lpips: 0.142, ssim: 0.917, msssim: 0.937, psnr: 29.43
+
+00060_0104, removed frames: [2, 4]
+tifi || Lpips: 0.248, ssim: 0.937, msssim: 0.945, psnr: 30.15
+opti || Lpips: 0.342, ssim: 0.877, msssim: 0.842, psnr: 25.96
+
+00060_0156, removed frames: [1, 3]
+tifi || Lpips: 0.130, ssim: 0.906, msssim: 0.968, psnr: 31.35
+opti || Lpips: 0.162, ssim: 0.881, msssim: 0.932, psnr: 27.12
+
+00060_0178, removed frames: [1]
+tifi || Lpips: 0.107, ssim: 0.951, msssim: 0.974, psnr: 31.88
+opti || Lpips: 0.129, ssim: 0.927, msssim: 0.936, psnr: 29.31
+
+00061_0069, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.232, ssim: 0.894, msssim: 0.899, psnr: 29.72
+opti || Lpips: 0.268, ssim: 0.883, msssim: 0.871, psnr: 27.41
+
+00061_0099, removed frames: [1, 3, 5]
+tifi || Lpips: 0.223, ssim: 0.807, msssim: 0.878, psnr: 26.36
+opti || Lpips: 0.218, ssim: 0.805, msssim: 0.881, psnr: 25.68
+
+00061_0144, removed frames: [3]
+tifi || Lpips: 0.153, ssim: 0.913, msssim: 0.944, psnr: 30.86
+opti || Lpips: 0.175, ssim: 0.852, msssim: 0.896, psnr: 27.47
+
+00061_0149, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.291, ssim: 0.957, msssim: 0.906, psnr: 26.44
+opti || Lpips: 0.254, ssim: 0.955, msssim: 0.893, psnr: 26.03
+
+00061_0668, removed frames: [4]
+tifi || Lpips: 0.166, ssim: 0.897, msssim: 0.945, psnr: 28.41
+opti || Lpips: 0.173, ssim: 0.916, msssim: 0.955, psnr: 28.25
+
+00062_0009, removed frames: [1]
+tifi || Lpips: 0.111, ssim: 0.953, msssim: 0.971, psnr: 34.45
+opti || Lpips: 0.129, ssim: 0.938, msssim: 0.953, psnr: 33.29
+
+00062_0224, removed frames: [2, 4]
+tifi || Lpips: 0.149, ssim: 0.913, msssim: 0.949, psnr: 29.89
+opti || Lpips: 0.180, ssim: 0.903, msssim: 0.926, psnr: 28.41
+
+00062_0836, removed frames: [2, 5]
+tifi || Lpips: 0.149, ssim: 0.919, msssim: 0.974, psnr: 32.96
+opti || Lpips: 0.150, ssim: 0.925, msssim: 0.965, psnr: 31.56
+
+00062_0860, removed frames: [2, 3, 5]
+tifi || Lpips: 0.121, ssim: 0.919, msssim: 0.963, psnr: 30.48
+opti || Lpips: 0.115, ssim: 0.932, msssim: 0.972, psnr: 29.90
+
+00062_0864, removed frames: [2, 3, 5]
+tifi || Lpips: 0.137, ssim: 0.910, msssim: 0.959, psnr: 29.95
+opti || Lpips: 0.146, ssim: 0.907, msssim: 0.951, psnr: 29.60
+
+00063_0169, removed frames: [2, 3, 4]
+tifi || Lpips: 0.317, ssim: 0.907, msssim: 0.825, psnr: 21.92
+opti || Lpips: 0.312, ssim: 0.893, msssim: 0.806, psnr: 21.18
+
+00063_0215, removed frames: [1, 4, 5]
+tifi || Lpips: 0.213, ssim: 0.867, msssim: 0.853, psnr: 22.22
+opti || Lpips: 0.225, ssim: 0.857, msssim: 0.832, psnr: 21.33
+
+00063_0615, removed frames: [5]
+tifi || Lpips: 0.101, ssim: 0.981, msssim: 0.987, psnr: 39.26
+opti || Lpips: 0.121, ssim: 0.981, msssim: 0.981, psnr: 38.98
+
+00063_0718, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.328, ssim: 0.811, msssim: 0.704, psnr: 18.66
+opti || Lpips: 0.328, ssim: 0.763, msssim: 0.636, psnr: 17.91
+
+00063_0875, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.332, ssim: 0.799, msssim: 0.834, psnr: 25.33
+opti || Lpips: 0.266, ssim: 0.797, msssim: 0.832, psnr: 24.78
+
+00064_0124, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.210, ssim: 0.961, msssim: 0.958, psnr: 29.35
+opti || Lpips: 0.228, ssim: 0.944, msssim: 0.929, psnr: 26.92
+
+00064_0597, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.352, ssim: 0.855, msssim: 0.670, psnr: 19.93
+opti || Lpips: 0.378, ssim: 0.827, msssim: 0.593, psnr: 19.08
+
+00064_0736, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.271, ssim: 0.876, msssim: 0.873, psnr: 24.03
+opti || Lpips: 0.352, ssim: 0.788, msssim: 0.723, psnr: 20.85
+
+00064_0835, removed frames: [3]
+tifi || Lpips: 0.105, ssim: 0.944, msssim: 0.975, psnr: 31.90
+opti || Lpips: 0.110, ssim: 0.939, msssim: 0.971, psnr: 31.16
+
+00064_0987, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.138, ssim: 0.874, msssim: 0.937, psnr: 25.49
+opti || Lpips: 0.112, ssim: 0.889, msssim: 0.951, psnr: 24.99
+
+00065_0017, removed frames: [2, 3, 5]
+tifi || Lpips: 0.247, ssim: 0.777, msssim: 0.798, psnr: 23.64
+opti || Lpips: 0.263, ssim: 0.771, msssim: 0.777, psnr: 23.06
+
+00065_0242, removed frames: [1, 2, 4]
+tifi || Lpips: 0.092, ssim: 0.945, msssim: 0.980, psnr: 36.44
+opti || Lpips: 0.075, ssim: 0.951, msssim: 0.986, psnr: 37.06
+
+00065_0526, removed frames: [2, 5]
+tifi || Lpips: 0.290, ssim: 0.898, msssim: 0.941, psnr: 34.85
+opti || Lpips: 0.173, ssim: 0.948, msssim: 0.976, psnr: 37.38
+
+00065_0787, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.282, ssim: 0.799, msssim: 0.845, psnr: 20.88
+opti || Lpips: 0.257, ssim: 0.819, msssim: 0.854, psnr: 19.70
+
+00065_0951, removed frames: [1, 2, 5]
+tifi || Lpips: 0.301, ssim: 0.833, msssim: 0.796, psnr: 21.87
+opti || Lpips: 0.420, ssim: 0.729, msssim: 0.601, psnr: 19.07
+
+00066_0390, removed frames: [2, 3, 5]
+tifi || Lpips: 0.302, ssim: 0.769, msssim: 0.829, psnr: 22.81
+opti || Lpips: 0.398, ssim: 0.677, msssim: 0.717, psnr: 19.80
+
+00066_0615, removed frames: [2, 4]
+tifi || Lpips: 0.121, ssim: 0.919, msssim: 0.970, psnr: 29.30
+opti || Lpips: 0.132, ssim: 0.934, msssim: 0.980, psnr: 25.73
+
+00066_0641, removed frames: [1, 4, 5]
+tifi || Lpips: 0.135, ssim: 0.942, msssim: 0.962, psnr: 30.79
+opti || Lpips: 0.112, ssim: 0.941, msssim: 0.956, psnr: 29.43
+
+00066_0694, removed frames: [2, 3, 5]
+tifi || Lpips: 0.235, ssim: 0.645, msssim: 0.781, psnr: 23.23
+opti || Lpips: 0.202, ssim: 0.750, msssim: 0.872, psnr: 23.54
+
+00066_0897, removed frames: [5]
+tifi || Lpips: 0.184, ssim: 0.882, msssim: 0.933, psnr: 27.76
+opti || Lpips: 0.228, ssim: 0.870, msssim: 0.917, psnr: 25.46
+
+00067_0512, removed frames: [1, 2, 3]
+tifi || Lpips: 0.116, ssim: 0.951, msssim: 0.981, psnr: 35.64
+opti || Lpips: 0.133, ssim: 0.951, msssim: 0.966, psnr: 32.93
+
+00067_0658, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.176, ssim: 0.896, msssim: 0.945, psnr: 26.83
+opti || Lpips: 0.147, ssim: 0.895, msssim: 0.931, psnr: 25.52
+
+00067_0782, removed frames: [5]
+tifi || Lpips: 0.208, ssim: 0.906, msssim: 0.923, psnr: 30.31
+opti || Lpips: 0.250, ssim: 0.853, msssim: 0.874, psnr: 26.16
+
+00067_0940, removed frames: [4, 5]
+tifi || Lpips: 0.174, ssim: 0.835, msssim: 0.889, psnr: 23.57
+opti || Lpips: 0.179, ssim: 0.828, msssim: 0.869, psnr: 22.71
+
+00067_0982, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.310, ssim: 0.799, msssim: 0.701, psnr: 19.04
+opti || Lpips: 0.324, ssim: 0.790, msssim: 0.686, psnr: 18.46
+
+00068_0178, removed frames: [4]
+tifi || Lpips: 0.117, ssim: 0.925, msssim: 0.969, psnr: 32.11
+opti || Lpips: 0.118, ssim: 0.931, msssim: 0.972, psnr: 30.13
+
+00068_0286, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.213, ssim: 0.946, msssim: 0.937, psnr: 27.87
+opti || Lpips: 0.140, ssim: 0.949, msssim: 0.944, psnr: 28.06
+
+00068_0350, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.306, ssim: 0.779, msssim: 0.789, psnr: 21.39
+opti || Lpips: 0.397, ssim: 0.699, msssim: 0.669, psnr: 19.01
+
+00068_0487, removed frames: [5]
+tifi || Lpips: 0.117, ssim: 0.899, msssim: 0.966, psnr: 33.35
+opti || Lpips: 0.117, ssim: 0.907, msssim: 0.967, psnr: 33.86
+
+00068_0961, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.422, ssim: 0.662, msssim: 0.693, psnr: 18.78
+opti || Lpips: 0.435, ssim: 0.598, msssim: 0.556, psnr: 16.33
+
+00069_0109, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.175, ssim: 0.876, msssim: 0.917, psnr: 24.80
+opti || Lpips: 0.157, ssim: 0.881, msssim: 0.920, psnr: 24.09
+
+00069_0131, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.229, ssim: 0.794, msssim: 0.885, psnr: 24.06
+opti || Lpips: 0.231, ssim: 0.779, msssim: 0.856, psnr: 23.21
+
+00069_0220, removed frames: [2, 4]
+tifi || Lpips: 0.144, ssim: 0.959, msssim: 0.976, psnr: 35.84
+opti || Lpips: 0.113, ssim: 0.966, msssim: 0.982, psnr: 36.94
+
+00069_0274, removed frames: [1, 2]
+tifi || Lpips: 0.248, ssim: 0.950, msssim: 0.951, psnr: 34.32
+opti || Lpips: 0.311, ssim: 0.912, msssim: 0.887, psnr: 31.38
+
+00069_0286, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.184, ssim: 0.884, msssim: 0.936, psnr: 28.20
+opti || Lpips: 0.186, ssim: 0.876, msssim: 0.927, psnr: 26.77
+
+00070_0237, removed frames: [3, 4, 5]
+tifi || Lpips: 0.147, ssim: 0.913, msssim: 0.950, psnr: 27.02
+opti || Lpips: 0.148, ssim: 0.908, msssim: 0.941, psnr: 24.04
+
+00070_0413, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.513, ssim: 0.776, msssim: 0.468, psnr: 18.04
+opti || Lpips: 0.525, ssim: 0.739, msssim: 0.419, psnr: 17.56
+
+00070_0464, removed frames: [1, 3, 4]
+tifi || Lpips: 0.120, ssim: 0.932, msssim: 0.964, psnr: 34.37
+opti || Lpips: 0.120, ssim: 0.940, msssim: 0.968, psnr: 34.81
+
+00070_0813, removed frames: [2, 4]
+tifi || Lpips: 0.137, ssim: 0.935, msssim: 0.951, psnr: 27.64
+opti || Lpips: 0.153, ssim: 0.919, msssim: 0.934, psnr: 25.63
+
+00070_0997, removed frames: [1, 5]
+tifi || Lpips: 0.197, ssim: 0.938, msssim: 0.965, psnr: 34.03
+opti || Lpips: 0.236, ssim: 0.924, msssim: 0.950, psnr: 31.59
+
+00071_0211, removed frames: [1, 5]
+tifi || Lpips: 0.202, ssim: 0.931, msssim: 0.930, psnr: 25.04
+opti || Lpips: 0.265, ssim: 0.897, msssim: 0.863, psnr: 21.73
+
+00071_0443, removed frames: [4, 5]
+tifi || Lpips: 0.199, ssim: 0.891, msssim: 0.893, psnr: 22.50
+opti || Lpips: 0.199, ssim: 0.895, msssim: 0.875, psnr: 21.25
+
+00071_0496, removed frames: [1, 2, 4]
+tifi || Lpips: 0.346, ssim: 0.716, msssim: 0.796, psnr: 23.06
+opti || Lpips: 0.375, ssim: 0.692, msssim: 0.732, psnr: 20.94
+
+00071_0754, removed frames: [3, 4]
+tifi || Lpips: 0.338, ssim: 0.854, msssim: 0.791, psnr: 21.17
+opti || Lpips: 0.416, ssim: 0.821, msssim: 0.690, psnr: 18.76
+
+00071_0937, removed frames: [3, 4]
+tifi || Lpips: 0.193, ssim: 0.817, msssim: 0.806, psnr: 27.58
+opti || Lpips: 0.204, ssim: 0.839, msssim: 0.821, psnr: 27.13
+
+00072_0705, removed frames: [2, 3]
+tifi || Lpips: 0.093, ssim: 0.968, msssim: 0.981, psnr: 34.60
+opti || Lpips: 0.097, ssim: 0.950, msssim: 0.963, psnr: 30.82
+
+00072_0721, removed frames: [4, 5]
+tifi || Lpips: 0.266, ssim: 0.866, msssim: 0.862, psnr: 25.72
+opti || Lpips: 0.274, ssim: 0.851, msssim: 0.842, psnr: 24.57
+
+00072_0773, removed frames: [1]
+tifi || Lpips: 0.084, ssim: 0.934, msssim: 0.974, psnr: 31.73
+opti || Lpips: 0.082, ssim: 0.929, msssim: 0.966, psnr: 29.58
+
+00072_0829, removed frames: [1, 3, 4]
+tifi || Lpips: 0.193, ssim: 0.866, msssim: 0.900, psnr: 27.01
+opti || Lpips: 0.201, ssim: 0.845, msssim: 0.890, psnr: 25.72
+
+00072_0974, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.213, ssim: 0.791, msssim: 0.835, psnr: 20.84
+opti || Lpips: 0.303, ssim: 0.660, msssim: 0.627, psnr: 16.69
+
+00073_0168, removed frames: [2, 3]
+tifi || Lpips: 0.297, ssim: 0.914, msssim: 0.901, psnr: 27.75
+opti || Lpips: 0.301, ssim: 0.903, msssim: 0.870, psnr: 26.80
+
+00073_0265, removed frames: [1, 5]
+tifi || Lpips: 0.111, ssim: 0.953, msssim: 0.974, psnr: 31.61
+opti || Lpips: 0.111, ssim: 0.949, msssim: 0.968, psnr: 29.74
+
+00073_0390, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.258, ssim: 0.866, msssim: 0.898, psnr: 26.46
+opti || Lpips: 0.165, ssim: 0.924, msssim: 0.954, psnr: 27.32
+
+00073_0913, removed frames: [4, 5]
+tifi || Lpips: 0.259, ssim: 0.891, msssim: 0.907, psnr: 27.90
+opti || Lpips: 0.253, ssim: 0.898, msssim: 0.901, psnr: 27.49
+
+00073_0974, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.160, ssim: 0.941, msssim: 0.962, psnr: 34.01
+opti || Lpips: 0.124, ssim: 0.955, msssim: 0.974, psnr: 34.66
+
+00074_0219, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.182, ssim: 0.886, msssim: 0.934, psnr: 31.49
+opti || Lpips: 0.172, ssim: 0.890, msssim: 0.926, psnr: 30.23
+
+00074_0412, removed frames: [2, 4, 5]
+tifi || Lpips: 0.090, ssim: 0.972, msssim: 0.986, psnr: 39.10
+opti || Lpips: 0.100, ssim: 0.962, msssim: 0.970, psnr: 35.76
+
+00074_0441, removed frames: [2]
+tifi || Lpips: 0.081, ssim: 0.979, msssim: 0.986, psnr: 35.33
+opti || Lpips: 0.125, ssim: 0.955, msssim: 0.950, psnr: 29.58
+
+00074_0907, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.225, ssim: 0.867, msssim: 0.872, psnr: 27.20
+opti || Lpips: 0.240, ssim: 0.850, msssim: 0.831, psnr: 26.12
+
+00074_0994, removed frames: [3]
+tifi || Lpips: 0.114, ssim: 0.968, msssim: 0.973, psnr: 32.53
+opti || Lpips: 0.144, ssim: 0.938, msssim: 0.929, psnr: 27.98
+
+00075_0231, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.301, ssim: 0.808, msssim: 0.842, psnr: 24.48
+opti || Lpips: 0.236, ssim: 0.828, msssim: 0.868, psnr: 24.65
+
+00075_0268, removed frames: [4, 5]
+tifi || Lpips: 0.181, ssim: 0.890, msssim: 0.965, psnr: 35.58
+opti || Lpips: 0.207, ssim: 0.909, msssim: 0.954, psnr: 34.88
+
+00075_0751, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.204, ssim: 0.903, msssim: 0.923, psnr: 26.73
+opti || Lpips: 0.217, ssim: 0.868, msssim: 0.876, psnr: 23.96
+
+00075_0898, removed frames: [3, 4]
+tifi || Lpips: 0.178, ssim: 0.932, msssim: 0.907, psnr: 26.57
+opti || Lpips: 0.202, ssim: 0.917, msssim: 0.869, psnr: 24.85
+
+00075_0970, removed frames: [4]
+tifi || Lpips: 0.091, ssim: 0.952, msssim: 0.973, psnr: 31.95
+opti || Lpips: 0.103, ssim: 0.943, msssim: 0.968, psnr: 30.82
+
+00076_0142, removed frames: [1, 3, 5]
+tifi || Lpips: 0.135, ssim: 0.956, msssim: 0.970, psnr: 32.16
+opti || Lpips: 0.113, ssim: 0.957, msssim: 0.969, psnr: 31.93
+
+00076_0352, removed frames: [1, 4]
+tifi || Lpips: 0.188, ssim: 0.936, msssim: 0.934, psnr: 29.88
+opti || Lpips: 0.250, ssim: 0.898, msssim: 0.842, psnr: 26.08
+
+00076_0818, removed frames: [3]
+tifi || Lpips: 0.280, ssim: 0.845, msssim: 0.859, psnr: 26.21
+opti || Lpips: 0.372, ssim: 0.787, msssim: 0.732, psnr: 22.24
+
+00076_0862, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.181, ssim: 0.921, msssim: 0.940, psnr: 31.07
+opti || Lpips: 0.282, ssim: 0.858, msssim: 0.844, psnr: 28.24
+
+00076_0906, removed frames: [1, 2, 3]
+tifi || Lpips: 0.176, ssim: 0.810, msssim: 0.950, psnr: 26.69
+opti || Lpips: 0.121, ssim: 0.843, msssim: 0.959, psnr: 27.10
+
+00077_0115, removed frames: [3, 4]
+tifi || Lpips: 0.266, ssim: 0.811, msssim: 0.873, psnr: 27.03
+opti || Lpips: 0.261, ssim: 0.799, msssim: 0.863, psnr: 25.59
+
+00077_0392, removed frames: [1]
+tifi || Lpips: 0.093, ssim: 0.936, msssim: 0.971, psnr: 33.40
+opti || Lpips: 0.082, ssim: 0.952, msssim: 0.982, psnr: 35.54
+
+00077_0410, removed frames: [3, 5]
+tifi || Lpips: 0.113, ssim: 0.925, msssim: 0.969, psnr: 31.92
+opti || Lpips: 0.139, ssim: 0.904, msssim: 0.944, psnr: 27.99
+
+00077_0860, removed frames: [4]
+tifi || Lpips: 0.195, ssim: 0.858, msssim: 0.919, psnr: 26.67
+opti || Lpips: 0.204, ssim: 0.859, msssim: 0.900, psnr: 24.14
+
+00077_0989, removed frames: [1, 2, 3]
+tifi || Lpips: 0.220, ssim: 0.870, msssim: 0.903, psnr: 27.18
+opti || Lpips: 0.237, ssim: 0.858, msssim: 0.863, psnr: 25.66
+
+00078_0043, removed frames: [1, 2, 4]
+tifi || Lpips: 0.182, ssim: 0.926, msssim: 0.942, psnr: 28.33
+opti || Lpips: 0.203, ssim: 0.912, msssim: 0.906, psnr: 27.17
+
+00078_0046, removed frames: [1, 3, 4]
+tifi || Lpips: 0.176, ssim: 0.919, msssim: 0.921, psnr: 27.60
+opti || Lpips: 0.215, ssim: 0.889, msssim: 0.850, psnr: 25.93
+
+00078_0093, removed frames: [2, 3]
+tifi || Lpips: 0.215, ssim: 0.911, msssim: 0.937, psnr: 29.03
+opti || Lpips: 0.262, ssim: 0.876, msssim: 0.888, psnr: 27.24
+
+00078_0229, removed frames: [1, 3, 5]
+tifi || Lpips: 0.277, ssim: 0.920, msssim: 0.889, psnr: 30.81
+opti || Lpips: 0.376, ssim: 0.856, msssim: 0.731, psnr: 27.56
+
+00078_0992, removed frames: [3]
+tifi || Lpips: 0.124, ssim: 0.960, msssim: 0.984, psnr: 39.28
+opti || Lpips: 0.112, ssim: 0.966, msssim: 0.984, psnr: 39.26
+
+00079_0171, removed frames: [2]
+tifi || Lpips: 0.082, ssim: 0.976, msssim: 0.990, psnr: 37.60
+opti || Lpips: 0.088, ssim: 0.974, msssim: 0.988, psnr: 32.57
+
+00079_0172, removed frames: [3, 5]
+tifi || Lpips: 0.135, ssim: 0.940, msssim: 0.954, psnr: 28.78
+opti || Lpips: 0.126, ssim: 0.935, msssim: 0.939, psnr: 27.36
+
+00079_0209, removed frames: [1, 3, 5]
+tifi || Lpips: 0.111, ssim: 0.970, msssim: 0.983, psnr: 37.21
+opti || Lpips: 0.107, ssim: 0.968, msssim: 0.976, psnr: 35.88
+
+00079_0215, removed frames: [3]
+tifi || Lpips: 0.111, ssim: 0.969, msssim: 0.985, psnr: 36.01
+opti || Lpips: 0.115, ssim: 0.969, msssim: 0.986, psnr: 31.98
+
+00079_0216, removed frames: [1, 3, 4, 5]
+tifi || Lpips: 0.162, ssim: 0.948, msssim: 0.963, psnr: 31.48
+opti || Lpips: 0.146, ssim: 0.952, msssim: 0.961, psnr: 30.10
+
+00080_0635, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.322, ssim: 0.824, msssim: 0.714, psnr: 20.19
+opti || Lpips: 0.345, ssim: 0.796, msssim: 0.637, psnr: 18.76
+
+00080_0661, removed frames: [1, 3, 5]
+tifi || Lpips: 0.168, ssim: 0.897, msssim: 0.953, psnr: 31.49
+opti || Lpips: 0.159, ssim: 0.895, msssim: 0.945, psnr: 30.13
+
+00080_0707, removed frames: [3]
+tifi || Lpips: 0.121, ssim: 0.967, msssim: 0.974, psnr: 31.54
+opti || Lpips: 0.142, ssim: 0.953, msssim: 0.952, psnr: 28.82
+
+00080_0713, removed frames: [3, 4, 5]
+tifi || Lpips: 0.238, ssim: 0.886, msssim: 0.898, psnr: 27.92
+opti || Lpips: 0.252, ssim: 0.839, msssim: 0.819, psnr: 24.05
+
+00080_0752, removed frames: [2]
+tifi || Lpips: 0.153, ssim: 0.871, msssim: 0.942, psnr: 27.22
+opti || Lpips: 0.161, ssim: 0.877, msssim: 0.927, psnr: 27.47
+
+00081_0114, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.270, ssim: 0.823, msssim: 0.753, psnr: 20.90
+opti || Lpips: 0.290, ssim: 0.804, msssim: 0.721, psnr: 19.96
+
+00081_0526, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.396, ssim: 0.651, msssim: 0.668, psnr: 18.44
+opti || Lpips: 0.431, ssim: 0.625, msssim: 0.577, psnr: 17.53
+
+00081_0668, removed frames: [1]
+tifi || Lpips: 0.379, ssim: 0.744, msssim: 0.755, psnr: 21.09
+opti || Lpips: 0.509, ssim: 0.596, msssim: 0.425, psnr: 17.44
+
+00081_0706, removed frames: [4]
+tifi || Lpips: 0.260, ssim: 0.826, msssim: 0.874, psnr: 28.06
+opti || Lpips: 0.275, ssim: 0.822, msssim: 0.847, psnr: 27.34
+
+00081_0864, removed frames: [3]
+tifi || Lpips: 0.157, ssim: 0.933, msssim: 0.946, psnr: 29.59
+opti || Lpips: 0.229, ssim: 0.876, msssim: 0.865, psnr: 25.62
+
+00082_0012, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.271, ssim: 0.864, msssim: 0.871, psnr: 26.17
+opti || Lpips: 0.172, ssim: 0.897, msssim: 0.897, psnr: 26.19
+
+00082_0339, removed frames: [4]
+tifi || Lpips: 0.128, ssim: 0.876, msssim: 0.934, psnr: 29.05
+opti || Lpips: 0.132, ssim: 0.873, msssim: 0.941, psnr: 28.86
+
+00082_0520, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.217, ssim: 0.926, msssim: 0.915, psnr: 24.64
+opti || Lpips: 0.182, ssim: 0.928, msssim: 0.918, psnr: 23.56
+
+00082_0739, removed frames: [1, 3, 4]
+tifi || Lpips: 0.141, ssim: 0.933, msssim: 0.969, psnr: 34.52
+opti || Lpips: 0.142, ssim: 0.939, msssim: 0.962, psnr: 31.61
+
+00082_0979, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.209, ssim: 0.917, msssim: 0.974, psnr: 38.53
+opti || Lpips: 0.249, ssim: 0.929, msssim: 0.970, psnr: 38.85
+
+00083_0148, removed frames: [5]
+tifi || Lpips: 0.314, ssim: 0.872, msssim: 0.772, psnr: 20.34
+opti || Lpips: 0.382, ssim: 0.838, msssim: 0.671, psnr: 18.91
+
+00083_0413, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.159, ssim: 0.925, msssim: 0.942, psnr: 27.26
+opti || Lpips: 0.170, ssim: 0.898, msssim: 0.898, psnr: 24.47
+
+00083_0606, removed frames: [1, 3]
+tifi || Lpips: 0.107, ssim: 0.975, msssim: 0.987, psnr: 31.81
+opti || Lpips: 0.079, ssim: 0.976, msssim: 0.991, psnr: 32.50
+
+00083_0697, removed frames: [3, 5]
+tifi || Lpips: 0.152, ssim: 0.932, msssim: 0.961, psnr: 31.09
+opti || Lpips: 0.127, ssim: 0.942, msssim: 0.967, psnr: 30.70
+
+00083_0949, removed frames: [2]
+tifi || Lpips: 0.127, ssim: 0.921, msssim: 0.956, psnr: 29.50
+opti || Lpips: 0.146, ssim: 0.885, msssim: 0.919, psnr: 26.21
+
+00084_0066, removed frames: [3]
+tifi || Lpips: 0.168, ssim: 0.940, msssim: 0.954, psnr: 30.41
+opti || Lpips: 0.199, ssim: 0.915, msssim: 0.920, psnr: 27.17
+
+00084_0173, removed frames: [5]
+tifi || Lpips: 0.085, ssim: 0.950, msssim: 0.979, psnr: 32.98
+opti || Lpips: 0.114, ssim: 0.935, msssim: 0.956, psnr: 29.93
+
+00084_0295, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.190, ssim: 0.895, msssim: 0.910, psnr: 23.57
+opti || Lpips: 0.170, ssim: 0.904, msssim: 0.911, psnr: 21.64
+
+00084_0404, removed frames: [2, 3, 4, 5]
+tifi || Lpips: 0.500, ssim: 0.477, msssim: 0.404, psnr: 14.83
+opti || Lpips: 0.579, ssim: 0.372, msssim: 0.212, psnr: 12.70
+
+00084_0597, removed frames: [1, 3]
+tifi || Lpips: 0.172, ssim: 0.811, msssim: 0.906, psnr: 24.08
+opti || Lpips: 0.188, ssim: 0.808, msssim: 0.881, psnr: 21.77
+
+00085_0139, removed frames: [1]
+tifi || Lpips: 0.139, ssim: 0.927, msssim: 0.916, psnr: 22.30
+opti || Lpips: 0.162, ssim: 0.915, msssim: 0.887, psnr: 21.31
+
+00085_0306, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.287, ssim: 0.835, msssim: 0.835, psnr: 23.91
+opti || Lpips: 0.188, ssim: 0.871, msssim: 0.860, psnr: 24.17
+
+00085_0413, removed frames: [1, 3, 4]
+tifi || Lpips: 0.110, ssim: 0.952, msssim: 0.984, psnr: 34.33
+opti || Lpips: 0.101, ssim: 0.953, msssim: 0.983, psnr: 35.18
+
+00085_0702, removed frames: [5]
+tifi || Lpips: 0.247, ssim: 0.869, msssim: 0.917, psnr: 26.43
+opti || Lpips: 0.304, ssim: 0.823, msssim: 0.835, psnr: 23.26
+
+00085_0910, removed frames: [4]
+tifi || Lpips: 0.163, ssim: 0.913, msssim: 0.957, psnr: 30.70
+opti || Lpips: 0.213, ssim: 0.871, msssim: 0.889, psnr: 26.21
+
+00086_0090, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.450, ssim: 0.721, msssim: 0.569, psnr: 18.19
+opti || Lpips: 0.448, ssim: 0.726, msssim: 0.571, psnr: 17.86
+
+00086_0147, removed frames: [5]
+tifi || Lpips: 0.144, ssim: 0.976, msssim: 0.975, psnr: 34.82
+opti || Lpips: 0.180, ssim: 0.957, msssim: 0.938, psnr: 32.05
+
+00086_0160, removed frames: [2, 3, 4]
+tifi || Lpips: 0.143, ssim: 0.962, msssim: 0.972, psnr: 35.63
+opti || Lpips: 0.161, ssim: 0.949, msssim: 0.951, psnr: 33.32
+
+00086_0578, removed frames: [2]
+tifi || Lpips: 0.095, ssim: 0.927, msssim: 0.975, psnr: 30.87
+opti || Lpips: 0.101, ssim: 0.914, msssim: 0.968, psnr: 28.74
+
+00086_0869, removed frames: [1, 3, 5]
+tifi || Lpips: 0.235, ssim: 0.846, msssim: 0.914, psnr: 28.81
+opti || Lpips: 0.154, ssim: 0.896, msssim: 0.944, psnr: 27.32
+
+00087_0083, removed frames: [3, 4, 5]
+tifi || Lpips: 0.355, ssim: 0.499, msssim: 0.555, psnr: 16.43
+opti || Lpips: 0.427, ssim: 0.460, msssim: 0.472, psnr: 15.07
+
+00087_0100, removed frames: [4]
+tifi || Lpips: 0.166, ssim: 0.883, msssim: 0.945, psnr: 26.01
+opti || Lpips: 0.154, ssim: 0.895, msssim: 0.942, psnr: 25.03
+
+00087_0401, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.268, ssim: 0.845, msssim: 0.830, psnr: 25.97
+opti || Lpips: 0.279, ssim: 0.817, msssim: 0.790, psnr: 24.46
+
+00087_0513, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.274, ssim: 0.818, msssim: 0.859, psnr: 23.34
+opti || Lpips: 0.247, ssim: 0.832, msssim: 0.867, psnr: 22.46
+
+00087_0597, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.229, ssim: 0.894, msssim: 0.934, psnr: 30.96
+opti || Lpips: 0.205, ssim: 0.880, msssim: 0.915, psnr: 29.55
+
+00088_0036, removed frames: [2, 3]
+tifi || Lpips: 0.135, ssim: 0.872, msssim: 0.931, psnr: 27.21
+opti || Lpips: 0.194, ssim: 0.835, msssim: 0.863, psnr: 26.12
+
+00088_0287, removed frames: [1, 2]
+tifi || Lpips: 0.169, ssim: 0.959, msssim: 0.971, psnr: 35.42
+opti || Lpips: 0.196, ssim: 0.943, msssim: 0.948, psnr: 32.79
+
+00088_0371, removed frames: [1, 2]
+tifi || Lpips: 0.104, ssim: 0.969, msssim: 0.986, psnr: 37.75
+opti || Lpips: 0.085, ssim: 0.968, msssim: 0.981, psnr: 37.23
+
+00088_0636, removed frames: [3]
+tifi || Lpips: 0.100, ssim: 0.980, msssim: 0.989, psnr: 36.17
+opti || Lpips: 0.107, ssim: 0.974, msssim: 0.980, psnr: 32.96
+
+00088_0647, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.382, ssim: 0.909, msssim: 0.877, psnr: 25.37
+opti || Lpips: 0.390, ssim: 0.891, msssim: 0.841, psnr: 24.45
+
+00089_0149, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.415, ssim: 0.790, msssim: 0.625, psnr: 18.26
+opti || Lpips: 0.409, ssim: 0.766, msssim: 0.592, psnr: 17.94
+
+00089_0190, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.361, ssim: 0.921, msssim: 0.894, psnr: 28.63
+opti || Lpips: 0.294, ssim: 0.900, msssim: 0.871, psnr: 27.24
+
+00089_0803, removed frames: [3]
+tifi || Lpips: 0.109, ssim: 0.913, msssim: 0.966, psnr: 29.57
+opti || Lpips: 0.106, ssim: 0.910, msssim: 0.954, psnr: 28.03
+
+00089_0934, removed frames: [5]
+tifi || Lpips: 0.136, ssim: 0.902, msssim: 0.956, psnr: 28.86
+opti || Lpips: 0.128, ssim: 0.919, msssim: 0.966, psnr: 27.90
+
+00089_0964, removed frames: [1]
+tifi || Lpips: 0.157, ssim: 0.948, msssim: 0.968, psnr: 33.95
+opti || Lpips: 0.209, ssim: 0.916, msssim: 0.906, psnr: 29.91
+
+00090_0121, removed frames: [1, 3]
+tifi || Lpips: 0.195, ssim: 0.848, msssim: 0.902, psnr: 27.01
+opti || Lpips: 0.161, ssim: 0.877, msssim: 0.927, psnr: 27.70
+
+00090_0174, removed frames: [2, 4]
+tifi || Lpips: 0.130, ssim: 0.910, msssim: 0.932, psnr: 29.46
+opti || Lpips: 0.152, ssim: 0.878, msssim: 0.893, psnr: 26.68
+
+00090_0419, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.115, ssim: 0.959, msssim: 0.977, psnr: 31.13
+opti || Lpips: 0.096, ssim: 0.963, msssim: 0.972, psnr: 30.34
+
+00090_0563, removed frames: [1, 2, 3]
+tifi || Lpips: 0.196, ssim: 0.852, msssim: 0.859, psnr: 22.88
+opti || Lpips: 0.212, ssim: 0.839, msssim: 0.838, psnr: 22.29
+
+00090_0805, removed frames: [2, 3]
+tifi || Lpips: 0.209, ssim: 0.925, msssim: 0.949, psnr: 31.68
+opti || Lpips: 0.239, ssim: 0.888, msssim: 0.912, psnr: 27.44
+
+00091_0409, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.349, ssim: 0.821, msssim: 0.739, psnr: 24.12
+opti || Lpips: 0.334, ssim: 0.810, msssim: 0.712, psnr: 23.31
+
+00091_0608, removed frames: [2]
+tifi || Lpips: 0.118, ssim: 0.925, msssim: 0.968, psnr: 30.32
+opti || Lpips: 0.122, ssim: 0.927, msssim: 0.969, psnr: 29.22
+
+00091_0818, removed frames: [1, 4, 5]
+tifi || Lpips: 0.185, ssim: 0.936, msssim: 0.933, psnr: 29.78
+opti || Lpips: 0.261, ssim: 0.907, msssim: 0.886, psnr: 28.12
+
+00091_0926, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.309, ssim: 0.734, msssim: 0.831, psnr: 20.12
+opti || Lpips: 0.369, ssim: 0.722, msssim: 0.766, psnr: 18.61
+
+00091_0977, removed frames: [4, 5]
+tifi || Lpips: 0.133, ssim: 0.922, msssim: 0.956, psnr: 28.46
+opti || Lpips: 0.173, ssim: 0.891, msssim: 0.926, psnr: 25.39
+
+00092_0133, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.263, ssim: 0.883, msssim: 0.913, psnr: 31.99
+opti || Lpips: 0.183, ssim: 0.921, msssim: 0.959, psnr: 33.61
+
+00092_0265, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.197, ssim: 0.888, msssim: 0.925, psnr: 31.95
+opti || Lpips: 0.145, ssim: 0.921, msssim: 0.957, psnr: 33.90
+
+00092_0284, removed frames: [2, 4]
+tifi || Lpips: 0.206, ssim: 0.913, msssim: 0.935, psnr: 30.63
+opti || Lpips: 0.267, ssim: 0.877, msssim: 0.889, psnr: 28.09
+
+00092_0331, removed frames: [1, 2, 3, 5]
+tifi || Lpips: 0.287, ssim: 0.911, msssim: 0.894, psnr: 31.77
+opti || Lpips: 0.285, ssim: 0.901, msssim: 0.868, psnr: 30.63
+
+00092_0392, removed frames: [1, 2, 3]
+tifi || Lpips: 0.397, ssim: 0.874, msssim: 0.759, psnr: 25.12
+opti || Lpips: 0.447, ssim: 0.833, msssim: 0.655, psnr: 23.16
+
+00093_0194, removed frames: [2, 4]
+tifi || Lpips: 0.146, ssim: 0.945, msssim: 0.974, psnr: 33.81
+opti || Lpips: 0.126, ssim: 0.948, msssim: 0.972, psnr: 33.90
+
+00093_0290, removed frames: [3]
+tifi || Lpips: 0.051, ssim: 0.968, msssim: 0.990, psnr: 38.99
+opti || Lpips: 0.039, ssim: 0.966, msssim: 0.990, psnr: 38.20
+
+00093_0463, removed frames: [1, 2]
+tifi || Lpips: 0.220, ssim: 0.894, msssim: 0.931, psnr: 29.96
+opti || Lpips: 0.238, ssim: 0.896, msssim: 0.933, psnr: 29.72
+
+00093_0568, removed frames: [1, 3, 5]
+tifi || Lpips: 0.123, ssim: 0.936, msssim: 0.938, psnr: 26.75
+opti || Lpips: 0.105, ssim: 0.939, msssim: 0.939, psnr: 26.35
+
+00093_0898, removed frames: [1, 4, 5]
+tifi || Lpips: 0.225, ssim: 0.933, msssim: 0.961, psnr: 28.82
+opti || Lpips: 0.254, ssim: 0.913, msssim: 0.920, psnr: 25.29
+
+00094_0385, removed frames: [1]
+tifi || Lpips: 0.104, ssim: 0.941, msssim: 0.978, psnr: 34.22
+opti || Lpips: 0.099, ssim: 0.937, msssim: 0.978, psnr: 34.52
+
+00094_0389, removed frames: [1, 2, 4, 5]
+tifi || Lpips: 0.193, ssim: 0.936, msssim: 0.952, psnr: 30.91
+opti || Lpips: 0.160, ssim: 0.929, msssim: 0.938, psnr: 28.47
+
+00094_0637, removed frames: [4, 5]
+tifi || Lpips: 0.201, ssim: 0.847, msssim: 0.907, psnr: 23.70
+opti || Lpips: 0.213, ssim: 0.823, msssim: 0.860, psnr: 20.79
+
+00094_0761, removed frames: [1, 2, 3, 4]
+tifi || Lpips: 0.188, ssim: 0.830, msssim: 0.874, psnr: 24.66
+opti || Lpips: 0.172, ssim: 0.846, msssim: 0.876, psnr: 23.69
+
+00094_0838, removed frames: [2, 4, 5]
+tifi || Lpips: 0.224, ssim: 0.962, msssim: 0.971, psnr: 35.60
+opti || Lpips: 0.185, ssim: 0.961, msssim: 0.963, psnr: 34.73
+
+00095_0280, removed frames: [2, 4]
+tifi || Lpips: 0.154, ssim: 0.973, msssim: 0.981, psnr: 37.68
+opti || Lpips: 0.134, ssim: 0.976, msssim: 0.983, psnr: 38.15
+
+00095_0390, removed frames: [1, 3, 5]
+tifi || Lpips: 0.171, ssim: 0.939, msssim: 0.972, psnr: 36.20
+opti || Lpips: 0.173, ssim: 0.944, msssim: 0.972, psnr: 37.04
+
+00095_0400, removed frames: [2, 4]
+tifi || Lpips: 0.250, ssim: 0.913, msssim: 0.911, psnr: 27.82
+opti || Lpips: 0.317, ssim: 0.852, msssim: 0.816, psnr: 24.85
+
+00095_0664, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.394, ssim: 0.746, msssim: 0.652, psnr: 19.31
+opti || Lpips: 0.478, ssim: 0.693, msssim: 0.514, psnr: 17.64
+
+00095_0718, removed frames: [3, 5]
+tifi || Lpips: 0.096, ssim: 0.954, msssim: 0.981, psnr: 32.93
+opti || Lpips: 0.086, ssim: 0.959, msssim: 0.981, psnr: 33.27
+
+00096_0518, removed frames: [2, 3]
+tifi || Lpips: 0.142, ssim: 0.859, msssim: 0.930, psnr: 26.54
+opti || Lpips: 0.150, ssim: 0.809, msssim: 0.907, psnr: 23.75
+
+00096_0556, removed frames: [2]
+tifi || Lpips: 0.125, ssim: 0.867, msssim: 0.937, psnr: 27.21
+opti || Lpips: 0.171, ssim: 0.765, msssim: 0.874, psnr: 22.60
+
+00096_0729, removed frames: [3]
+tifi || Lpips: 0.136, ssim: 0.942, msssim: 0.954, psnr: 27.83
+opti || Lpips: 0.153, ssim: 0.926, msssim: 0.938, psnr: 25.30
+
+00096_0759, removed frames: [4]
+tifi || Lpips: 0.146, ssim: 0.945, msssim: 0.966, psnr: 31.47
+opti || Lpips: 0.254, ssim: 0.906, msssim: 0.912, psnr: 28.54
+
+00096_0869, removed frames: [1, 2, 3, 4, 5]
+tifi || Lpips: 0.325, ssim: 0.859, msssim: 0.844, psnr: 21.43
+opti || Lpips: 0.349, ssim: 0.848, msssim: 0.810, psnr: 20.46
+

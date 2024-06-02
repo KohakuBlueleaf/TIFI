@@ -28,6 +28,7 @@ from tifi.logging import logger
 from tifi.modules.image_caption.image_caption import (
     MiniGPT4ImageCaption,
     BullshitImageCaption,
+    LlavaImageCaptionDirect,
     LlavaImageCaption,
 )
 
@@ -58,6 +59,8 @@ class TemporalInpainting:
             )
         elif captioner_type == "llava":
             self.image_captioner = LlavaImageCaption(captioner_config_path)
+        elif captioner_type == "llava-direct":
+            self.image_captioner = LlavaImageCaptionDirect(captioner_config_path)
         elif captioner_type == "none":
             self.image_captioner = BullshitImageCaption()
         else:
