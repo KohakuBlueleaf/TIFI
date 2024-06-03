@@ -237,7 +237,9 @@ class TemporalInpainting:
             embeds.append(embed)
         return torch.stack(prompts), torch.stack(embeds)
 
-    def __call__(self, videos, cfg=5.0, denoise_strength=0.5, steps=12):
+    def __call__(
+        self, videos, cfg=5.0, denoise_strength=0.5, steps=12, prompt_groups=3
+    ):
         if not isinstance(videos[0], list):
             org_videos = [videos]
         else:
@@ -295,6 +297,7 @@ class TemporalInpainting:
         logger.info("Video latents prepared")
 
         logger.info("Preparing prompts for each group")
+        self.unet.cpu()
         self.text_model1.cuda()
         self.text_model2.cuda()
         jigsaw = jigsaw_schedule(
@@ -302,35 +305,55 @@ class TemporalInpainting:
         )
         prompts_list1 = []
         pooled_list1 = []
-        for sl in next(jigsaw)[1]:
-            reference_frames = [p[sl][0][0] for p in videos_fill1]
-            prompts, embeds = self.image_to_prompt_embeds(reference_frames)
-            prompts_list1.append(prompts)
-            pooled_list1.append(embeds)
+        for idx, sl in tqdm(
+            list(enumerate(next(jigsaw)[1])), desc="Caption for JigSaw schedule 1"
+        ):
+            if idx % prompt_groups == 0:
+                reference_frames = [p[sl][0][0] for p in videos_fill1]
+                prompts, embeds = self.image_to_prompt_embeds(reference_frames)
+                for _ in range(prompt_groups):
+                    prompts_list1.append(prompts)
+                    pooled_list1.append(embeds)
+        prompts_list1 = prompts_list1[: idx + 1]
+        pooled_list1 = pooled_list1[: idx + 1]
+
         prompts_list2 = []
         pooled_list2 = []
-        for sl in next(jigsaw)[1]:
-            reference_frames = [p[sl][0][0] for p in videos_fill2]
-            prompts, embeds = self.image_to_prompt_embeds(reference_frames)
-            prompts_list2.append(prompts)
-            pooled_list2.append(embeds)
+        for idx, sl in tqdm(
+            list(enumerate(next(jigsaw)[1])), desc="Caption for JigSaw schedule 2"
+        ):
+            if idx % prompt_groups == 0:
+                if idx < len(prompts_list1):
+                    prompts = prompts_list1[idx]
+                    embeds = pooled_list1[idx]
+                else:
+                    reference_frames = [p[sl][0][0] for p in videos_fill1]
+                    prompts, embeds = self.image_to_prompt_embeds(reference_frames)
+                for _ in range(prompt_groups):
+                    prompts_list2.append(prompts)
+                    pooled_list2.append(embeds)
+        prompts_list2 = prompts_list2[: idx + 1]
+        pooled_list2 = pooled_list2[: idx + 1]
+
         prompt = [prompts_list1, prompts_list2]
         pooled = [pooled_list1, pooled_list2]
+
         neg_prompt, neg_pooled = encode_prompts_single(
             self.tokenizer,
             self.tokenizer_2,
             self.text_model1,
             self.text_model2,
-            "neg test",
+            "bad quality, worst quality, blurry",
         )
         self.text_model1.cpu()
         self.text_model2.cpu()
-        # if isinstance(self.image_captioner, LlavaImageCaption):
-        #     self.image_captioner.offload()
+        if isinstance(self.image_captioner, LlavaImageCaption):
+            self.image_captioner.offload()
         torch.cuda.empty_cache()
         logger.info("All prompts prepared")
 
         logger.info("Temporal Inpainting ...")
+        self.unet.cuda()
         denoise_func = self.cfg_wrapper(
             prompt, pooled, neg_prompt, neg_pooled, reference_videos, cfg
         )

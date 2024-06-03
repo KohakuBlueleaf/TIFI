@@ -1,15 +1,12 @@
 def jigsaw_schedule(length, group_size=7, min_group_size=3):
     assert min_group_size <= group_size / 2
     left = length % group_size
-    slices1 = [slice(i, i + group_size) for i in range(0, length, group_size)]
+    slices1 = [
+        slice(i, i + group_size) for i in range(0, length - group_size, group_size)
+    ]
     slices1.append(slice(length - left, length))
     slices2 = [slice(0, left)]
-    slices2.extend(
-        [
-            slice(i + left, i + group_size + left)
-            for i in range(left, length, group_size)
-        ]
-    )
+    slices2.extend([slice(i, i + group_size) for i in range(left, length, group_size)])
 
     if left == 0:
         slices1.pop()
