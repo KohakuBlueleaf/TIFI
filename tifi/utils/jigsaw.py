@@ -9,7 +9,7 @@ def jigsaw_schedule(length, group_size=7, min_group_size=3):
     slices2.extend([slice(i, i + group_size) for i in range(left, length, group_size)])
 
     if left == 0:
-        slices1.pop()
+        slices1[-1] = slice(slices1[-1].start - group_size, slices1[-1].stop)
         slices2[0] = slice(slices2[0].start, slices2[0].stop + min_group_size)
         for s in range(1, len(slices2) - 1):
             slices2[s] = slice(

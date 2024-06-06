@@ -194,7 +194,7 @@ class TemporalInpainting:
 
     def vae_encode(self, frame: torch.Tensor):
         with torch.no_grad(), torch.autocast("cuda", torch.bfloat16):
-            frame = frame.unsqueeze(0).cuda() * 2 - 1
+            frame = frame.clone().unsqueeze(0).cuda() * 2 - 1
             frame_latent = self.vae.encode(frame).latent_dist.mode()
         return frame_latent[0] * self.vae.config.scaling_factor
 
@@ -367,6 +367,7 @@ class TemporalInpainting:
                 init_x,
                 sigma_schedule_inpaint,
             )
+        self.unet.cpu()
         torch.cuda.empty_cache()
 
         logger.info("Decode generated latents")
@@ -384,12 +385,18 @@ class TemporalInpainting:
                     decoded_frame = match_color(decoded_frame, inp_frame)
                 vid.append(
                     Image.fromarray(
-                        (decoded_frame.permute(1, 2, 0) * 255).numpy().astype(np.uint8)
+                        (decoded_frame.permute(1, 2, 0) * 255)
+                        .clamp(0, 255)
+                        .numpy()
+                        .astype(np.uint8)
                     )
                 )
                 org_vid.append(
                     Image.fromarray(
-                        (inp_frame.permute(1, 2, 0) * 255).numpy().astype(np.uint8)
+                        (inp_frame.permute(1, 2, 0) * 255)
+                        .clamp(0, 255)
+                        .numpy()
+                        .astype(np.uint8)
                     )
                 )
             vids.append(vid)
