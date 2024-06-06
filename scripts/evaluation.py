@@ -80,17 +80,17 @@ def compare(
 pipeline = TemporalInpainting(
     model_file="./models/sdxl-1.0.safetensors",
     motion_module_file="./models/mm_sdxl_hs.safetensors",
-    lycoris_model_file="./models/animatediff-sdxl-ft-lycoris-epoch=10.pt",
+    # lycoris_model_file="./models/animatediff-sdxl-ft-lycoris-epoch=10.pt",
     captioner_type="llava-direct",
     captioner_config_path=os.path.abspath("./models"),
 )
 
-# if os.path.isfile("./eval_out/results.txt"):
-#     os.remove("./eval_out/results.txt")
+if os.path.isfile("./eval_out/no-ft-results.txt"):
+    os.remove("./eval_out/no-ft-results.txt")
 
 TEST_VIDS = r".\dataset\choosed_septuplet\test_sequences"
 videos = os.listdir(TEST_VIDS)
-for video_id in tqdm(videos[136:], desc="Processing videos", smoothing=0.01):
+for video_id in tqdm(videos, desc="Processing videos", smoothing=0.01):
     TEST_VID = os.path.join(TEST_VIDS, video_id)
     frame_files = os.listdir(TEST_VID)
     frames_imgs = [
@@ -160,10 +160,10 @@ for video_id in tqdm(videos[136:], desc="Processing videos", smoothing=0.01):
         for fid, frame in enumerate(video):
             for idx in range(len(frame)):
                 video_seq_img.paste(frame[idx], (896 * idx, 512 * fid))
-        video_seq_img.save(f"eval_out/sample_img/{video_id}.png")
+        video_seq_img.save(f"eval_out/sample_img-no-ft/{video_id}.png")
 
     ours, refs = compare(ground_truth, tifi_out, optical_flow_out, frame_drops)
-    with open("eval_out/results.txt", "a") as f:
+    with open("eval_out/no-ft-results.txt", "a") as f:
         f.write(f"{video_id}, removed frames: {removed_frames}\n")
         f.write(
             f"tifi || Lpips: {ours[0]:5.3f}, ssim: {ours[1]:5.3f}, msssim: {ours[2]:5.3f}, psnr: {ours[3]:5.2f}\n"
