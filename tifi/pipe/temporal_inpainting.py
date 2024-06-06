@@ -288,7 +288,9 @@ class TemporalInpainting:
                     interpolated_frame = blend_frame_optical_flow(
                         ref1, ref2, ref2_idx - ref1_idx - 1
                     )[idx - ref1_idx - 1]
-                    video[idx] = interpolated_frame
+                    video[idx] = interpolated_frame.clone()
+                    black_region = torch.sum(interpolated_frame, axis=0) == 0
+                    interpolated_frame[:, black_region] = ref2[:, black_region]
                     latent = self.vae_encode(interpolated_frame)
                     video_latents[v_idx][idx] = latent
             reference_videos.append(ref_video)

@@ -48,11 +48,6 @@ def blend_frame_optical_flow(
         flow[:, :, 0] += np.arange(w)
         flow[:, :, 1] += np.arange(h)[:, np.newaxis]
         interpolated_frame = cv2.remap(frame_1, flow, None, cv2.INTER_LINEAR)
-        black_region = np.sum(interpolated_frame, axis=-1) == 0
-        if alpha < 0.5:
-            interpolated_frame[black_region] = frame_1[black_region]
-        else:
-            interpolated_frame[black_region] = frame_2[black_region]
         resultant_frames.append(cv2.cvtColor(interpolated_frame, cv2.COLOR_BGR2RGB))
     # convert BGR numpy image to RGB tensor image
     resultant_frames = [
