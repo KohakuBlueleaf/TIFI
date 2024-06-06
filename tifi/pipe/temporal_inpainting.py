@@ -187,7 +187,7 @@ class TemporalInpainting:
                     if reference_frames[batch_idx][frame_idx] is not None:
                         pred[batch_idx, frame_idx] = reference_frames[batch_idx][
                             frame_idx
-                        ].to(pred)
+                        ].to(pred) * t/1000 + pred[batch_idx, frame_idx] * (1 - t/1000)
             return pred
 
         return denoise
@@ -214,7 +214,7 @@ class TemporalInpainting:
         # Convert the tensor in range [0, 1] and (C, H, W) to [0, 255] and (H, W, C)
         def tensor_to_pil_image(tnsr: torch.Tensor):
             # tnsr: in range[0, 1] and (C, H, W)
-            tnsr *= 255
+            tnsr = tnsr * 255
             tnsr = tnsr.to(torch.uint8).permute(1, 2, 0)
 
             return Image.fromarray(tnsr.numpy(), mode="RGB")

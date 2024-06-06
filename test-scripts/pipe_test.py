@@ -102,7 +102,6 @@ for vid in frames_imgs:
     for fid, frame in enumerate(vid):
         vid[fid] = [vid[fid]]
 
-
 frames = [
     [
         (
@@ -121,33 +120,11 @@ for vid in frames:
     vid[2] = None
     vid[4] = None
     vid[5] = None
-
-vids_gen = pipeline(frames, steps=12, denoise_strength=1.0, cfg=5.0)
-for vid, video in enumerate(vids_gen):
+vids_out, optical_out = pipeline(frames, steps=8, denoise_strength=0.65, cfg=7.0)
+for vid, video in enumerate(vids_out):
     for fid, frame in enumerate(video):
         frames_imgs[vid][fid].append(frame)
-
-
-frames = [
-    [
-        (
-            to_tensor(
-                Image.open(os.path.join(frame_folder, frame_file))
-                .convert("RGB")
-                .resize((896, 512))
-            )
-        )
-        for frame_file in os.listdir(TEST_VID)
-    ]
-    for frame_folder in [TEST_VID]
-]
-for vid in frames:
-    vid[1] = None
-    vid[2] = None
-    vid[4] = None
-    vid[5] = None
-vids_opt = pipeline(frames, steps=2, denoise_strength=0.01, cfg=1.0)
-for vid, video in enumerate(vids_opt):
+for vid, video in enumerate(optical_out):
     for fid, frame in enumerate(video):
         frames_imgs[vid][fid].append(frame)
 
@@ -160,7 +137,7 @@ for vid, video in enumerate(frames_imgs):
     video_seq_img.save(f"vid/out/{vid}.png")
 
 
-ours, refs = compare(ground_truth, vids_gen, vids_opt)
+ours, refs = compare(ground_truth, vids_out, optical_out)
 print(
     f"Ours || Lpips: {ours[0]:5.3f}, ssim: {ours[1]:5.3f}, msssim: {ours[2]:5.3f}, psnr: {ours[3]:5.2f}"
 )
