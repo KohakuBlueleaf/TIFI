@@ -120,7 +120,7 @@ for vid in frames:
     vid[2] = None
     vid[4] = None
     vid[5] = None
-vids_out, optical_out = pipeline(frames, steps=8, denoise_strength=0.65, cfg=7.0)
+vids_out, optical_out = pipeline(frames, steps=8, denoise_strength=0.5, cfg=7.0)
 for vid, video in enumerate(vids_out):
     for fid, frame in enumerate(video):
         frames_imgs[vid][fid].append(frame)

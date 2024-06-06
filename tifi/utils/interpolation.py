@@ -36,8 +36,18 @@ def calculate_optical_flow_between_frames(
 def blend_frame_optical_flow(
     frame_1: torch.Tensor, frame_2: torch.Tensor, num_frames: int
 ):
-    frame_1 = (frame_1.permute(1, 2, 0) * 255).clamp(0, 255).numpy()[:, :, ::-1].astype(np.uint8)
-    frame_2 = (frame_2.permute(1, 2, 0) * 255).clamp(0, 255).numpy()[:, :, ::-1].astype(np.uint8)
+    frame_1 = (
+        (frame_1.permute(1, 2, 0) * 255)
+        .clamp(0, 255)
+        .numpy()[:, :, ::-1]
+        .astype(np.uint8)
+    )
+    frame_2 = (
+        (frame_2.permute(1, 2, 0) * 255)
+        .clamp(0, 255)
+        .numpy()[:, :, ::-1]
+        .astype(np.uint8)
+    )
     resultant_frames = []
     resultant_frames.append(frame_1)
     optical_flow = calculate_optical_flow_between_frames(frame_1, frame_2)

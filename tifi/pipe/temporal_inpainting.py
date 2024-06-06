@@ -187,7 +187,9 @@ class TemporalInpainting:
                     if reference_frames[batch_idx][frame_idx] is not None:
                         pred[batch_idx, frame_idx] = reference_frames[batch_idx][
                             frame_idx
-                        ].to(pred) * t/1000 + pred[batch_idx, frame_idx] * (1 - t/1000)
+                        ].to(pred) * t / 1000 + pred[batch_idx, frame_idx] * (
+                            1 - t / 1000
+                        )
             return pred
 
         return denoise
@@ -249,6 +251,7 @@ class TemporalInpainting:
 
         logger.info("Preparing latents of interpolated videos...")
         video_latents = [[None for _ in video] for video in org_videos]
+        optical_flow_videos = [[None for _ in video] for video in org_videos]
         reference_videos = []
         videos_fill1 = []
         videos_fill2 = []
@@ -279,18 +282,21 @@ class TemporalInpainting:
             ref_video = []
             for idx, ((ref1, ref1_idx), (ref2, ref2_idx)) in enumerate(zip(v1, v2)):
                 if ref1_idx == ref2_idx or idx == ref1_idx or idx == ref2_idx:
+                    optical_flow_videos[v_idx][idx] = ref1.clone()
                     latent = self.vae_encode(ref1)
                     ref_video.append(latent)
                     video_latents[v_idx][idx] = latent
-                    continue
                 else:
                     ref_video.append(None)
                     interpolated_frame = blend_frame_optical_flow(
                         ref1, ref2, ref2_idx - ref1_idx - 1
                     )[idx - ref1_idx - 1]
-                    video[idx] = interpolated_frame.clone()
+                    optical_flow_videos[v_idx][idx] = interpolated_frame.clone()
+
                     black_region = torch.sum(interpolated_frame, axis=0) == 0
                     interpolated_frame[:, black_region] = ref2[:, black_region]
+                    video[idx] = interpolated_frame
+
                     latent = self.vae_encode(interpolated_frame)
                     video_latents[v_idx][idx] = latent
             reference_videos.append(ref_video)
@@ -375,16 +381,17 @@ class TemporalInpainting:
         logger.info("Decode generated latents")
         self.vae.cuda()
         vids = []
-        org_vids = []
-        for video, inp_video, ref_video in zip(result, org_videos, reference_videos):
+        opt_vids = []
+        for video, inp_video, opt_video, ref_video in zip(
+            result, org_videos, optical_flow_videos, reference_videos
+        ):
             vid = []
-            org_vid = []
-            for frame, inp_frame, ref_frame in zip(video, inp_video, ref_video):
-                if ref_frame is not None:
-                    decoded_frame = inp_frame
-                else:
-                    decoded_frame = self.vae_decode(frame)
-                    decoded_frame = match_color(decoded_frame, inp_frame)
+            opt_vid = []
+            for frame, inp_frame, opt_frame, ref_frame in zip(
+                video, inp_video, opt_video, ref_video
+            ):
+                decoded_frame = self.vae_decode(frame)
+                decoded_frame = match_color(decoded_frame, inp_frame)
                 vid.append(
                     Image.fromarray(
                         (decoded_frame.permute(1, 2, 0) * 255)
@@ -393,17 +400,17 @@ class TemporalInpainting:
                         .astype(np.uint8)
                     )
                 )
-                org_vid.append(
+                opt_vid.append(
                     Image.fromarray(
-                        (inp_frame.permute(1, 2, 0) * 255)
+                        (opt_frame.permute(1, 2, 0) * 255)
                         .clamp(0, 255)
                         .numpy()
                         .astype(np.uint8)
                     )
                 )
             vids.append(vid)
-            org_vids.append(org_vid)
+            opt_vids.append(opt_vid)
         self.vae.cpu()
         torch.cuda.empty_cache()
         logger.info("All done.")
-        return vids, org_vids
+        return vids, opt_vids

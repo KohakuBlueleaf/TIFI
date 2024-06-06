@@ -15,6 +15,9 @@ TEST_VID = os.path.join(TEST_VID, FORMAT)
 if not os.path.exists(f"vid/out/{FORMAT}"):
     os.makedirs(f"vid/out/{FORMAT}")
 
+if not os.path.exists(f"vid/out/{FORMAT}-optical"):
+    os.makedirs(f"vid/out/{FORMAT}-optical")
+
 
 pipeline = TemporalInpainting(
     model_file="./models/sdxl-1.0.safetensors",
@@ -37,7 +40,10 @@ for frame_file in os.listdir(TEST_VID):
     frames.append(None)
 frames = frames[:-1]
 
-tifi_out, optical_flow_out = pipeline(frames, steps=8, denoise_strength=0.6, cfg=7.0)
+tifi_out, optical_flow_out = pipeline(frames, steps=8, denoise_strength=0.5, cfg=7.0)
 
-for idx, (frame, org_frame) in enumerate(tifi_out[0]):
+for idx, frame in enumerate(tifi_out[0]):
     frame.save(f"vid/out/{FORMAT}/{idx:04}.png")
+
+for idx, frame in enumerate(optical_flow_out[0]):
+    frame.save(f"vid/out/{FORMAT}-optical/{idx:04}.png")
