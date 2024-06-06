@@ -100,6 +100,4 @@ if __name__ == "__main__":
                 }
             ]
         )
-        with open("result.txt", "w") as f:
-            f.write(result["choices"][0]["message"]["content"])
         print(result["choices"][0]["message"]["content"])
